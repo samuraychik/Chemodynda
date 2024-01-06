@@ -1,0 +1,123 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5ulx4f5yax3r"]
+
+[ext_resource type="Script" path="res://scripts/ChangeScene.gd" id="1_skm10"]
+[ext_resource type="Script" path="res://scripts/CreateNewCharacter.gd" id="2_2u2x0"]
+[ext_resource type="Script" path="res://scripts/Exit.gd" id="3_6fglq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_elo1b"]
+bg_color = Color(0.964706, 0.972549, 0.862745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bcekc"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.733333, 0.705882, 0.886275, 0.247059)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alupu"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="CharactersMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_skm10")
+
+[node name="BottomPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_top = 100.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_elo1b")
+
+[node name="Characters" type="Control" parent="BottomPanel"]
+anchors_preset = 0
+offset_left = 560.0
+offset_top = 40.0
+offset_right = 1360.0
+offset_bottom = 940.0
+
+[node name="BackCharacterPanel" type="Panel" parent="BottomPanel/Characters"]
+layout_mode = 1
+offset_right = 800.0
+offset_bottom = 900.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bcekc")
+
+[node name="HeadingCharacterPanel" type="Label" parent="BottomPanel/Characters"]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "Ваши персонажи"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Characters" type="ScrollContainer" parent="BottomPanel/Characters"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 80.0
+offset_right = 700.0
+offset_bottom = 840.0
+
+[node name="Fields" type="VBoxContainer" parent="BottomPanel/Characters/Characters"]
+layout_mode = 2
+script = ExtResource("2_2u2x0")
+
+[node name="NewCharactorButton" type="Button" parent="BottomPanel"]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 890.0
+offset_right = 1260.0
+offset_bottom = 920.0
+theme_override_font_sizes/font_size = 15
+flat = true
+icon_alignment = 1
+
+[node name="NameNewCharactor" type="Label" parent="BottomPanel/NewCharactorButton"]
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0.137255, 0.372549, 1, 1)
+text = "создать нового персонажа >"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TopPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_alupu")
+
+[node name="NameProject" type="Label" parent="TopPanel"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Чемодында
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1800.0
+offset_top = 20.0
+offset_right = 1900.0
+offset_bottom = 120.0
+theme_override_font_sizes/font_size = 30
+text = "Exit"
+script = ExtResource("3_6fglq")
+
+[connection signal="pressed" from="BottomPanel/NewCharactorButton" to="BottomPanel/Characters/Characters/Fields" method="on_character_button_pressed"]
+[connection signal="pressed" from="BottomPanel/NewCharactorButton" to="." method="on_change_scene_pressed" binds= [1]]
+[connection signal="pressed" from="ExitButton" to="ExitButton" method="on_exit_pressed"]
