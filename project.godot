@@ -12,7 +12,15 @@ config_version=5
 
 config/name="Chemodynda"
 config/tags=PackedStringArray("uni")
-config/features=PackedStringArray("4.1")
+run/main_scene="res://scenes/main_scenes/Characters.tscn"
+config/features=PackedStringArray("4.2")
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+mouse_cursor/custom_image="res://sprites/курсор3.png"
 
 [dotnet]
 
@@ -26,3 +34,7 @@ version_control/autoload_on_startup=true
 [editor_plugins]
 
 enabled=PackedStringArray()
+
+[gui]
+
+theme/custom_font="res://fonts/Alabama Regular.ttf"

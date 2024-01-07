@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://d37ngjbusqwhq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vojlb"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 0.376471)
+shadow_color = Color(0, 0, 0, 0.105882)
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyege"]
+bg_color = Color(0.780392, 0.780392, 0.780392, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 0.376471)
+shadow_color = Color(0, 0, 0, 0.105882)
+
+[node name="Category" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1495.0
+offset_bottom = -1040.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+offset_right = 425.0
+offset_bottom = 40.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.780392, 0.780392, 0.780392, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_vojlb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uyege")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uyege")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_uyege")
+theme_override_styles/focus = SubResource("StyleBoxFlat_uyege")
+text = "Выбрать категорию..."
