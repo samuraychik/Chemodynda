@@ -1,0 +1,247 @@
+[gd_scene load_steps=18 format=3 uid="uid://c5ulx4f5yax3r"]
+
+[ext_resource type="Script" path="res://interface/scripts/ChangeScene.gd" id="1_wjdyg"]
+[ext_resource type="Texture2D" uid="uid://csaqqfp04pshu" path="res://interface/sprites/QuitBlack.png" id="2_lrsvh"]
+[ext_resource type="Texture2D" uid="uid://ddfk4csrnyvx" path="res://interface/sprites/QuitRed.png" id="3_cjqs6"]
+[ext_resource type="Script" path="res://interface/scripts/OpenExitMenu.gd" id="4_ffjvx"]
+[ext_resource type="Texture2D" uid="uid://ci5xarq4642by" path="res://interface/sprites/CheckMarkBlack.png" id="5_e0nk6"]
+[ext_resource type="Texture2D" uid="uid://cguhfg56mkwg3" path="res://interface/sprites/CheckMarkAllBlack.png" id="6_mrdoi"]
+[ext_resource type="Script" path="res://interface/scripts/Exit.gd" id="7_venmd"]
+[ext_resource type="Texture2D" uid="uid://boq0ps6xqkrac" path="res://interface/sprites/CrossBlack.png" id="8_c107w"]
+[ext_resource type="Texture2D" uid="uid://dcshk56cc86wv" path="res://interface/sprites/CrossAllBlack.png" id="9_3o3ef"]
+[ext_resource type="Script" path="res://interface/scripts/RefuseExit.gd" id="10_gmrqa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_elo1b"]
+bg_color = Color(0.658824, 0.658824, 0.658824, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bcekc"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3mbk"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.376471)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8covv"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alupu"]
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bkbnk"]
+bg_color = Color(0, 0, 0, 0.819608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qy6rc"]
+bg_color = Color(0.968627, 0.968627, 0.968627, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0, 0, 0.278431)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="CharactersMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_wjdyg")
+
+[node name="BottomPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_elo1b")
+
+[node name="Characters" type="Control" parent="BottomPanel"]
+anchors_preset = 0
+offset_left = 560.0
+offset_top = 140.0
+offset_right = 1360.0
+offset_bottom = 1040.0
+
+[node name="BackCharacterPanel" type="Panel" parent="BottomPanel/Characters"]
+layout_mode = 1
+offset_right = 800.0
+offset_bottom = 900.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bcekc")
+
+[node name="HeadingCharacterPanel" type="Label" parent="BottomPanel/Characters"]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "Ваши персонажи"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BGScrollContainer" type="Panel" parent="BottomPanel/Characters"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 65.0
+offset_right = 740.0
+offset_bottom = 885.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u3mbk")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BottomPanel/Characters"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 80.0
+offset_right = 720.0
+offset_bottom = 780.0
+
+[node name="Characters" type="VBoxContainer" parent="BottomPanel/Characters/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="NewCharacterButton" type="Button" parent="BottomPanel/Characters"]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 820.0
+offset_right = 590.0
+offset_bottom = 858.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 0, 0, 0.482353)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_8covv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8covv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8covv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8covv")
+theme_override_styles/focus = SubResource("StyleBoxFlat_8covv")
+text = "+ Создать нового персонажа"
+
+[node name="TopPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_alupu")
+
+[node name="NameProject" type="Label" parent="TopPanel"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(0, 0, 0, 0.882353)
+theme_override_font_sizes/font_size = 50
+text = "Чемодында
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 420.0
+offset_bottom = 310.0
+
+[node name="ExitButton" type="TextureButton" parent="Exit"]
+layout_mode = 0
+offset_left = 20.0
+offset_right = 96.0
+offset_bottom = 76.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_lrsvh")
+texture_pressed = ExtResource("3_cjqs6")
+texture_hover = ExtResource("3_cjqs6")
+texture_disabled = ExtResource("3_cjqs6")
+texture_focused = ExtResource("3_cjqs6")
+script = ExtResource("4_ffjvx")
+
+[node name="DarkBGPanel" type="Panel" parent="Exit"]
+visible = false
+clip_contents = true
+layout_mode = 0
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 1900.0
+offset_bottom = 1070.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bkbnk")
+
+[node name="ExitPanel" type="Panel" parent="Exit"]
+visible = false
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 300.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qy6rc")
+
+[node name="ExitQuestion" type="Label" parent="Exit/ExitPanel"]
+layout_direction = 1
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 250.0
+theme_override_colors/font_color = Color(0.913725, 0, 0, 0.843137)
+theme_override_font_sizes/font_size = 25
+text = "Выйти из приложения?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="СonfirmButton" type="TextureButton" parent="Exit/ExitPanel"]
+layout_direction = 1
+layout_mode = 0
+offset_left = 75.0
+offset_top = 200.0
+offset_right = 338.0
+offset_bottom = 463.0
+scale = Vector2(0.3, 0.3)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("5_e0nk6")
+texture_pressed = ExtResource("6_mrdoi")
+texture_hover = ExtResource("6_mrdoi")
+texture_disabled = ExtResource("6_mrdoi")
+texture_focused = ExtResource("6_mrdoi")
+script = ExtResource("7_venmd")
+
+[node name="RefuseButton" type="TextureButton" parent="Exit/ExitPanel"]
+layout_direction = 1
+layout_mode = 0
+offset_left = 240.0
+offset_top = 210.0
+offset_right = 503.0
+offset_bottom = 473.0
+scale = Vector2(0.22, 0.22)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("8_c107w")
+texture_pressed = ExtResource("9_3o3ef")
+texture_hover = ExtResource("9_3o3ef")
+texture_disabled = ExtResource("9_3o3ef")
+texture_focused = ExtResource("9_3o3ef")
+script = ExtResource("10_gmrqa")
+
+[connection signal="pressed" from="BottomPanel/Characters/NewCharacterButton" to="." method="on_change_scene_pressed" binds= [1]]
+[connection signal="pressed" from="Exit/ExitButton" to="Exit/ExitButton" method="open_exit_menu"]
+[connection signal="pressed" from="Exit/ExitButton" to="Exit/ExitButton" method="on_exit_pressed"]
+[connection signal="pressed" from="Exit/ExitPanel/СonfirmButton" to="Exit/ExitPanel/СonfirmButton" method="on_confirm_pressed"]
+[connection signal="pressed" from="Exit/ExitPanel/RefuseButton" to="Exit/ExitPanel/RefuseButton" method="on_refuse_button"]
