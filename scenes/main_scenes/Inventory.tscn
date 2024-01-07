@@ -1,0 +1,385 @@
+[gd_scene load_steps=21 format=3 uid="uid://k2rxudooa77u"]
+
+[ext_resource type="Script" path="res://scripts/ChangeScene.gd" id="1_8ivov"]
+[ext_resource type="Texture2D" uid="uid://c8v0p52ajxo2l" path="res://sprites/VectorBlack.png" id="2_7iyhf"]
+[ext_resource type="Texture2D" uid="uid://dachm60mvxty8" path="res://sprites/VectorRed.png" id="3_o1e27"]
+[ext_resource type="Texture2D" uid="uid://vhx86outocmp" path="res://sprites/Copper.png" id="4_wvbg5"]
+[ext_resource type="Texture2D" uid="uid://dce6aqx316x7g" path="res://sprites/Silver.png" id="5_ciuxq"]
+[ext_resource type="Texture2D" uid="uid://d07ljqlouva2n" path="res://sprites/Gold.png" id="6_e3w75"]
+[ext_resource type="Texture2D" uid="uid://btwf2vffq2igq" path="res://sprites/Weight.png" id="7_d16m8"]
+[ext_resource type="Texture2D" uid="uid://7mij8qwrnbce" path="res://sprites/PlusBlack.png" id="8_g4fcl"]
+[ext_resource type="Script" path="res://scripts/OpenCategoryItems.gd" id="8_o2f4w"]
+[ext_resource type="Texture2D" uid="uid://dmeyt41adv41h" path="res://sprites/PlusRed.png" id="9_87pmt"]
+[ext_resource type="PackedScene" uid="uid://com03gqu7ssh1" path="res://scenes/prefabs_scenes/AddingMoneyMenu.tscn" id="10_6gs2e"]
+[ext_resource type="Script" path="res://scripts/ChangeVisibleMenu.gd" id="11_10bkj"]
+[ext_resource type="PackedScene" uid="uid://bfih5sw068pwv" path="res://scenes/prefabs_scenes/AddingItemMenu.tscn" id="13_eimmv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0h42a"]
+bg_color = Color(0.658824, 0.658824, 0.658824, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8pu5t"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ua1j"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2pnv3"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0m6y"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_j4iry"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aytgw"]
+bg_color = Color(0, 0, 0, 0.819608)
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ivov")
+
+[node name="BGPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0h42a")
+
+[node name="ReturnButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 30.0
+offset_right = 87.0
+offset_bottom = 71.0
+scale = Vector2(1.5, 1.5)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_7iyhf")
+texture_pressed = ExtResource("3_o1e27")
+texture_hover = ExtResource("3_o1e27")
+texture_disabled = ExtResource("3_o1e27")
+texture_focused = ExtResource("3_o1e27")
+
+[node name="Money" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 150.0
+offset_top = 950.0
+offset_right = 710.0
+offset_bottom = 1030.0
+
+[node name="MoneyButton" type="Button" parent="Money"]
+layout_mode = 0
+offset_right = 560.0
+offset_bottom = 80.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_8pu5t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8pu5t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8pu5t")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8pu5t")
+theme_override_styles/focus = SubResource("StyleBoxFlat_8pu5t")
+
+[node name="CopperImage" type="TextureRect" parent="Money"]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 15.0
+offset_right = 185.0
+offset_bottom = 60.0
+mouse_filter = 2
+texture = ExtResource("4_wvbg5")
+
+[node name="SilverImage" type="TextureRect" parent="Money"]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 15.0
+offset_right = 335.0
+offset_bottom = 60.0
+mouse_filter = 2
+texture = ExtResource("5_ciuxq")
+
+[node name="GoldImage" type="TextureRect" parent="Money"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 15.0
+offset_right = 485.0
+offset_bottom = 60.0
+mouse_filter = 2
+texture = ExtResource("6_e3w75")
+
+[node name="Copper" type="Label" parent="Money"]
+layout_mode = 0
+offset_left = 35.0
+offset_right = 125.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Silver" type="Label" parent="Money"]
+layout_mode = 0
+offset_left = 185.0
+offset_right = 275.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Gold" type="Label" parent="Money"]
+layout_mode = 0
+offset_left = 335.0
+offset_right = 425.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Weight" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 730.0
+offset_top = 950.0
+offset_right = 950.0
+offset_bottom = 1030.0
+
+[node name="WeightPanel" type="Panel" parent="Weight"]
+layout_mode = 0
+offset_right = 220.0
+offset_bottom = 80.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7ua1j")
+
+[node name="WeightImage" type="TextureRect" parent="Weight"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 15.0
+offset_right = 200.0
+offset_bottom = 60.0
+texture = ExtResource("7_d16m8")
+
+[node name="Weight" type="Label" parent="Weight"]
+layout_mode = 0
+offset_left = 20.0
+offset_right = 145.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "0/100"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="AddItemButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 970.0
+offset_top = 950.0
+offset_right = 1770.0
+offset_bottom = 1030.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_2pnv3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2pnv3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2pnv3")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_2pnv3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_2pnv3")
+text = "+ Добавить предмет"
+
+[node name="CharacterInventoryName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 20.0
+offset_right = 1320.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Инвентарь ..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemTable" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 150.0
+offset_top = 100.0
+offset_right = 1770.0
+offset_bottom = 920.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ItemTable"]
+layout_mode = 0
+offset_right = 1620.0
+offset_bottom = 60.0
+
+[node name="Categories" type="HBoxContainer" parent="ItemTable/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="ItemTable/ScrollContainer/Categories"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_k0m6y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k0m6y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k0m6y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_k0m6y")
+theme_override_styles/focus = SubResource("StyleBoxFlat_k0m6y")
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_j4iry")
+text = "Все"
+script = ExtResource("8_o2f4w")
+
+[node name="Button2" type="Button" parent="ItemTable/ScrollContainer/Categories"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_k0m6y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k0m6y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k0m6y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_k0m6y")
+theme_override_styles/focus = SubResource("StyleBoxFlat_k0m6y")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_j4iry")
+text = "Защита"
+script = ExtResource("8_o2f4w")
+
+[node name="Button3" type="Button" parent="ItemTable/ScrollContainer/Categories"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_k0m6y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k0m6y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k0m6y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_k0m6y")
+theme_override_styles/focus = SubResource("StyleBoxFlat_k0m6y")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_j4iry")
+text = "Еда"
+script = ExtResource("8_o2f4w")
+
+[node name="Button4" type="Button" parent="ItemTable/ScrollContainer/Categories"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_k0m6y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k0m6y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k0m6y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_k0m6y")
+theme_override_styles/focus = SubResource("StyleBoxFlat_k0m6y")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_j4iry")
+text = "Оружие"
+script = ExtResource("8_o2f4w")
+
+[node name="TextureButton" type="TextureButton" parent="ItemTable/ScrollContainer/Categories"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("8_g4fcl")
+texture_pressed = ExtResource("9_87pmt")
+texture_hover = ExtResource("9_87pmt")
+texture_disabled = ExtResource("9_87pmt")
+texture_focused = ExtResource("9_87pmt")
+
+[node name="BGMenu" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_aytgw")
+script = ExtResource("11_10bkj")
+
+[node name="MoneyMenu" parent="." instance=ExtResource("10_6gs2e")]
+visible = false
+layout_mode = 1
+offset_left = 230.0
+offset_top = 620.0
+offset_right = -1290.0
+offset_bottom = -140.0
+script = ExtResource("11_10bkj")
+
+[node name="AddingItem" parent="." instance=ExtResource("13_eimmv")]
+visible = false
+layout_mode = 1
+offset_left = 435.0
+offset_top = 240.0
+offset_right = -435.0
+offset_bottom = -240.0
+script = ExtResource("11_10bkj")
+
+[connection signal="pressed" from="ReturnButton" to="." method="on_change_scene_pressed" binds= [1]]
+[connection signal="pressed" from="Money/MoneyButton" to="BGMenu" method="on_open_button_pressed"]
+[connection signal="pressed" from="Money/MoneyButton" to="MoneyMenu" method="on_open_button_pressed"]
+[connection signal="pressed" from="AddItemButton" to="BGMenu" method="on_open_button_pressed"]
+[connection signal="pressed" from="AddItemButton" to="AddingItem" method="on_open_button_pressed"]
+[connection signal="toggled" from="ItemTable/ScrollContainer/Categories/Button" to="ItemTable/ScrollContainer/Categories/Button" method="_on_toggled" binds= [10]]
+[connection signal="toggled" from="ItemTable/ScrollContainer/Categories/Button2" to="ItemTable/ScrollContainer/Categories/Button2" method="_on_toggled" binds= [5]]
+[connection signal="toggled" from="ItemTable/ScrollContainer/Categories/Button3" to="ItemTable/ScrollContainer/Categories/Button3" method="_on_toggled" binds= [1]]
+[connection signal="toggled" from="ItemTable/ScrollContainer/Categories/Button4" to="ItemTable/ScrollContainer/Categories/Button4" method="_on_toggled" binds= [20]]
+[connection signal="hidden" from="MoneyMenu" to="BGMenu" method="on_closing_button_pressed"]
+[connection signal="hidden" from="AddingItem" to="BGMenu" method="on_closing_button_pressed"]
