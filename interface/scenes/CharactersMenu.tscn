@@ -1,15 +1,15 @@
 [gd_scene load_steps=18 format=3 uid="uid://c5ulx4f5yax3r"]
 
-[ext_resource type="Script" path="res://interface/scripts/ChangeScene.gd" id="1_wjdyg"]
-[ext_resource type="Texture2D" uid="uid://csaqqfp04pshu" path="res://interface/sprites/QuitBlack.png" id="2_lrsvh"]
-[ext_resource type="Texture2D" uid="uid://ddfk4csrnyvx" path="res://interface/sprites/QuitRed.png" id="3_cjqs6"]
-[ext_resource type="Script" path="res://interface/scripts/OpenExitMenu.gd" id="4_ffjvx"]
-[ext_resource type="Texture2D" uid="uid://ci5xarq4642by" path="res://interface/sprites/CheckMarkBlack.png" id="5_e0nk6"]
-[ext_resource type="Texture2D" uid="uid://cguhfg56mkwg3" path="res://interface/sprites/CheckMarkAllBlack.png" id="6_mrdoi"]
-[ext_resource type="Script" path="res://interface/scripts/Exit.gd" id="7_venmd"]
-[ext_resource type="Texture2D" uid="uid://boq0ps6xqkrac" path="res://interface/sprites/CrossBlack.png" id="8_c107w"]
-[ext_resource type="Texture2D" uid="uid://dcshk56cc86wv" path="res://interface/sprites/CrossAllBlack.png" id="9_3o3ef"]
-[ext_resource type="Script" path="res://interface/scripts/RefuseExit.gd" id="10_gmrqa"]
+[ext_resource type="Script" path="res://interface/scripts/ChangeScene.gd" id="1_t6s2b"]
+[ext_resource type="Texture2D" uid="uid://csaqqfp04pshu" path="res://interface/sprites/QuitBlack.png" id="2_o2dyu"]
+[ext_resource type="Texture2D" uid="uid://ddfk4csrnyvx" path="res://interface/sprites/QuitRed.png" id="3_ns7m5"]
+[ext_resource type="Script" path="res://interface/scripts/OpenExitMenu.gd" id="4_q1qmk"]
+[ext_resource type="Texture2D" uid="uid://ci5xarq4642by" path="res://interface/sprites/CheckMarkBlack.png" id="5_bms81"]
+[ext_resource type="Texture2D" uid="uid://cguhfg56mkwg3" path="res://interface/sprites/CheckMarkAllBlack.png" id="6_tbyp0"]
+[ext_resource type="Script" path="res://interface/scripts/Exit.gd" id="7_5udof"]
+[ext_resource type="Texture2D" uid="uid://boq0ps6xqkrac" path="res://interface/sprites/CrossBlack.png" id="8_wda43"]
+[ext_resource type="Texture2D" uid="uid://dcshk56cc86wv" path="res://interface/sprites/CrossAllBlack.png" id="9_sw6wg"]
+[ext_resource type="Script" path="res://interface/scripts/RefuseExit.gd" id="10_1ujha"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_elo1b"]
 bg_color = Color(0.658824, 0.658824, 0.658824, 1)
@@ -72,7 +72,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-script = ExtResource("1_wjdyg")
+script = ExtResource("1_t6s2b")
 
 [node name="BottomPanel" type="Panel" parent="."]
 layout_mode = 0
@@ -173,12 +173,12 @@ offset_left = 20.0
 offset_right = 96.0
 offset_bottom = 76.0
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("2_lrsvh")
-texture_pressed = ExtResource("3_cjqs6")
-texture_hover = ExtResource("3_cjqs6")
-texture_disabled = ExtResource("3_cjqs6")
-texture_focused = ExtResource("3_cjqs6")
-script = ExtResource("4_ffjvx")
+texture_normal = ExtResource("2_o2dyu")
+texture_pressed = ExtResource("3_ns7m5")
+texture_hover = ExtResource("3_ns7m5")
+texture_disabled = ExtResource("3_ns7m5")
+texture_focused = ExtResource("3_ns7m5")
+script = ExtResource("4_q1qmk")
 
 [node name="DarkBGPanel" type="Panel" parent="Exit"]
 visible = false
@@ -217,12 +217,12 @@ offset_right = 338.0
 offset_bottom = 463.0
 scale = Vector2(0.3, 0.3)
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("5_e0nk6")
-texture_pressed = ExtResource("6_mrdoi")
-texture_hover = ExtResource("6_mrdoi")
-texture_disabled = ExtResource("6_mrdoi")
-texture_focused = ExtResource("6_mrdoi")
-script = ExtResource("7_venmd")
+texture_normal = ExtResource("5_bms81")
+texture_pressed = ExtResource("6_tbyp0")
+texture_hover = ExtResource("6_tbyp0")
+texture_disabled = ExtResource("6_tbyp0")
+texture_focused = ExtResource("6_tbyp0")
+script = ExtResource("7_5udof")
 
 [node name="RefuseButton" type="TextureButton" parent="Exit/ExitPanel"]
 layout_direction = 1
@@ -233,12 +233,12 @@ offset_right = 503.0
 offset_bottom = 473.0
 scale = Vector2(0.22, 0.22)
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("8_c107w")
-texture_pressed = ExtResource("9_3o3ef")
-texture_hover = ExtResource("9_3o3ef")
-texture_disabled = ExtResource("9_3o3ef")
-texture_focused = ExtResource("9_3o3ef")
-script = ExtResource("10_gmrqa")
+texture_normal = ExtResource("8_wda43")
+texture_pressed = ExtResource("9_sw6wg")
+texture_hover = ExtResource("9_sw6wg")
+texture_disabled = ExtResource("9_sw6wg")
+texture_focused = ExtResource("9_sw6wg")
+script = ExtResource("10_1ujha")
 
 [connection signal="pressed" from="BottomPanel/Characters/NewCharacterButton" to="." method="on_change_scene_pressed" binds= [1]]
 [connection signal="pressed" from="Exit/ExitButton" to="Exit/ExitButton" method="open_exit_menu"]

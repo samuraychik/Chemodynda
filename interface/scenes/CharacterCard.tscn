@@ -1,17 +1,17 @@
-[gd_scene load_steps=18 format=3 uid="uid://bdlpvt0unfnlb"]
+[gd_scene load_steps=18 format=3 uid="uid://doo11qqug4t0u"]
 
-[ext_resource type="Texture2D" uid="uid://r6eoadt3ikkj" path="res://interface/sprites/EditBlack.png" id="1_kyyaw"]
-[ext_resource type="Texture2D" uid="uid://cssall88vp8of" path="res://interface/sprites/EditGrey.png" id="2_hpegm"]
-[ext_resource type="Texture2D" uid="uid://c4bste46y21d7" path="res://interface/sprites/TrachcanLightRed.png" id="3_g0d1w"]
-[ext_resource type="Texture2D" uid="uid://bv182qm2ri3hp" path="res://interface/sprites/TrachcanRed.png" id="4_w2ta2"]
-[ext_resource type="Script" path="res://interface/scripts/OpenSelfDestructMenu.gd" id="5_obgts"]
-[ext_resource type="Script" path="res://interface/scripts/EditCharacterName.gd" id="6_cffuo"]
-[ext_resource type="Texture2D" uid="uid://ci5xarq4642by" path="res://interface/sprites/CheckMarkBlack.png" id="7_gc6wy"]
-[ext_resource type="Texture2D" uid="uid://cguhfg56mkwg3" path="res://interface/sprites/CheckMarkAllBlack.png" id="8_i55qu"]
-[ext_resource type="Script" path="res://interface/scripts/SelfDestruct.gd" id="9_ge2bm"]
-[ext_resource type="Texture2D" uid="uid://boq0ps6xqkrac" path="res://interface/sprites/CrossBlack.png" id="10_3np0e"]
-[ext_resource type="Texture2D" uid="uid://dcshk56cc86wv" path="res://interface/sprites/CrossAllBlack.png" id="11_pu3mt"]
-[ext_resource type="Script" path="res://interface/scripts/RefuseSelfDestruction.gd" id="12_qt7q2"]
+[ext_resource type="Texture2D" uid="uid://r6eoadt3ikkj" path="res://interface/sprites/EditBlack.png" id="1_v6p7e"]
+[ext_resource type="Texture2D" uid="uid://cssall88vp8of" path="res://interface/sprites/EditGrey.png" id="2_a728v"]
+[ext_resource type="Texture2D" uid="uid://c4bste46y21d7" path="res://interface/sprites/TrachcanLightRed.png" id="3_7gqn5"]
+[ext_resource type="Texture2D" uid="uid://bv182qm2ri3hp" path="res://interface/sprites/TrachcanRed.png" id="4_25snx"]
+[ext_resource type="Script" path="res://interface/scripts/OpenSelfDestructMenu.gd" id="5_ogsji"]
+[ext_resource type="Script" path="res://interface/scripts/EditCharacterName.gd" id="6_ooodw"]
+[ext_resource type="Texture2D" uid="uid://ci5xarq4642by" path="res://interface/sprites/CheckMarkBlack.png" id="7_mkhmq"]
+[ext_resource type="Texture2D" uid="uid://cguhfg56mkwg3" path="res://interface/sprites/CheckMarkAllBlack.png" id="8_lda1c"]
+[ext_resource type="Script" path="res://interface/scripts/SelfDestruct.gd" id="9_v6sds"]
+[ext_resource type="Texture2D" uid="uid://boq0ps6xqkrac" path="res://interface/sprites/CrossBlack.png" id="10_ixtak"]
+[ext_resource type="Texture2D" uid="uid://dcshk56cc86wv" path="res://interface/sprites/CrossAllBlack.png" id="11_7makt"]
+[ext_resource type="Script" path="res://interface/scripts/RefuseSelfDestruction.gd" id="12_n2a57"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yl0ec"]
 bg_color = Color(1, 1, 1, 1)
@@ -106,11 +106,11 @@ offset_right = 510.0
 offset_bottom = 75.0
 scale = Vector2(1.02, 1.02)
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("1_kyyaw")
-texture_pressed = ExtResource("2_hpegm")
-texture_hover = ExtResource("2_hpegm")
-texture_disabled = ExtResource("2_hpegm")
-texture_focused = ExtResource("2_hpegm")
+texture_normal = ExtResource("1_v6p7e")
+texture_pressed = ExtResource("2_a728v")
+texture_hover = ExtResource("2_a728v")
+texture_disabled = ExtResource("2_a728v")
+texture_focused = ExtResource("2_a728v")
 
 [node name="SelfDestructButton" type="TextureButton" parent="."]
 layout_mode = 0
@@ -120,12 +120,12 @@ offset_right = 570.0
 offset_bottom = 75.0
 scale = Vector2(1.1, 1)
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("3_g0d1w")
-texture_pressed = ExtResource("4_w2ta2")
-texture_hover = ExtResource("4_w2ta2")
-texture_disabled = ExtResource("4_w2ta2")
-texture_focused = ExtResource("4_w2ta2")
-script = ExtResource("5_obgts")
+texture_normal = ExtResource("3_7gqn5")
+texture_pressed = ExtResource("4_25snx")
+texture_hover = ExtResource("4_25snx")
+texture_disabled = ExtResource("4_25snx")
+texture_focused = ExtResource("4_25snx")
+script = ExtResource("5_ogsji")
 
 [node name="LineEdit" type="LineEdit" parent="."]
 layout_mode = 0
@@ -150,7 +150,7 @@ context_menu_enabled = false
 virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
 caret_blink = true
-script = ExtResource("6_cffuo")
+script = ExtResource("6_ooodw")
 
 [node name="PickButton" type="Button" parent="."]
 layout_mode = 0
@@ -208,12 +208,12 @@ offset_right = 313.0
 offset_bottom = 273.0
 scale = Vector2(0.3, 0.3)
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("7_gc6wy")
-texture_pressed = ExtResource("8_i55qu")
-texture_hover = ExtResource("8_i55qu")
-texture_disabled = ExtResource("8_i55qu")
-texture_focused = ExtResource("8_i55qu")
-script = ExtResource("9_ge2bm")
+texture_normal = ExtResource("7_mkhmq")
+texture_pressed = ExtResource("8_lda1c")
+texture_hover = ExtResource("8_lda1c")
+texture_disabled = ExtResource("8_lda1c")
+texture_focused = ExtResource("8_lda1c")
+script = ExtResource("9_v6sds")
 
 [node name="RefuseButton" type="TextureButton" parent="SelfDestructMenu/SelfDestructPanel"]
 layout_direction = 1
@@ -224,12 +224,12 @@ offset_right = 743.0
 offset_bottom = 283.0
 scale = Vector2(0.22, 0.22)
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("10_3np0e")
-texture_pressed = ExtResource("11_pu3mt")
-texture_hover = ExtResource("11_pu3mt")
-texture_disabled = ExtResource("11_pu3mt")
-texture_focused = ExtResource("11_pu3mt")
-script = ExtResource("12_qt7q2")
+texture_normal = ExtResource("10_ixtak")
+texture_pressed = ExtResource("11_7makt")
+texture_hover = ExtResource("11_7makt")
+texture_disabled = ExtResource("11_7makt")
+texture_focused = ExtResource("11_7makt")
+script = ExtResource("12_n2a57")
 
 [connection signal="gui_input" from="CharacterPanel" to="LineEdit" method="_on_gui_input"]
 [connection signal="pressed" from="RenameButton" to="LineEdit" method="on_rename_button_pressed"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://k2rxudooa77u"]
 
-[ext_resource type="Script" path="res://interface/scripts/ChangeScene.gd" id="1_wm1vo"]
+[ext_resource type="Script" path="res://interface/scripts/InventoryMenu.gd" id="1_fcryy"]
 [ext_resource type="Texture2D" uid="uid://c8v0p52ajxo2l" path="res://interface/sprites/VectorBlack.png" id="2_o1gew"]
 [ext_resource type="Texture2D" uid="uid://dachm60mvxty8" path="res://interface/sprites/VectorRed.png" id="3_l82xd"]
 [ext_resource type="Texture2D" uid="uid://vhx86outocmp" path="res://interface/sprites/Copper.png" id="4_tg2gd"]
@@ -11,9 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://dcupqpsfwjm4h" path="res://interface/sprites/FilterBlack.png" id="8_hcfum"]
 [ext_resource type="Texture2D" uid="uid://6m7dxqhxl6rr" path="res://interface/sprites/FilterRed.png" id="9_ny4y1"]
 [ext_resource type="Script" path="res://interface/scripts/HideScrollContainer.gd" id="10_mdex3"]
-[ext_resource type="PackedScene" uid="uid://com03gqu7ssh1" path="res://interface/scenes/prefabs_scenes/AddingMoneyMenu.tscn" id="11_141np"]
+[ext_resource type="PackedScene" uid="uid://com03gqu7ssh1" path="res://interface/scenes/EditMoneyMenu.tscn" id="11_141np"]
 [ext_resource type="Script" path="res://interface/scripts/CloseBGMenu.gd" id="11_owxx0"]
-[ext_resource type="PackedScene" uid="uid://d2i7etv7sshxd" path="res://interface/scenes/main_scenes/AvailableItemsMenu.tscn" id="13_vmu5u"]
+[ext_resource type="PackedScene" uid="uid://d2i7etv7sshxd" path="res://interface/scenes/AddItemMenu.tscn" id="13_vmu5u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0h42a"]
 bg_color = Color(0.658824, 0.658824, 0.658824, 1)
@@ -104,9 +104,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_wm1vo")
+script = ExtResource("1_fcryy")
 
-[node name="BGPanel" type="Panel" parent="."]
+[node name="InventoryBG" type="Panel" parent="."]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -126,14 +126,14 @@ texture_hover = ExtResource("3_l82xd")
 texture_disabled = ExtResource("3_l82xd")
 texture_focused = ExtResource("3_l82xd")
 
-[node name="Money" type="Control" parent="."]
+[node name="MoneyPanel" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 150.0
 offset_top = 950.0
 offset_right = 710.0
 offset_bottom = 1030.0
 
-[node name="MoneyButton" type="Button" parent="Money"]
+[node name="EditMoneyButton" type="Button" parent="MoneyPanel"]
 layout_mode = 0
 offset_right = 560.0
 offset_bottom = 80.0
@@ -144,7 +144,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_8pu5t")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_8pu5t")
 theme_override_styles/focus = SubResource("StyleBoxFlat_8pu5t")
 
-[node name="CopperImage" type="TextureRect" parent="Money"]
+[node name="CopperImage" type="TextureRect" parent="MoneyPanel"]
 layout_mode = 0
 offset_left = 140.0
 offset_top = 15.0
@@ -153,7 +153,7 @@ offset_bottom = 60.0
 mouse_filter = 2
 texture = ExtResource("4_tg2gd")
 
-[node name="SilverImage" type="TextureRect" parent="Money"]
+[node name="SilverImage" type="TextureRect" parent="MoneyPanel"]
 layout_mode = 0
 offset_left = 290.0
 offset_top = 15.0
@@ -162,7 +162,7 @@ offset_bottom = 60.0
 mouse_filter = 2
 texture = ExtResource("5_mdbhk")
 
-[node name="GoldImage" type="TextureRect" parent="Money"]
+[node name="GoldenImage" type="TextureRect" parent="MoneyPanel"]
 layout_mode = 0
 offset_left = 440.0
 offset_top = 15.0
@@ -171,7 +171,7 @@ offset_bottom = 60.0
 mouse_filter = 2
 texture = ExtResource("6_dwvab")
 
-[node name="Copper" type="Label" parent="Money"]
+[node name="CopperLabel" type="Label" parent="MoneyPanel"]
 layout_mode = 0
 offset_left = 35.0
 offset_right = 125.0
@@ -182,7 +182,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 script = ExtResource("7_8p04l")
 
-[node name="Silver" type="Label" parent="Money"]
+[node name="SilverLabel" type="Label" parent="MoneyPanel"]
 layout_mode = 0
 offset_left = 185.0
 offset_right = 275.0
@@ -193,7 +193,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 script = ExtResource("7_8p04l")
 
-[node name="Gold" type="Label" parent="Money"]
+[node name="GoldenLabel" type="Label" parent="MoneyPanel"]
 layout_mode = 0
 offset_left = 335.0
 offset_right = 425.0
@@ -204,20 +204,20 @@ horizontal_alignment = 2
 vertical_alignment = 1
 script = ExtResource("7_8p04l")
 
-[node name="Weight" type="Control" parent="."]
+[node name="WeightPanel" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 730.0
 offset_top = 950.0
 offset_right = 950.0
 offset_bottom = 1030.0
 
-[node name="WeightPanel" type="Panel" parent="Weight"]
+[node name="WeightPanelBG" type="Panel" parent="WeightPanel"]
 layout_mode = 0
 offset_right = 220.0
 offset_bottom = 80.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_7ua1j")
 
-[node name="WeightImage" type="TextureRect" parent="Weight"]
+[node name="WeightImage" type="TextureRect" parent="WeightPanel"]
 layout_mode = 0
 offset_left = 155.0
 offset_top = 15.0
@@ -225,7 +225,7 @@ offset_right = 200.0
 offset_bottom = 60.0
 texture = ExtResource("7_6bwe5")
 
-[node name="Weight" type="Label" parent="Weight"]
+[node name="WeightLabel" type="Label" parent="WeightPanel"]
 layout_mode = 0
 offset_left = 20.0
 offset_right = 145.0
@@ -337,7 +337,7 @@ offset_bottom = 1080.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_aytgw")
 script = ExtResource("11_owxx0")
 
-[node name="AddingMoneyMenu" parent="." instance=ExtResource("11_141np")]
+[node name="EditMoneyMenu" parent="." instance=ExtResource("11_141np")]
 visible = false
 layout_mode = 1
 offset_left = 230.0
@@ -345,7 +345,7 @@ offset_top = 620.0
 offset_right = -1290.0
 offset_bottom = -140.0
 
-[node name="AvailableItemsMenu" parent="." instance=ExtResource("13_vmu5u")]
+[node name="AddItemMenu" parent="." instance=ExtResource("13_vmu5u")]
 visible = false
 layout_mode = 1
 offset_left = 560.0
@@ -353,17 +353,17 @@ offset_top = 240.0
 offset_right = -560.0
 offset_bottom = -240.0
 
-[connection signal="pressed" from="ReturnButton" to="." method="on_change_scene_pressed" binds= [1]]
-[connection signal="mouse_entered" from="Money/MoneyButton" to="Money/Copper" method="_on_money_button_mouse_entered"]
-[connection signal="mouse_entered" from="Money/MoneyButton" to="Money/Silver" method="_on_money_button_mouse_entered"]
-[connection signal="mouse_entered" from="Money/MoneyButton" to="Money/Gold" method="_on_money_button_mouse_entered"]
-[connection signal="mouse_exited" from="Money/MoneyButton" to="Money/Copper" method="_on_money_button_mouse_exited"]
-[connection signal="mouse_exited" from="Money/MoneyButton" to="Money/Silver" method="_on_money_button_mouse_exited"]
-[connection signal="mouse_exited" from="Money/MoneyButton" to="Money/Gold" method="_on_money_button_mouse_exited"]
-[connection signal="pressed" from="Money/MoneyButton" to="BGMenu" method="_on_money_button_pressed"]
-[connection signal="pressed" from="Money/MoneyButton" to="AddingMoneyMenu" method="_on_money_button_pressed"]
+[connection signal="mouse_entered" from="MoneyPanel/EditMoneyButton" to="MoneyPanel/CopperLabel" method="_on_money_button_mouse_entered"]
+[connection signal="mouse_entered" from="MoneyPanel/EditMoneyButton" to="MoneyPanel/SilverLabel" method="_on_money_button_mouse_entered"]
+[connection signal="mouse_entered" from="MoneyPanel/EditMoneyButton" to="MoneyPanel/GoldenLabel" method="_on_money_button_mouse_entered"]
+[connection signal="mouse_exited" from="MoneyPanel/EditMoneyButton" to="MoneyPanel/CopperLabel" method="_on_money_button_mouse_exited"]
+[connection signal="mouse_exited" from="MoneyPanel/EditMoneyButton" to="MoneyPanel/SilverLabel" method="_on_money_button_mouse_exited"]
+[connection signal="mouse_exited" from="MoneyPanel/EditMoneyButton" to="MoneyPanel/GoldenLabel" method="_on_money_button_mouse_exited"]
+[connection signal="pressed" from="MoneyPanel/EditMoneyButton" to="BGMenu" method="_on_money_button_pressed"]
+[connection signal="pressed" from="MoneyPanel/EditMoneyButton" to="EditMoneyMenu" method="_on_money_button_pressed"]
 [connection signal="pressed" from="AddItemButton" to="BGMenu" method="_on_add_item_button_pressed"]
-[connection signal="pressed" from="AddItemButton" to="AvailableItemsMenu" method="_on_add_item_button_pressed"]
+[connection signal="pressed" from="AddItemButton" to="AddItemMenu" method="_on_add_item_button_pressed"]
 [connection signal="pressed" from="ItemsTable/FilterButton" to="ItemsTable/ScrollContainer" method="_on_pick_category_button_pressed"]
-[connection signal="hidden" from="AddingMoneyMenu" to="BGMenu" method="_on_adding_money_menu_hidden"]
-[connection signal="hidden" from="AvailableItemsMenu" to="BGMenu" method="_on_available_items_menu_hidden"]
+[connection signal="hidden" from="EditMoneyMenu" to="BGMenu" method="_on_adding_money_menu_hidden"]
+[connection signal="update_money" from="EditMoneyMenu" to="." method="_update_money"]
+[connection signal="hidden" from="AddItemMenu" to="BGMenu" method="_on_available_items_menu_hidden"]

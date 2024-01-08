@@ -1,14 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://bfih5sw068pwv"]
+[gd_scene load_steps=18 format=3 uid="uid://k1h2fxxsoibd"]
 
-[ext_resource type="Script" path="res://interface/scripts/ChangeStateAddingCustomItemMenu.gd" id="1_6miml"]
-[ext_resource type="Script" path="res://interface/scripts/CheckDigitsInput.gd" id="1_etu06"]
-[ext_resource type="Script" path="res://interface/scripts/CheckSearchInput.gd" id="2_2k6gt"]
-[ext_resource type="Texture2D" uid="uid://dkdum4iw1nbf4" path="res://interface/sprites/Count.png" id="2_nlvdv"]
-[ext_resource type="Texture2D" uid="uid://btwf2vffq2igq" path="res://interface/sprites/Weight.png" id="3_u04lp"]
-[ext_resource type="Texture2D" uid="uid://vhx86outocmp" path="res://interface/sprites/Copper.png" id="4_qujvo"]
-[ext_resource type="Texture2D" uid="uid://dce6aqx316x7g" path="res://interface/sprites/Silver.png" id="5_2ytim"]
-[ext_resource type="Texture2D" uid="uid://d07ljqlouva2n" path="res://interface/sprites/Gold.png" id="6_lulmc"]
-[ext_resource type="Script" path="res://interface/scripts/HideScrollContainer.gd" id="9_qpxfa"]
+[ext_resource type="Script" path="res://interface/scripts/ChangeStateAddingCustomItemMenu.gd" id="1_21yo6"]
+[ext_resource type="Script" path="res://interface/scripts/CheckDigitsInput.gd" id="2_8hu2g"]
+[ext_resource type="Script" path="res://interface/scripts/CheckSearchInput.gd" id="3_p2kob"]
+[ext_resource type="Texture2D" uid="uid://dkdum4iw1nbf4" path="res://interface/sprites/Count.png" id="4_716en"]
+[ext_resource type="Texture2D" uid="uid://btwf2vffq2igq" path="res://interface/sprites/Weight.png" id="5_m83bw"]
+[ext_resource type="Texture2D" uid="uid://vhx86outocmp" path="res://interface/sprites/Copper.png" id="6_bn2o8"]
+[ext_resource type="Texture2D" uid="uid://dce6aqx316x7g" path="res://interface/sprites/Silver.png" id="7_vat8r"]
+[ext_resource type="Texture2D" uid="uid://d07ljqlouva2n" path="res://interface/sprites/Gold.png" id="8_1ux2s"]
+[ext_resource type="Script" path="res://interface/scripts/HideScrollContainer.gd" id="9_h1jcs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3jcx"]
 bg_color = Color(1, 1, 1, 1)
@@ -106,7 +106,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 shadow_color = Color(0, 0, 0, 0.105882)
 
-[node name="AddingCustomItemMenu" type="Control"]
+[node name="AddCustomItemMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -115,15 +115,15 @@ offset_right = -870.0
 offset_bottom = -480.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_6miml")
+script = ExtResource("1_21yo6")
 
-[node name="ItemsPanel" type="Panel" parent="."]
+[node name="BGPanel" type="Panel" parent="."]
 layout_mode = 0
 offset_right = 1050.0
 offset_bottom = 600.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_e3jcx")
 
-[node name="CopperCountInput" type="LineEdit" parent="."]
+[node name="CopperInput" type="LineEdit" parent="."]
 layout_mode = 0
 offset_left = 590.0
 offset_top = 190.0
@@ -141,9 +141,9 @@ max_length = 3
 context_menu_enabled = false
 middle_mouse_paste_enabled = false
 caret_blink = true
-script = ExtResource("1_etu06")
+script = ExtResource("2_8hu2g")
 
-[node name="SilverCountInput" type="LineEdit" parent="."]
+[node name="SilverInput" type="LineEdit" parent="."]
 layout_mode = 0
 offset_left = 590.0
 offset_top = 260.0
@@ -161,9 +161,9 @@ max_length = 3
 context_menu_enabled = false
 middle_mouse_paste_enabled = false
 caret_blink = true
-script = ExtResource("1_etu06")
+script = ExtResource("2_8hu2g")
 
-[node name="GoldCountInput" type="LineEdit" parent="."]
+[node name="GoldenInput" type="LineEdit" parent="."]
 layout_mode = 0
 offset_left = 590.0
 offset_top = 330.0
@@ -181,7 +181,7 @@ max_length = 3
 context_menu_enabled = false
 middle_mouse_paste_enabled = false
 caret_blink = true
-script = ExtResource("1_etu06")
+script = ExtResource("2_8hu2g")
 
 [node name="WeightInput" type="LineEdit" parent="."]
 layout_mode = 0
@@ -201,7 +201,7 @@ max_length = 4
 context_menu_enabled = false
 middle_mouse_paste_enabled = false
 caret_blink = true
-script = ExtResource("1_etu06")
+script = ExtResource("2_8hu2g")
 
 [node name="CountInput" type="LineEdit" parent="."]
 layout_mode = 0
@@ -221,7 +221,7 @@ max_length = 3
 context_menu_enabled = false
 middle_mouse_paste_enabled = false
 caret_blink = true
-script = ExtResource("1_etu06")
+script = ExtResource("2_8hu2g")
 
 [node name="SearchInput" type="LineEdit" parent="."]
 layout_mode = 0
@@ -246,9 +246,9 @@ context_menu_enabled = false
 virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
 caret_blink = true
-script = ExtResource("2_2k6gt")
+script = ExtResource("3_p2kob")
 
-[node name="AddingTitle" type="Label" parent="."]
+[node name="MenuTitleLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 100.0
 offset_top = 40.0
@@ -260,7 +260,7 @@ text = "Добавить предмет"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Price" type="Label" parent="."]
+[node name="PriceLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 595.0
 offset_top = 140.0
@@ -272,7 +272,7 @@ text = "Цена"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Weight" type="Label" parent="."]
+[node name="WeightLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 835.0
 offset_top = 140.0
@@ -284,25 +284,7 @@ text = "Вес"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="WeightImage2" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 950.0
-offset_top = 330.0
-offset_right = 995.0
-offset_bottom = 375.0
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("2_nlvdv")
-
-[node name="WeightImage" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 950.0
-offset_top = 190.0
-offset_right = 995.0
-offset_bottom = 235.0
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_u04lp")
-
-[node name="Count" type="Label" parent="."]
+[node name="CountLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 835.0
 offset_top = 280.0
@@ -314,7 +296,7 @@ text = "Кол-во"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Category" type="Label" parent="."]
+[node name="CategoryLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 60.0
 offset_top = 280.0
@@ -326,7 +308,7 @@ text = "Категория"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ItemName" type="Label" parent="."]
+[node name="ItemNameLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 60.0
 offset_top = 140.0
@@ -338,13 +320,31 @@ text = "Название"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="CountImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 950.0
+offset_top = 330.0
+offset_right = 995.0
+offset_bottom = 375.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_716en")
+
+[node name="WeightImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 950.0
+offset_top = 190.0
+offset_right = 995.0
+offset_bottom = 235.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_m83bw")
+
 [node name="CopperImage" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 700.0
 offset_top = 185.0
 offset_right = 745.0
 offset_bottom = 230.0
-texture = ExtResource("4_qujvo")
+texture = ExtResource("6_bn2o8")
 
 [node name="SilverImage" type="TextureRect" parent="."]
 layout_mode = 0
@@ -352,17 +352,17 @@ offset_left = 700.0
 offset_top = 255.0
 offset_right = 745.0
 offset_bottom = 300.0
-texture = ExtResource("5_2ytim")
+texture = ExtResource("7_vat8r")
 
-[node name="GoldImage" type="TextureRect" parent="."]
+[node name="GoldenImage" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 700.0
 offset_top = 325.0
 offset_right = 745.0
 offset_bottom = 370.0
-texture = ExtResource("6_lulmc")
+texture = ExtResource("8_1ux2s")
 
-[node name="Accept" type="Button" parent="."]
+[node name="AcceptButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 63.0
 offset_top = 500.0
@@ -383,7 +383,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_njjlq")
 theme_override_styles/focus = SubResource("StyleBoxFlat_njjlq")
 text = "Добавить"
 
-[node name="Cancel" type="Button" parent="."]
+[node name="CancelButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 270.0
 offset_top = 500.0
@@ -432,18 +432,18 @@ offset_left = 45.0
 offset_top = 370.0
 offset_right = 475.0
 offset_bottom = 490.0
-script = ExtResource("9_qpxfa")
+script = ExtResource("9_h1jcs")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[connection signal="text_changed" from="CopperCountInput" to="CopperCountInput" method="_on_text_changed"]
-[connection signal="text_changed" from="SilverCountInput" to="SilverCountInput" method="_on_text_changed"]
-[connection signal="text_changed" from="GoldCountInput" to="GoldCountInput" method="_on_text_changed"]
+[connection signal="text_changed" from="CopperInput" to="CopperInput" method="_on_text_changed"]
+[connection signal="text_changed" from="SilverInput" to="SilverInput" method="_on_text_changed"]
+[connection signal="text_changed" from="GoldenInput" to="GoldenInput" method="_on_text_changed"]
 [connection signal="text_changed" from="WeightInput" to="WeightInput" method="_on_text_changed"]
 [connection signal="text_changed" from="CountInput" to="CountInput" method="_on_text_changed"]
 [connection signal="text_changed" from="SearchInput" to="SearchInput" method="_on_text_changed"]
-[connection signal="pressed" from="Accept" to="." method="_on_accept_pressed"]
-[connection signal="pressed" from="Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="AcceptButton" to="." method="_on_accept_pressed"]
+[connection signal="pressed" from="CancelButton" to="." method="_on_cancel_pressed"]
 [connection signal="pressed" from="PickCategoryButton" to="ScrollContainer" method="_on_pick_category_button_pressed"]
