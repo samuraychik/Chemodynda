@@ -5,9 +5,12 @@ extends Control
 func _ready():
 	pass # Replace with function body.
 
-
-func on_closing_button_pressed():
+func _on_accept_pressed():
+	#
 	visible = false
 
-func on_open_button_pressed():
+func _on_cancel_pressed():
+	visible = false
+
+func _on_money_button_pressed():
 	visible = true

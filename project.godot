@@ -10,10 +10,13 @@ config_version=5
 
 [application]
 
-config/name="Chemodynda"
+config/name="Чемодында"
 config/tags=PackedStringArray("uni")
 run/main_scene="res://interface/scenes/main_scenes/CharactersMenu.tscn"
 config/features=PackedStringArray("4.2")
+boot_splash/image="res://interface/sprites/LoadingScreen.png"
+config/icon="res://interface/sprites/Icon.png"
+boot_splash/minimum_display_time=5000
 
 [display]
 

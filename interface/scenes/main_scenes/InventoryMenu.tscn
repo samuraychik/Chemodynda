@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://k2rxudooa77u"]
+[gd_scene load_steps=23 format=3 uid="uid://k2rxudooa77u"]
 
 [ext_resource type="Script" path="res://interface/scripts/ChangeScene.gd" id="1_wm1vo"]
 [ext_resource type="Texture2D" uid="uid://c8v0p52ajxo2l" path="res://interface/sprites/VectorBlack.png" id="2_o1gew"]
@@ -7,12 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://dce6aqx316x7g" path="res://interface/sprites/Silver.png" id="5_mdbhk"]
 [ext_resource type="Texture2D" uid="uid://d07ljqlouva2n" path="res://interface/sprites/Gold.png" id="6_dwvab"]
 [ext_resource type="Texture2D" uid="uid://btwf2vffq2igq" path="res://interface/sprites/Weight.png" id="7_6bwe5"]
+[ext_resource type="Script" path="res://interface/scripts/HighlightMoney.gd" id="7_8p04l"]
 [ext_resource type="Texture2D" uid="uid://dcupqpsfwjm4h" path="res://interface/sprites/FilterBlack.png" id="8_hcfum"]
 [ext_resource type="Texture2D" uid="uid://6m7dxqhxl6rr" path="res://interface/sprites/FilterRed.png" id="9_ny4y1"]
 [ext_resource type="Script" path="res://interface/scripts/HideScrollContainer.gd" id="10_mdex3"]
-[ext_resource type="Script" path="res://interface/scripts/ChangeVisibleMenu.gd" id="10_rcv0o"]
 [ext_resource type="PackedScene" uid="uid://com03gqu7ssh1" path="res://interface/scenes/prefabs_scenes/AddingMoneyMenu.tscn" id="11_141np"]
-[ext_resource type="PackedScene" uid="uid://bfih5sw068pwv" path="res://interface/scenes/prefabs_scenes/AddingItemMenu.tscn" id="12_muhun"]
+[ext_resource type="Script" path="res://interface/scripts/CloseBGMenu.gd" id="11_owxx0"]
+[ext_resource type="PackedScene" uid="uid://d2i7etv7sshxd" path="res://interface/scenes/main_scenes/AvailableItemsMenu.tscn" id="13_vmu5u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0h42a"]
 bg_color = Color(0.658824, 0.658824, 0.658824, 1)
@@ -28,6 +29,20 @@ corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vdj0"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(1, 0, 0, 0.6)
+shadow_size = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ua1j"]
 bg_color = Color(1, 1, 1, 1)
@@ -52,6 +67,20 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2bad"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(1, 0, 0, 0.6)
+shadow_size = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7u2q"]
 bg_color = Color(1, 1, 1, 1)
@@ -110,7 +139,7 @@ offset_right = 560.0
 offset_bottom = 80.0
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_8pu5t")
-theme_override_styles/hover = SubResource("StyleBoxFlat_8pu5t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3vdj0")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8pu5t")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_8pu5t")
 theme_override_styles/focus = SubResource("StyleBoxFlat_8pu5t")
@@ -147,33 +176,33 @@ layout_mode = 0
 offset_left = 35.0
 offset_right = 125.0
 offset_bottom = 75.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
+script = ExtResource("7_8p04l")
 
 [node name="Silver" type="Label" parent="Money"]
 layout_mode = 0
 offset_left = 185.0
 offset_right = 275.0
 offset_bottom = 75.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
+script = ExtResource("7_8p04l")
 
 [node name="Gold" type="Label" parent="Money"]
 layout_mode = 0
 offset_left = 335.0
 offset_right = 425.0
 offset_bottom = 75.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
+script = ExtResource("7_8p04l")
 
 [node name="Weight" type="Control" parent="."]
 anchors_preset = 0
@@ -221,7 +250,7 @@ theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_2pnv3")
-theme_override_styles/hover = SubResource("StyleBoxFlat_2pnv3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o2bad")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_2pnv3")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_2pnv3")
 theme_override_styles/focus = SubResource("StyleBoxFlat_2pnv3")
@@ -306,7 +335,7 @@ layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_aytgw")
-script = ExtResource("10_rcv0o")
+script = ExtResource("11_owxx0")
 
 [node name="AddingMoneyMenu" parent="." instance=ExtResource("11_141np")]
 visible = false
@@ -315,22 +344,26 @@ offset_left = 230.0
 offset_top = 620.0
 offset_right = -1290.0
 offset_bottom = -140.0
-script = ExtResource("10_rcv0o")
 
-[node name="AddingItemMenu" parent="." instance=ExtResource("12_muhun")]
+[node name="AvailableItemsMenu" parent="." instance=ExtResource("13_vmu5u")]
 visible = false
 layout_mode = 1
-offset_left = 435.0
+offset_left = 560.0
 offset_top = 240.0
-offset_right = -435.0
+offset_right = -560.0
 offset_bottom = -240.0
-script = ExtResource("10_rcv0o")
 
 [connection signal="pressed" from="ReturnButton" to="." method="on_change_scene_pressed" binds= [1]]
-[connection signal="pressed" from="Money/MoneyButton" to="BGMenu" method="on_open_button_pressed"]
-[connection signal="pressed" from="Money/MoneyButton" to="AddingMoneyMenu" method="on_open_button_pressed"]
-[connection signal="pressed" from="AddItemButton" to="BGMenu" method="on_open_button_pressed"]
-[connection signal="pressed" from="AddItemButton" to="AddingItemMenu" method="on_open_button_pressed"]
+[connection signal="mouse_entered" from="Money/MoneyButton" to="Money/Copper" method="_on_money_button_mouse_entered"]
+[connection signal="mouse_entered" from="Money/MoneyButton" to="Money/Silver" method="_on_money_button_mouse_entered"]
+[connection signal="mouse_entered" from="Money/MoneyButton" to="Money/Gold" method="_on_money_button_mouse_entered"]
+[connection signal="mouse_exited" from="Money/MoneyButton" to="Money/Copper" method="_on_money_button_mouse_exited"]
+[connection signal="mouse_exited" from="Money/MoneyButton" to="Money/Silver" method="_on_money_button_mouse_exited"]
+[connection signal="mouse_exited" from="Money/MoneyButton" to="Money/Gold" method="_on_money_button_mouse_exited"]
+[connection signal="pressed" from="Money/MoneyButton" to="BGMenu" method="_on_money_button_pressed"]
+[connection signal="pressed" from="Money/MoneyButton" to="AddingMoneyMenu" method="_on_money_button_pressed"]
+[connection signal="pressed" from="AddItemButton" to="BGMenu" method="_on_add_item_button_pressed"]
+[connection signal="pressed" from="AddItemButton" to="AvailableItemsMenu" method="_on_add_item_button_pressed"]
 [connection signal="pressed" from="ItemsTable/FilterButton" to="ItemsTable/ScrollContainer" method="_on_pick_category_button_pressed"]
-[connection signal="hidden" from="AddingMoneyMenu" to="BGMenu" method="on_closing_button_pressed"]
-[connection signal="hidden" from="AddingItemMenu" to="BGMenu" method="on_closing_button_pressed"]
+[connection signal="hidden" from="AddingMoneyMenu" to="BGMenu" method="_on_adding_money_menu_hidden"]
+[connection signal="hidden" from="AvailableItemsMenu" to="BGMenu" method="_on_available_items_menu_hidden"]

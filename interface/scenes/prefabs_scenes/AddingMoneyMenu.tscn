@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://com03gqu7ssh1"]
 
+[ext_resource type="Script" path="res://interface/scripts/ChangeStateAddingMoneyMenu.gd" id="1_0st3f"]
 [ext_resource type="Texture2D" uid="uid://vhx86outocmp" path="res://interface/sprites/Copper.png" id="1_fjjxo"]
 [ext_resource type="Texture2D" uid="uid://dce6aqx316x7g" path="res://interface/sprites/Silver.png" id="2_da8fq"]
 [ext_resource type="Texture2D" uid="uid://d07ljqlouva2n" path="res://interface/sprites/Gold.png" id="3_xvgxc"]
-[ext_resource type="Script" path="res://interface/scripts/CloseMenu.gd" id="4_7syb0"]
 [ext_resource type="Script" path="res://interface/scripts/CheckDigitsInput.gd" id="5_xec5f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0xv8"]
@@ -80,6 +80,7 @@ offset_right = -1520.0
 offset_bottom = -760.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_0st3f")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -176,7 +177,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_wchtu")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_wchtu")
 theme_override_styles/focus = SubResource("StyleBoxFlat_wchtu")
 text = "Применить"
-script = ExtResource("4_7syb0")
 
 [node name="Cancel" type="Button" parent="."]
 layout_mode = 0
@@ -198,7 +198,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_wchtu")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_wchtu")
 theme_override_styles/focus = SubResource("StyleBoxFlat_wchtu")
 text = "Отменить"
-script = ExtResource("4_7syb0")
 
 [node name="CopperCountInput" type="LineEdit" parent="."]
 layout_mode = 0
@@ -302,8 +301,8 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_m55rn")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_1fi85")
 
-[connection signal="pressed" from="Accept" to="Accept" method="on_close_button_pressed"]
-[connection signal="pressed" from="Cancel" to="Cancel" method="on_close_button_pressed"]
+[connection signal="pressed" from="Accept" to="." method="_on_accept_pressed"]
+[connection signal="pressed" from="Cancel" to="." method="_on_cancel_pressed"]
 [connection signal="text_changed" from="CopperCountInput" to="CopperCountInput" method="_on_text_changed"]
 [connection signal="text_changed" from="SilverCountInput" to="SilverCountInput" method="_on_text_changed"]
 [connection signal="text_changed" from="GoldCountInput" to="GoldCountInput" method="_on_text_changed"]
