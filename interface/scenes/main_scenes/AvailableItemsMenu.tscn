@@ -1,0 +1,166 @@
+[gd_scene load_steps=12 format=3 uid="uid://d2i7etv7sshxd"]
+
+[ext_resource type="Script" path="res://interface/scripts/ChangeStateAvailableItemsMenu.gd" id="1_l05y0"]
+[ext_resource type="Texture2D" uid="uid://dcupqpsfwjm4h" path="res://interface/sprites/FilterBlack.png" id="1_mpm7p"]
+[ext_resource type="Texture2D" uid="uid://6m7dxqhxl6rr" path="res://interface/sprites/FilterRed.png" id="2_s7400"]
+[ext_resource type="Script" path="res://interface/scripts/CheckSearchInput.gd" id="3_yiu04"]
+[ext_resource type="Texture2D" uid="uid://c8v0p52ajxo2l" path="res://interface/sprites/VectorBlack.png" id="4_wj2n2"]
+[ext_resource type="Texture2D" uid="uid://dachm60mvxty8" path="res://interface/sprites/VectorRed.png" id="5_4plak"]
+[ext_resource type="PackedScene" uid="uid://bfih5sw068pwv" path="res://interface/scenes/prefabs_scenes/AddingCustomItemMenu.tscn" id="7_paedb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1j6b"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ya6dg"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ctdie"]
+bg_color = Color(0.780392, 0.780392, 0.780392, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 0.376471)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 25.0
+shadow_color = Color(0, 0, 0, 0.105882)
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n12oa"]
+bg_color = Color(0.847059, 0.847059, 0.847059, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 0.376471)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 25.0
+shadow_color = Color(0, 0, 0, 0.105882)
+shadow_size = 3
+
+[node name="AvailableItemsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1120.0
+offset_bottom = -480.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.997307, 1.00564)
+script = ExtResource("1_l05y0")
+
+[node name="ItemsPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 600.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_w1j6b")
+
+[node name="AddCustomItemButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 540.0
+offset_right = 520.0
+offset_bottom = 565.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 0, 0, 0.482353)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_ya6dg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ya6dg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ya6dg")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ya6dg")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ya6dg")
+text = "+ Добавить свой предмет"
+
+[node name="FilterButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 35.0
+offset_right = 770.0
+offset_bottom = 110.0
+scale = Vector2(0.55, 0.55)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("1_mpm7p")
+texture_pressed = ExtResource("2_s7400")
+texture_hover = ExtResource("2_s7400")
+texture_disabled = ExtResource("2_s7400")
+texture_focused = ExtResource("2_s7400")
+
+[node name="SearchInput" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 35.0
+offset_right = 680.0
+offset_bottom = 75.0
+pivot_offset = Vector2(-275, -155)
+mouse_default_cursor_shape = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_ctdie")
+theme_override_styles/focus = SubResource("StyleBoxFlat_n12oa")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_ctdie")
+placeholder_text = "предмет"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+caret_blink = true
+script = ExtResource("3_yiu04")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 100.0
+offset_right = 740.0
+offset_bottom = 510.0
+
+[node name="AvailableItemsContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="ReturnButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 35.0
+offset_right = 107.0
+offset_bottom = 76.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_wj2n2")
+texture_pressed = ExtResource("5_4plak")
+texture_hover = ExtResource("5_4plak")
+texture_disabled = ExtResource("5_4plak")
+texture_focused = ExtResource("5_4plak")
+
+[node name="AddingCustomItemMenu" parent="." instance=ExtResource("7_paedb")]
+visible = false
+layout_mode = 1
+offset_left = -125.0
+offset_right = 125.0
+offset_bottom = 0.0
+
+[connection signal="pressed" from="AddCustomItemButton" to="AddingCustomItemMenu" method="_on_add_custom_item_button_pressed"]
+[connection signal="text_changed" from="SearchInput" to="SearchInput" method="_on_text_changed"]
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="close_available_items_menu" from="AddingCustomItemMenu" to="." method="_close_available_items_menu"]

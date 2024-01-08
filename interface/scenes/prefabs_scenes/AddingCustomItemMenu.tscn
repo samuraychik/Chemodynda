@@ -1,5 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://bfih5sw068pwv"]
 
+[ext_resource type="Script" path="res://interface/scripts/ChangeStateAddingCustomItemMenu.gd" id="1_6miml"]
 [ext_resource type="Script" path="res://interface/scripts/CheckDigitsInput.gd" id="1_etu06"]
 [ext_resource type="Script" path="res://interface/scripts/CheckSearchInput.gd" id="2_2k6gt"]
 [ext_resource type="Texture2D" uid="uid://dkdum4iw1nbf4" path="res://interface/sprites/Count.png" id="2_nlvdv"]
@@ -7,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://vhx86outocmp" path="res://interface/sprites/Copper.png" id="4_qujvo"]
 [ext_resource type="Texture2D" uid="uid://dce6aqx316x7g" path="res://interface/sprites/Silver.png" id="5_2ytim"]
 [ext_resource type="Texture2D" uid="uid://d07ljqlouva2n" path="res://interface/sprites/Gold.png" id="6_lulmc"]
-[ext_resource type="Script" path="res://interface/scripts/CloseMenu.gd" id="7_rulgq"]
 [ext_resource type="Script" path="res://interface/scripts/HideScrollContainer.gd" id="9_qpxfa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3jcx"]
@@ -106,7 +106,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 shadow_color = Color(0, 0, 0, 0.105882)
 
-[node name="AddingItemMenu" type="Control"]
+[node name="AddingCustomItemMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -115,6 +115,7 @@ offset_right = -870.0
 offset_bottom = -480.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6miml")
 
 [node name="ItemsPanel" type="Panel" parent="."]
 layout_mode = 0
@@ -381,7 +382,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_njjlq")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_njjlq")
 theme_override_styles/focus = SubResource("StyleBoxFlat_njjlq")
 text = "Добавить"
-script = ExtResource("7_rulgq")
 
 [node name="Cancel" type="Button" parent="."]
 layout_mode = 0
@@ -403,7 +403,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_njjlq")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_njjlq")
 theme_override_styles/focus = SubResource("StyleBoxFlat_njjlq")
 text = "Отменить"
-script = ExtResource("7_rulgq")
 
 [node name="PickCategoryButton" type="Button" parent="."]
 layout_mode = 0
@@ -445,6 +444,6 @@ theme_override_constants/separation = 0
 [connection signal="text_changed" from="WeightInput" to="WeightInput" method="_on_text_changed"]
 [connection signal="text_changed" from="CountInput" to="CountInput" method="_on_text_changed"]
 [connection signal="text_changed" from="SearchInput" to="SearchInput" method="_on_text_changed"]
-[connection signal="pressed" from="Accept" to="Accept" method="on_close_button_pressed"]
-[connection signal="pressed" from="Cancel" to="Cancel" method="on_close_button_pressed"]
+[connection signal="pressed" from="Accept" to="." method="_on_accept_pressed"]
+[connection signal="pressed" from="Cancel" to="." method="_on_cancel_pressed"]
 [connection signal="pressed" from="PickCategoryButton" to="ScrollContainer" method="_on_pick_category_button_pressed"]
