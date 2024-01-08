@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ismay20h7bv"]
+[gd_scene load_steps=6 format=3 uid="uid://ciqdfunppbbpm"]
 
 [ext_resource type="Texture2D" uid="uid://b2ls3vw23alms" path="res://interface/sprites/Weapon.png" id="1_7bl73"]
 [ext_resource type="Texture2D" uid="uid://btwf2vffq2igq" path="res://interface/sprites/Weight.png" id="2_xcufq"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bfih5sw068pwv"]
+[gd_scene load_steps=18 format=3 uid="uid://k1h2fxxsoibd"]
 
 [ext_resource type="Script" path="res://interface/scripts/ChangeStateAddingCustomItemMenu.gd" id="1_6miml"]
 [ext_resource type="Script" path="res://interface/scripts/CheckDigitsInput.gd" id="1_etu06"]
