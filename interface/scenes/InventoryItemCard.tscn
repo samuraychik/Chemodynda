@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ciqdfunppbbpm"]
+[gd_scene load_steps=7 format=3 uid="uid://ciqdfunppbbpm"]
 
 [ext_resource type="Texture2D" uid="uid://b2ls3vw23alms" path="res://interface/sprites/Weapon.png" id="1_7bl73"]
+[ext_resource type="Script" path="res://interface/scripts/InventoryItemCard.gd" id="1_jrpvw"]
 [ext_resource type="Texture2D" uid="uid://btwf2vffq2igq" path="res://interface/sprites/Weight.png" id="2_xcufq"]
 [ext_resource type="Texture2D" uid="uid://d07ljqlouva2n" path="res://interface/sprites/Gold.png" id="3_q0gsf"]
 
@@ -18,7 +19,7 @@ corner_radius_bottom_left = 30
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jklr4"]
 
-[node name="ItemWindow" type="Control"]
+[node name="InventoryItemCard" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,6 +28,7 @@ offset_right = -1180.0
 offset_bottom = -960.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jrpvw")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -34,7 +36,7 @@ offset_right = 740.0
 offset_bottom = 120.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_jdk58")
 
-[node name="Count" type="Label" parent="."]
+[node name="CountLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 20.0
@@ -58,7 +60,7 @@ texture = ExtResource("1_7bl73")
 expand_mode = 1
 stretch_mode = 3
 
-[node name="Price" type="Label" parent="."]
+[node name="PriceLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 570.0
 offset_top = 10.0
@@ -70,7 +72,7 @@ text = "10"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Weight" type="Label" parent="."]
+[node name="WeightLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 570.0
 offset_top = 65.0

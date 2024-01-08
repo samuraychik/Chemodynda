@@ -2,34 +2,13 @@ class_name Money
 extends Node
 
 
-signal negative_coins
+var golden: int
+var silver: int
+var copper: int
 
-var golden: int:
-	get:
-		return golden
-	set(value):
-		if golden < 0:
-			negative_coins.emit()
-		else:
-			golden = value
 
-var silver: int:
-	get:
-		return silver
-	set(value):
-		if silver < 0:
-			negative_coins.emit()
-		else:
-			silver = value
-
-var copper: int:
-	get:
-		return copper
-	set(value):
-		if copper < 0:
-			negative_coins.emit()
-		else:
-			copper = value
+func is_valid() -> bool:
+	return golden >= 0 and silver >= 0 and copper >= 0
 
 
 func _init(golden_init, silver_init, copper_init):

@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://interface/scripts/CheckSearchInput.gd" id="3_yiu04"]
 [ext_resource type="Texture2D" uid="uid://c8v0p52ajxo2l" path="res://interface/sprites/VectorBlack.png" id="4_wj2n2"]
 [ext_resource type="Texture2D" uid="uid://dachm60mvxty8" path="res://interface/sprites/VectorRed.png" id="5_4plak"]
-[ext_resource type="PackedScene" uid="uid://k1h2fxxsoibd" path="res://interface/scenes/prefabs_scenes/AddingCustomItemMenu.tscn" id="7_paedb"]
+[ext_resource type="PackedScene" uid="uid://k1h2fxxsoibd" path="res://interface/scenes/AddingCustomItemMenu.tscn" id="7_paedb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1j6b"]
 bg_color = Color(1, 1, 1, 1)
