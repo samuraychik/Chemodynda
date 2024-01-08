@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://interface/scripts/CheckSearchInput.gd" id="3_yiu04"]
 [ext_resource type="Texture2D" uid="uid://c8v0p52ajxo2l" path="res://interface/sprites/VectorBlack.png" id="4_wj2n2"]
 [ext_resource type="Texture2D" uid="uid://dachm60mvxty8" path="res://interface/sprites/VectorRed.png" id="5_4plak"]
-[ext_resource type="PackedScene" uid="uid://k1h2fxxsoibd" path="res://interface/scenes/AddingCustomItemMenu.tscn" id="7_paedb"]
+[ext_resource type="PackedScene" uid="uid://k1h2fxxsoibd" path="res://interface/scenes/AddCustomItemMenu.tscn" id="7_paedb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1j6b"]
 bg_color = Color(1, 1, 1, 1)
@@ -53,7 +53,7 @@ expand_margin_left = 25.0
 shadow_color = Color(0, 0, 0, 0.105882)
 shadow_size = 3
 
-[node name="AvailableItemsMenu" type="Control"]
+[node name="AddItemMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -65,7 +65,7 @@ grow_vertical = 2
 scale = Vector2(0.997307, 1.00564)
 script = ExtResource("1_l05y0")
 
-[node name="ItemsPanel" type="Panel" parent="."]
+[node name="BGPanel" type="Panel" parent="."]
 layout_mode = 0
 offset_right = 800.0
 offset_bottom = 600.0
@@ -137,7 +137,7 @@ offset_top = 100.0
 offset_right = 740.0
 offset_bottom = 510.0
 
-[node name="AvailableItemsContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="DatabaseItemsContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
 
 [node name="ReturnButton" type="TextureButton" parent="."]
@@ -153,14 +153,14 @@ texture_hover = ExtResource("5_4plak")
 texture_disabled = ExtResource("5_4plak")
 texture_focused = ExtResource("5_4plak")
 
-[node name="AddingCustomItemMenu" parent="." instance=ExtResource("7_paedb")]
+[node name="AddCustomItemMenu" parent="." instance=ExtResource("7_paedb")]
 visible = false
 layout_mode = 1
 offset_left = -125.0
 offset_right = 125.0
 offset_bottom = 0.0
 
-[connection signal="pressed" from="AddCustomItemButton" to="AddingCustomItemMenu" method="_on_add_custom_item_button_pressed"]
+[connection signal="pressed" from="AddCustomItemButton" to="AddCustomItemMenu" method="_on_add_custom_item_button_pressed"]
 [connection signal="text_changed" from="SearchInput" to="SearchInput" method="_on_text_changed"]
 [connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
-[connection signal="close_available_items_menu" from="AddingCustomItemMenu" to="." method="_close_available_items_menu"]
+[connection signal="close_available_items_menu" from="AddCustomItemMenu" to="." method="_close_available_items_menu"]

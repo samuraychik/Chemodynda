@@ -18,7 +18,7 @@ corner_radius_bottom_left = 30
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_268a6"]
 
-[node name="ItemInAvailableItemsMenuCart" type="Control"]
+[node name="DatabaseItemCard" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,13 +26,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="."]
+[node name="BGPanel" type="Panel" parent="."]
 layout_mode = 0
 offset_right = 660.0
 offset_bottom = 120.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_osx00")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="CategoryImage" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 80.0
 offset_top = 60.0
@@ -43,7 +43,7 @@ texture = ExtResource("1_dm3f2")
 expand_mode = 1
 stretch_mode = 3
 
-[node name="Price" type="Label" parent="."]
+[node name="PriceLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 490.0
 offset_top = 10.0
@@ -55,7 +55,7 @@ text = "10"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Weight" type="Label" parent="."]
+[node name="WeightLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 490.0
 offset_top = 65.0
@@ -85,7 +85,7 @@ offset_bottom = 60.0
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_fkr07")
 
-[node name="ItemName" type="Button" parent="."]
+[node name="ItemNameLabel" type="Button" parent="."]
 layout_mode = 0
 offset_left = 120.0
 offset_top = 20.0

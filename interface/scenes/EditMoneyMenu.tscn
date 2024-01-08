@@ -82,7 +82,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bi1pb")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="BGPanel" type="Panel" parent="."]
 layout_mode = 0
 offset_right = 400.0
 offset_bottom = 320.0

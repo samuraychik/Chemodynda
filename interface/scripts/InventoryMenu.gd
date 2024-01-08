@@ -15,7 +15,6 @@ func _ready():
 		Item.ItemRarity.COMMON,
 		Money.new(0, 0, 0),
 		24,
-		false
 	), 5)
 	CurrentInventory.add_item(Item.new(
 		1,
@@ -24,9 +23,8 @@ func _ready():
 		Item.ItemCategory.OTHER,
 		Item.ItemRarity.COMMON,
 		Money.new(0, 0, 0),
-		24,
-		false
-	), 5)
+		14,
+	), 2)
 	_update_items()
 	_update_money()
 	_update_weight()

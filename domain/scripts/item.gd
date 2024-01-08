@@ -9,6 +9,7 @@ var category: ItemCategory
 var rarity: ItemRarity
 var cost: Money
 var weight: float
+var is_magical: bool
 
 enum ItemCategory {
 	WEAPON,
@@ -44,6 +45,7 @@ func _init(
 		rarity = init_rarity
 		cost = init_cost
 		weight = init_weight
+		is_magical = str(id)[0] == "6"
 
 
 func get_cost_of_count(count: int) -> Money:

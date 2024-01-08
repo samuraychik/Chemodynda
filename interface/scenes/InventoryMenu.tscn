@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://interface/scripts/HideScrollContainer.gd" id="10_mdex3"]
 [ext_resource type="PackedScene" uid="uid://com03gqu7ssh1" path="res://interface/scenes/EditMoneyMenu.tscn" id="11_141np"]
 [ext_resource type="Script" path="res://interface/scripts/CloseBGMenu.gd" id="11_owxx0"]
-[ext_resource type="PackedScene" uid="uid://d2i7etv7sshxd" path="res://interface/scenes/AvailableItemsMenu.tscn" id="13_vmu5u"]
+[ext_resource type="PackedScene" uid="uid://d2i7etv7sshxd" path="res://interface/scenes/AddItemMenu.tscn" id="13_vmu5u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0h42a"]
 bg_color = Color(0.658824, 0.658824, 0.658824, 1)
