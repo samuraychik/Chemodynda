@@ -21,3 +21,9 @@ func _on_category_chosen():
 
 func _on_pick_category_button_pressed():
 	visible = true
+
+func _on_changing_item_count_window_hidden():
+	visible = false
+
+func _on_change_button_pressed():
+	visible = true

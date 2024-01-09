@@ -230,6 +230,7 @@ theme_override_constants/separation = 0
 [node name="Category7" type="Button" parent="ScrollContainerForCategories/Categories"]
 custom_minimum_size = Vector2(280, 40)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -248,6 +249,7 @@ script = ExtResource("7_1vpdc")
 [node name="Category1" type="Button" parent="ScrollContainerForCategories/Categories"]
 custom_minimum_size = Vector2(280, 40)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -266,6 +268,7 @@ script = ExtResource("7_1vpdc")
 [node name="Category2" type="Button" parent="ScrollContainerForCategories/Categories"]
 custom_minimum_size = Vector2(280, 40)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -284,6 +287,7 @@ script = ExtResource("7_1vpdc")
 [node name="Category3" type="Button" parent="ScrollContainerForCategories/Categories"]
 custom_minimum_size = Vector2(280, 40)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -302,6 +306,7 @@ script = ExtResource("7_1vpdc")
 [node name="Category4" type="Button" parent="ScrollContainerForCategories/Categories"]
 custom_minimum_size = Vector2(280, 40)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -320,6 +325,7 @@ script = ExtResource("7_1vpdc")
 [node name="Category5" type="Button" parent="ScrollContainerForCategories/Categories"]
 custom_minimum_size = Vector2(280, 40)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -338,6 +344,7 @@ script = ExtResource("7_1vpdc")
 [node name="Category6" type="Button" parent="ScrollContainerForCategories/Categories"]
 custom_minimum_size = Vector2(280, 40)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)

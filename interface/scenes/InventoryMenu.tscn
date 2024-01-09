@@ -307,7 +307,7 @@ offset_bottom = 920.0
 [node name="ItemsPanel" type="Panel" parent="ItemsTable"]
 layout_mode = 0
 offset_right = 1620.0
-offset_bottom = 820.0
+offset_bottom = 805.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_i7u2q")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ItemsTable/ItemsPanel"]
@@ -315,7 +315,7 @@ layout_mode = 0
 offset_left = 60.0
 offset_top = 120.0
 offset_right = 1560.0
-offset_bottom = 760.0
+offset_bottom = 745.0
 
 [node name="ItemsContainer" type="GridContainer" parent="ItemsTable/ItemsPanel/ScrollContainer"]
 layout_mode = 2
@@ -374,6 +374,7 @@ theme_override_constants/separation = 0
 [node name="WeaponButton" type="Button" parent="ScrollContainer/Categories"]
 custom_minimum_size = Vector2(425, 40)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -392,6 +393,7 @@ script = ExtResource("14_l6rw6")
 [node name="ArmorButton" type="Button" parent="ScrollContainer/Categories"]
 custom_minimum_size = Vector2(425, 40)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -410,6 +412,7 @@ script = ExtResource("14_l6rw6")
 [node name="ToolButton" type="Button" parent="ScrollContainer/Categories"]
 custom_minimum_size = Vector2(425, 40)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -428,6 +431,7 @@ script = ExtResource("14_l6rw6")
 [node name="PoisonButton" type="Button" parent="ScrollContainer/Categories"]
 custom_minimum_size = Vector2(425, 40)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -446,6 +450,7 @@ script = ExtResource("14_l6rw6")
 [node name="MagicalButton" type="Button" parent="ScrollContainer/Categories"]
 custom_minimum_size = Vector2(425, 40)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -464,6 +469,7 @@ script = ExtResource("14_l6rw6")
 [node name="OtherButton" type="Button" parent="ScrollContainer/Categories"]
 custom_minimum_size = Vector2(425, 40)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)

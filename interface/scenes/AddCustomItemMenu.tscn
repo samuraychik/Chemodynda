@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://k1h2fxxsoibd"]
+[gd_scene load_steps=31 format=3 uid="uid://k1h2fxxsoibd"]
 
 [ext_resource type="Script" path="res://interface/scripts/ChangeStateAddingCustomItemMenu.gd" id="1_21yo6"]
 [ext_resource type="Script" path="res://interface/scripts/CheckDigitsInput.gd" id="2_8hu2g"]
@@ -63,7 +63,7 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-expand_margin_left = 25.0
+expand_margin_left = 10.0
 shadow_color = Color(0, 0, 0, 0.105882)
 shadow_size = 3
 
@@ -78,9 +78,45 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-expand_margin_left = 25.0
+expand_margin_left = 10.0
 shadow_color = Color(0, 0, 0, 0.105882)
 shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x15na"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 0.376471)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.105882)
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ri325"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.847059, 0.847059, 0.847059, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 0.376471)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.105882)
+shadow_size = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xsvs"]
 bg_color = Color(1, 1, 1, 1)
@@ -191,12 +227,12 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_e3jcx")
 
 [node name="MenuTitleLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 370.0
-offset_top = 40.0
-offset_right = 680.0
-offset_bottom = 80.0
+offset_left = 120.0
+offset_top = 30.0
+offset_right = 480.0
+offset_bottom = 75.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 35
 text = "Добавление предмета"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -245,11 +281,23 @@ middle_mouse_paste_enabled = false
 caret_blink = true
 script = ExtResource("2_8hu2g")
 
-[node name="SearchInput" type="LineEdit" parent="."]
+[node name="ItemNameLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 230.0
+offset_left = 60.0
 offset_top = 120.0
-offset_right = 630.0
+offset_right = 180.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Название"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameItemInput" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 120.0
+offset_right = 515.0
 offset_bottom = 160.0
 pivot_offset = Vector2(-275, -155)
 mouse_default_cursor_shape = 0
@@ -269,6 +317,42 @@ virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
 caret_blink = true
 script = ExtResource("3_p2kob")
+
+[node name="DescriptionTitleLabel" type="Label" parent="."]
+offset_left = 560.0
+offset_top = 70.0
+offset_right = 680.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Описание"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescriptionTextEdit" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(415, 115)
+layout_mode = 2
+offset_left = 562.0
+offset_top = 122.0
+offset_right = 977.0
+offset_bottom = 237.0
+mouse_default_cursor_shape = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_readonly_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_x15na")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ri325")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_ri325")
+placeholder_text = "Описание предмета, если есть..."
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+wrap_mode = 1
+caret_blink = true
 
 [node name="PriceLabel" type="Label" parent="."]
 layout_mode = 0
@@ -327,18 +411,6 @@ offset_bottom = 240.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "Категория"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ItemNameLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 60.0
-offset_top = 120.0
-offset_right = 180.0
-offset_bottom = 160.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
-text = "Название"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -530,7 +602,7 @@ text = "Отменить"
 layout_mode = 0
 offset_left = 205.0
 offset_top = 200.0
-offset_right = 630.0
+offset_right = 515.0
 offset_bottom = 240.0
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -561,7 +633,7 @@ visible = false
 layout_mode = 0
 offset_left = 205.0
 offset_top = 200.0
-offset_right = 645.0
+offset_right = 545.0
 offset_bottom = 300.0
 script = ExtResource("9_h1jcs")
 
@@ -570,8 +642,9 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="Category1" type="Button" parent="ScrollContainer/Categories"]
-custom_minimum_size = Vector2(425, 40)
+custom_minimum_size = Vector2(325, 40)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -588,8 +661,9 @@ text = "Оружие"
 script = ExtResource("12_ij0qo")
 
 [node name="Category2" type="Button" parent="ScrollContainer/Categories"]
-custom_minimum_size = Vector2(425, 40)
+custom_minimum_size = Vector2(325, 40)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -606,8 +680,9 @@ text = "Защита"
 script = ExtResource("12_ij0qo")
 
 [node name="Category3" type="Button" parent="ScrollContainer/Categories"]
-custom_minimum_size = Vector2(425, 40)
+custom_minimum_size = Vector2(325, 40)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -624,8 +699,9 @@ text = "Инструмент"
 script = ExtResource("12_ij0qo")
 
 [node name="Category4" type="Button" parent="ScrollContainer/Categories"]
-custom_minimum_size = Vector2(425, 40)
+custom_minimum_size = Vector2(325, 40)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -642,8 +718,9 @@ text = "Яд"
 script = ExtResource("12_ij0qo")
 
 [node name="Category5" type="Button" parent="ScrollContainer/Categories"]
-custom_minimum_size = Vector2(425, 40)
+custom_minimum_size = Vector2(325, 40)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -660,8 +737,9 @@ text = "Магический"
 script = ExtResource("12_ij0qo")
 
 [node name="Category6" type="Button" parent="ScrollContainer/Categories"]
-custom_minimum_size = Vector2(425, 40)
+custom_minimum_size = Vector2(325, 40)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -679,7 +757,7 @@ script = ExtResource("12_ij0qo")
 
 [connection signal="text_changed" from="WeightInput" to="WeightInput" method="_on_text_changed"]
 [connection signal="text_changed" from="CountInput" to="CountInput" method="_on_text_changed"]
-[connection signal="text_changed" from="SearchInput" to="SearchInput" method="_on_text_changed"]
+[connection signal="text_changed" from="NameItemInput" to="NameItemInput" method="_on_text_changed"]
 [connection signal="text_changed" from="CopperInput" to="CopperInput" method="_on_text_changed"]
 [connection signal="text_changed" from="SilverInput" to="SilverInput" method="_on_text_changed"]
 [connection signal="text_changed" from="GoldenInput" to="GoldenInput" method="_on_text_changed"]
