@@ -1,17 +1,15 @@
 extends LineEdit
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	pass
 
 func _on_text_changed(new_text: String):
 	if new_text.length() > 0:
-		if new_text[0] == "0":
-			delete_char_at_caret()
-
 		for symbol in new_text:
-			if not symbol.is_valid_int():
+			if symbol == ".":
+				delete_char_at_caret()
+				insert_text_at_caret(",")
+			elif not symbol.is_valid_int() and symbol != ",":
 				delete_char_at_caret()
 				break

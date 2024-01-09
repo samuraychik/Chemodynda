@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsfq3hr0ydunj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmm7w"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="CharacterDescriptionMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BGPanel" type="Panel" parent="."]
+offset_right = 1050.0
+offset_bottom = 600.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pmm7w")
+
+[node name="ItemNameTitleLabel" type="Label" parent="."]
+offset_left = 39.0
+offset_top = 36.0
+offset_right = 159.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Название:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemNameLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 35.0
+offset_right = 584.0
+offset_bottom = 75.0
+pivot_offset = Vector2(-275, -155)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Предмет"
+horizontal_alignment = 1
+vertical_alignment = 1

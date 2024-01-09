@@ -4,7 +4,6 @@ extends Control
 var item_card_scene = preload("res://interface/scenes/InventoryItemCard.tscn")
 @onready var grid = $ItemsTable/ItemsPanel/ScrollContainer/ItemsContainer
 
-
 func _ready():
 	# load items here
 	CurrentInventory.add_item(Item.new(
@@ -33,7 +32,6 @@ func _ready():
 func _update_items():
 	for item in CurrentInventory.items.keys():
 		var item_card = item_card_scene.instantiate()
-		item_card.custom_minimum_size = Vector2(740, 120)
 		item_card.set_item(item)
 		grid.add_child(item_card)
 
