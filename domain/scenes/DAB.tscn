@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://0q8kfxydenho"]
+
+[ext_resource type="Script" path="res://domain/scripts/DAB.gd" id="1_og7so"]
+
+[node name="Dab" type="Node"]
+script = ExtResource("1_og7so")

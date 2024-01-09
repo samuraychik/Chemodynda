@@ -45,7 +45,7 @@ func get_money() -> Money:
 
 func set_money(new_money: Money):
 	money = Money.new(new_money.golden, new_money.silver, new_money.copper)
-	save_character()
+	save_character() 
 	
 	
 func get_char_name() -> String:
@@ -86,6 +86,7 @@ func parse_items(save):
 		res_count += str(get_item_count(item)) + ", "
 	save[char_name]["items"] = res_item
 	save[char_name]["count"] = res_count
+	
 		
 func parse_money():
 	return str(get_money().golden) + " " + str(get_money().silver) + " " + str(get_money().copper)
