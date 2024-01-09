@@ -8,6 +8,7 @@ var files = ["armor.json", "equip.json", "magic.json", "poison.json", "weapon.js
 var use_filter: bool
 var filter: Item.ItemCategory
 
+
 func _on_return_button_pressed():
 	visible = false
 	
@@ -16,7 +17,7 @@ func _on_add_item_button_pressed():
 	visible = true
 
 
-func _close_available_items_menu():
+func _close_add_item_menu():
 	visible = false
 
 
@@ -37,6 +38,7 @@ func _update_items():
 			continue
 		var item_card = item_card_scene.instantiate()
 		item_card.set_item(new_item)
+		item_card.item_card_pressed.connect(_on_item_card_pressed)
 		child_basement.add_child(item_card)
 
 
@@ -77,3 +79,7 @@ func _on_category_chosen(category_name: String):
 			use_filter = false
 
 	_update_items()
+
+
+func _on_item_card_pressed(item: Item):
+	$AddCustomItemMenu.on_item_card_pressed(item)

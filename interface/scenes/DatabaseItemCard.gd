@@ -1,5 +1,6 @@
 extends Control
 
+signal item_card_pressed(item: Item)
 
 var item: Item
 
@@ -60,3 +61,8 @@ func _update_magical_status():
 	new_stylebox.corner_radius_bottom_right = 30
 	new_stylebox.corner_radius_top_right = 30
 	$BGPanel.add_theme_stylebox_override("panel", new_stylebox)
+
+
+func _on_item_card_pressed():
+	item_card_pressed.emit(item)
+

@@ -371,6 +371,24 @@ script = ExtResource("10_mdex3")
 layout_mode = 2
 theme_override_constants/separation = 0
 
+[node name="AllButton" type="Button" parent="ScrollContainer/Categories"]
+custom_minimum_size = Vector2(425, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_k82f1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
+text = "Все"
+script = ExtResource("14_l6rw6")
+
 [node name="WeaponButton" type="Button" parent="ScrollContainer/Categories"]
 custom_minimum_size = Vector2(425, 40)
 layout_mode = 2
@@ -485,24 +503,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
 text = "Другое"
 script = ExtResource("14_l6rw6")
 
-[node name="AllButton" type="Button" parent="ScrollContainer/Categories"]
-custom_minimum_size = Vector2(425, 40)
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = SubResource("StyleBoxFlat_k82f1")
-theme_override_styles/hover = SubResource("StyleBoxFlat_rf73y")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_rf73y")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_rf73y")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
-text = "Все"
-script = ExtResource("14_l6rw6")
-
 [node name="EditMoneyMenu" parent="." instance=ExtResource("11_141np")]
 visible = false
 layout_mode = 1
@@ -533,6 +533,11 @@ offset_bottom = -240.0
 [connection signal="pressed" from="ItemsTable/FilterButton" to="ItemsTable/CurrentCategoryLabel" method="_on_filter_button_pressed"]
 [connection signal="pressed" from="ItemsTable/FilterButton" to="BGMenu" method="_on_filter_button_pressed"]
 [connection signal="pressed" from="ItemsTable/FilterButton" to="ScrollContainer" method="_on_filter_button_pressed"]
+[connection signal="accept_category" from="ScrollContainer/Categories/AllButton" to="." method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/AllButton" to="ItemsTable/CurrentCategoryLabel" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/AllButton" to="ItemsTable/FilterButton" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/AllButton" to="BGMenu" method="_on_category_chosen" unbinds=1]
+[connection signal="pressed" from="ScrollContainer/Categories/AllButton" to="ScrollContainer/Categories/AllButton" method="_on_pressed"]
 [connection signal="accept_category" from="ScrollContainer/Categories/WeaponButton" to="." method="_on_category_chosen"]
 [connection signal="accept_category" from="ScrollContainer/Categories/WeaponButton" to="ItemsTable/CurrentCategoryLabel" method="_on_category_chosen"]
 [connection signal="accept_category" from="ScrollContainer/Categories/WeaponButton" to="ItemsTable/FilterButton" method="_on_category_chosen"]
@@ -563,11 +568,6 @@ offset_bottom = -240.0
 [connection signal="accept_category" from="ScrollContainer/Categories/OtherButton" to="ItemsTable/FilterButton" method="_on_category_chosen"]
 [connection signal="accept_category" from="ScrollContainer/Categories/OtherButton" to="BGMenu" method="_on_category_chosen" unbinds=1]
 [connection signal="pressed" from="ScrollContainer/Categories/OtherButton" to="ScrollContainer/Categories/OtherButton" method="_on_pressed"]
-[connection signal="accept_category" from="ScrollContainer/Categories/AllButton" to="." method="_on_category_chosen"]
-[connection signal="accept_category" from="ScrollContainer/Categories/AllButton" to="ItemsTable/CurrentCategoryLabel" method="_on_category_chosen"]
-[connection signal="accept_category" from="ScrollContainer/Categories/AllButton" to="ItemsTable/FilterButton" method="_on_category_chosen"]
-[connection signal="accept_category" from="ScrollContainer/Categories/AllButton" to="BGMenu" method="_on_category_chosen" unbinds=1]
-[connection signal="pressed" from="ScrollContainer/Categories/AllButton" to="ScrollContainer/Categories/AllButton" method="_on_pressed"]
 [connection signal="hidden" from="EditMoneyMenu" to="BGMenu" method="_on_adding_money_menu_hidden"]
 [connection signal="update_money" from="EditMoneyMenu" to="." method="_update_money"]
 [connection signal="hidden" from="AddItemMenu" to="BGMenu" method="_on_available_items_menu_hidden"]
