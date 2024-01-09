@@ -1,0 +1,555 @@
+[gd_scene load_steps=31 format=3 uid="uid://k2rxudooa77u"]
+
+[ext_resource type="Script" path="res://interface/scripts/InventoryMenu.gd" id="1_fcryy"]
+[ext_resource type="Texture2D" uid="uid://c8v0p52ajxo2l" path="res://interface/sprites/VectorBlack.png" id="2_o1gew"]
+[ext_resource type="Texture2D" uid="uid://dachm60mvxty8" path="res://interface/sprites/VectorRed.png" id="3_l82xd"]
+[ext_resource type="Texture2D" uid="uid://vhx86outocmp" path="res://interface/sprites/Copper.png" id="4_tg2gd"]
+[ext_resource type="Texture2D" uid="uid://dce6aqx316x7g" path="res://interface/sprites/Silver.png" id="5_mdbhk"]
+[ext_resource type="Texture2D" uid="uid://d07ljqlouva2n" path="res://interface/sprites/Gold.png" id="6_dwvab"]
+[ext_resource type="Texture2D" uid="uid://btwf2vffq2igq" path="res://interface/sprites/Weight.png" id="7_6bwe5"]
+[ext_resource type="Script" path="res://interface/scripts/HighlightMoney.gd" id="7_8p04l"]
+[ext_resource type="Texture2D" uid="uid://dcupqpsfwjm4h" path="res://interface/sprites/FilterBlack.png" id="8_hcfum"]
+[ext_resource type="Script" path="res://interface/scripts/ChangeCategoryType.gd" id="9_mkswj"]
+[ext_resource type="Texture2D" uid="uid://6m7dxqhxl6rr" path="res://interface/sprites/FilterRed.png" id="9_ny4y1"]
+[ext_resource type="Script" path="res://interface/scripts/HideScrollContainer.gd" id="10_mdex3"]
+[ext_resource type="PackedScene" uid="uid://com03gqu7ssh1" path="res://interface/scenes/EditMoneyMenu.tscn" id="11_141np"]
+[ext_resource type="Script" path="res://interface/scripts/CloseBGMenu.gd" id="11_owxx0"]
+[ext_resource type="Script" path="res://interface/scripts/ShowFilterState.gd" id="12_xmoxx"]
+[ext_resource type="PackedScene" uid="uid://d2i7etv7sshxd" path="res://interface/scenes/AddItemMenu.tscn" id="13_vmu5u"]
+[ext_resource type="Script" path="res://interface/scripts/AcceptCategory.gd" id="14_l6rw6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0h42a"]
+bg_color = Color(0.658824, 0.658824, 0.658824, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8pu5t"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vdj0"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(1, 0, 0, 0.6)
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ua1j"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2pnv3"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2bad"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(1, 0, 0, 0.6)
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7u2q"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7w8lw"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 4
+border_color = Color(0.721569, 0.721569, 0.721569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aytgw"]
+bg_color = Color(0, 0, 0, 0.819608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jbt8"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k82f1"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rf73y"]
+bg_color = Color(0, 0, 0, 0.32549)
+border_width_left = 2
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tjlrn"]
+
+[node name="InventoryMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fcryy")
+
+[node name="InventoryBG" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0h42a")
+
+[node name="ReturnButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 30.0
+offset_right = 87.0
+offset_bottom = 71.0
+scale = Vector2(1.5, 1.5)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_o1gew")
+texture_pressed = ExtResource("3_l82xd")
+texture_hover = ExtResource("3_l82xd")
+texture_disabled = ExtResource("3_l82xd")
+texture_focused = ExtResource("3_l82xd")
+
+[node name="MoneyPanel" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 150.0
+offset_top = 950.0
+offset_right = 710.0
+offset_bottom = 1030.0
+
+[node name="EditMoneyButton" type="Button" parent="MoneyPanel"]
+layout_mode = 0
+offset_right = 560.0
+offset_bottom = 80.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_8pu5t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3vdj0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8pu5t")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8pu5t")
+theme_override_styles/focus = SubResource("StyleBoxFlat_8pu5t")
+
+[node name="CopperImage" type="TextureRect" parent="MoneyPanel"]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 15.0
+offset_right = 185.0
+offset_bottom = 60.0
+mouse_filter = 2
+texture = ExtResource("4_tg2gd")
+
+[node name="SilverImage" type="TextureRect" parent="MoneyPanel"]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 15.0
+offset_right = 335.0
+offset_bottom = 60.0
+mouse_filter = 2
+texture = ExtResource("5_mdbhk")
+
+[node name="GoldenImage" type="TextureRect" parent="MoneyPanel"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 15.0
+offset_right = 485.0
+offset_bottom = 60.0
+mouse_filter = 2
+texture = ExtResource("6_dwvab")
+
+[node name="CopperLabel" type="Label" parent="MoneyPanel"]
+layout_mode = 0
+offset_left = 35.0
+offset_right = 125.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("7_8p04l")
+
+[node name="SilverLabel" type="Label" parent="MoneyPanel"]
+layout_mode = 0
+offset_left = 185.0
+offset_right = 275.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("7_8p04l")
+
+[node name="GoldenLabel" type="Label" parent="MoneyPanel"]
+layout_mode = 0
+offset_left = 335.0
+offset_right = 425.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("7_8p04l")
+
+[node name="WeightPanel" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 730.0
+offset_top = 950.0
+offset_right = 950.0
+offset_bottom = 1030.0
+
+[node name="WeightPanelBG" type="Panel" parent="WeightPanel"]
+layout_mode = 0
+offset_right = 220.0
+offset_bottom = 80.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7ua1j")
+
+[node name="WeightImage" type="TextureRect" parent="WeightPanel"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 15.0
+offset_right = 200.0
+offset_bottom = 60.0
+texture = ExtResource("7_6bwe5")
+
+[node name="WeightLabel" type="Label" parent="WeightPanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_right = 145.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "0/100"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="AddItemButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 970.0
+offset_top = 950.0
+offset_right = 1770.0
+offset_bottom = 1030.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_2pnv3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o2bad")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2pnv3")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_2pnv3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_2pnv3")
+text = "+ Добавить предмет"
+
+[node name="CharacterInventoryName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 20.0
+offset_right = 1320.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Инвентарь ..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemsTable" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 150.0
+offset_top = 100.0
+offset_right = 1770.0
+offset_bottom = 920.0
+
+[node name="ItemsPanel" type="Panel" parent="ItemsTable"]
+layout_mode = 0
+offset_right = 1620.0
+offset_bottom = 820.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i7u2q")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ItemsTable/ItemsPanel"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 120.0
+offset_right = 1560.0
+offset_bottom = 760.0
+
+[node name="ItemsContainer" type="GridContainer" parent="ItemsTable/ItemsPanel/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 745
+theme_override_constants/v_separation = 125
+columns = 2
+
+[node name="CurrentCategoryLabel" type="Label" parent="ItemsTable"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 40.0
+offset_right = 585.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_7w8lw")
+text = "Любая"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_mkswj")
+
+[node name="FilterButton" type="TextureButton" parent="ItemsTable"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 30.0
+offset_right = 110.0
+offset_bottom = 105.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("8_hcfum")
+texture_hover = ExtResource("9_ny4y1")
+texture_focused = ExtResource("9_ny4y1")
+script = ExtResource("12_xmoxx")
+
+[node name="BGMenu" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_aytgw")
+script = ExtResource("11_owxx0")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 285.0
+offset_top = 140.0
+offset_right = 735.0
+offset_bottom = 300.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3jbt8")
+script = ExtResource("10_mdex3")
+
+[node name="Categories" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Category7" type="Button" parent="ScrollContainer/Categories"]
+custom_minimum_size = Vector2(425, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_k82f1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
+text = "Любая"
+script = ExtResource("14_l6rw6")
+
+[node name="Category1" type="Button" parent="ScrollContainer/Categories"]
+custom_minimum_size = Vector2(425, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_k82f1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
+text = "Оружие"
+script = ExtResource("14_l6rw6")
+
+[node name="Category2" type="Button" parent="ScrollContainer/Categories"]
+custom_minimum_size = Vector2(425, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_k82f1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
+text = "Защита"
+script = ExtResource("14_l6rw6")
+
+[node name="Category3" type="Button" parent="ScrollContainer/Categories"]
+custom_minimum_size = Vector2(425, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_k82f1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
+text = "Инструмент"
+script = ExtResource("14_l6rw6")
+
+[node name="Category4" type="Button" parent="ScrollContainer/Categories"]
+custom_minimum_size = Vector2(425, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_k82f1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
+text = "Яд"
+script = ExtResource("14_l6rw6")
+
+[node name="Category5" type="Button" parent="ScrollContainer/Categories"]
+custom_minimum_size = Vector2(425, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_k82f1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
+text = "Магический"
+script = ExtResource("14_l6rw6")
+
+[node name="Category6" type="Button" parent="ScrollContainer/Categories"]
+custom_minimum_size = Vector2(425, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_k82f1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
+text = "Другое"
+script = ExtResource("14_l6rw6")
+
+[node name="EditMoneyMenu" parent="." instance=ExtResource("11_141np")]
+visible = false
+layout_mode = 1
+offset_left = 230.0
+offset_top = 620.0
+offset_right = -1290.0
+offset_bottom = -140.0
+
+[node name="AddItemMenu" parent="." instance=ExtResource("13_vmu5u")]
+visible = false
+layout_mode = 1
+offset_left = 560.0
+offset_top = 240.0
+offset_right = -560.0
+offset_bottom = -240.0
+
+[connection signal="pressed" from="ReturnButton" to="." method="_on_change_scene_pressed"]
+[connection signal="mouse_entered" from="MoneyPanel/EditMoneyButton" to="MoneyPanel/CopperLabel" method="_on_money_button_mouse_entered"]
+[connection signal="mouse_entered" from="MoneyPanel/EditMoneyButton" to="MoneyPanel/SilverLabel" method="_on_money_button_mouse_entered"]
+[connection signal="mouse_entered" from="MoneyPanel/EditMoneyButton" to="MoneyPanel/GoldenLabel" method="_on_money_button_mouse_entered"]
+[connection signal="mouse_exited" from="MoneyPanel/EditMoneyButton" to="MoneyPanel/CopperLabel" method="_on_money_button_mouse_exited"]
+[connection signal="mouse_exited" from="MoneyPanel/EditMoneyButton" to="MoneyPanel/SilverLabel" method="_on_money_button_mouse_exited"]
+[connection signal="mouse_exited" from="MoneyPanel/EditMoneyButton" to="MoneyPanel/GoldenLabel" method="_on_money_button_mouse_exited"]
+[connection signal="pressed" from="MoneyPanel/EditMoneyButton" to="BGMenu" method="_on_money_button_pressed"]
+[connection signal="pressed" from="MoneyPanel/EditMoneyButton" to="EditMoneyMenu" method="_on_money_button_pressed"]
+[connection signal="pressed" from="AddItemButton" to="BGMenu" method="_on_add_item_button_pressed"]
+[connection signal="pressed" from="AddItemButton" to="AddItemMenu" method="_on_add_item_button_pressed"]
+[connection signal="update_filter_state" from="ItemsTable/CurrentCategoryLabel" to="ItemsTable/FilterButton" method="_on_current_category_label_update_filter_state"]
+[connection signal="pressed" from="ItemsTable/FilterButton" to="ItemsTable/CurrentCategoryLabel" method="_on_filter_button_pressed"]
+[connection signal="pressed" from="ItemsTable/FilterButton" to="ItemsTable/FilterButton" method="_on_pressed"]
+[connection signal="pressed" from="ItemsTable/FilterButton" to="BGMenu" method="_on_filter_button_pressed"]
+[connection signal="pressed" from="ItemsTable/FilterButton" to="ScrollContainer" method="_on_filter_button_pressed"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category7" to="ItemsTable/CurrentCategoryLabel" method="_on_category_7_accept_category"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category7" to="BGMenu" method="_on_category_7_accept_category"]
+[connection signal="pressed" from="ScrollContainer/Categories/Category7" to="ScrollContainer/Categories/Category7" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category1" to="ItemsTable/CurrentCategoryLabel" method="_on_category_1_accept_category"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category1" to="BGMenu" method="_on_category_1_accept_category"]
+[connection signal="pressed" from="ScrollContainer/Categories/Category1" to="ScrollContainer/Categories/Category1" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category2" to="ItemsTable/CurrentCategoryLabel" method="_on_category_2_accept_category"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category2" to="BGMenu" method="_on_category_2_accept_category"]
+[connection signal="pressed" from="ScrollContainer/Categories/Category2" to="ScrollContainer/Categories/Category2" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category3" to="ItemsTable/CurrentCategoryLabel" method="_on_category_3_accept_category"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category3" to="BGMenu" method="_on_category_3_accept_category"]
+[connection signal="pressed" from="ScrollContainer/Categories/Category3" to="ScrollContainer/Categories/Category3" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category4" to="ItemsTable/CurrentCategoryLabel" method="_on_category_4_accept_category"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category4" to="BGMenu" method="_on_category_4_accept_category"]
+[connection signal="pressed" from="ScrollContainer/Categories/Category4" to="ScrollContainer/Categories/Category4" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category5" to="ItemsTable/CurrentCategoryLabel" method="_on_category_5_accept_category"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category5" to="BGMenu" method="_on_category_5_accept_category"]
+[connection signal="pressed" from="ScrollContainer/Categories/Category5" to="ScrollContainer/Categories/Category5" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category6" to="ItemsTable/CurrentCategoryLabel" method="_on_category_6_accept_category"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category6" to="BGMenu" method="_on_category_6_accept_category"]
+[connection signal="pressed" from="ScrollContainer/Categories/Category6" to="ScrollContainer/Categories/Category6" method="_on_pressed"]
+[connection signal="hidden" from="EditMoneyMenu" to="BGMenu" method="_on_adding_money_menu_hidden"]
+[connection signal="update_money" from="EditMoneyMenu" to="." method="_update_money"]
+[connection signal="hidden" from="AddItemMenu" to="BGMenu" method="_on_available_items_menu_hidden"]
