@@ -29,8 +29,9 @@ func on_character_death(name):
 	new_save_string.store_string(json_string)
 
 func on_character_rename(old_name, new_name):
-	save[new_name] = save[old_name].duplicate()
+	var new_save = save[old_name].duplicate()
 	save.erase(old_name)
+	save[new_name] = new_save
 	var new_save_string = FileAccess.open("res://database/save_test.json",FileAccess.WRITE)
 	var json_string = JSON.stringify(save, " ", 4)
 	new_save_string.store_string(json_string)
