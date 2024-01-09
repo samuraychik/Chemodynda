@@ -239,6 +239,7 @@ script = ExtResource("12_n2a57")
 [connection signal="text_changed" from="LineEdit" to="LineEdit" method="_on_text_changed"]
 [connection signal="text_submitted" from="LineEdit" to="." method="on_rename"]
 [connection signal="text_submitted" from="LineEdit" to="LineEdit" method="_on_text_submitted"]
+[connection signal="pressed" from="PickButton" to="." method="on_pressed"]
 [connection signal="pressed" from="SelfDestructMenu/SelfDestructPanel/СonfirmButton" to="." method="on_delete"]
 [connection signal="pressed" from="SelfDestructMenu/SelfDestructPanel/СonfirmButton" to="SelfDestructMenu/SelfDestructPanel/СonfirmButton" method="on_confirm_self_destruct_button_pressed"]
 [connection signal="pressed" from="SelfDestructMenu/SelfDestructPanel/RefuseButton" to="SelfDestructMenu/SelfDestructPanel/RefuseButton" method="on_refuse_button"]

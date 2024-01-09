@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://pc8xyifyqa27"]
 
-[ext_resource type="Script" path="res://interface/scripts/ChangeScene.gd" id="1_27lod"]
+[ext_resource type="Script" path="res://interface/scenes/PresetsMenu.gd" id="1_oknwk"]
 [ext_resource type="Texture2D" uid="uid://c8v0p52ajxo2l" path="res://interface/sprites/VectorBlack.png" id="2_gk313"]
 [ext_resource type="Texture2D" uid="uid://dachm60mvxty8" path="res://interface/sprites/VectorRed.png" id="3_myf0b"]
 
@@ -33,7 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_27lod")
+script = ExtResource("1_oknwk")
 
 [node name="BGPanel" type="Panel" parent="."]
 layout_mode = 0
@@ -108,5 +108,5 @@ texture_hover = ExtResource("3_myf0b")
 texture_disabled = ExtResource("3_myf0b")
 texture_focused = ExtResource("3_myf0b")
 
-[connection signal="pressed" from="Presets/YourPresetButton" to="." method="on_change_scene_pressed" binds= [2]]
-[connection signal="pressed" from="ReturnButton" to="." method="on_change_scene_pressed" binds= [0]]
+[connection signal="pressed" from="Presets/YourPresetButton" to="." method="on_change_scene_pressed"]
+[connection signal="pressed" from="ReturnButton" to="." method="on_return_pressed"]

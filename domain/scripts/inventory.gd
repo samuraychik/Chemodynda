@@ -6,12 +6,14 @@ signal negative_item_count
 
 var items: Dictionary
 var money: Money
+var char_name: String
 
 
 func _init():
 	# new empty inventory
 	items = {}
 	money = Money.new(0, 0, 0)
+	char_name = "eblanchik"
 
 
 func add_item(item: Item, count: int):
@@ -40,6 +42,14 @@ func get_money() -> Money:
 
 func set_money(new_money: Money):
 	money = Money.new(new_money.golden, new_money.silver, new_money.copper)
+	
+	
+func get_char_name() -> String:
+	return char_name
+
+
+func set_char_name(new_char_name: String):
+	char_name = new_char_name
 
 
 func get_total_weight() -> float:
