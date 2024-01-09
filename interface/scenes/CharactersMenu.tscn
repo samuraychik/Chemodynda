@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://c5ulx4f5yax3r"]
 
-[ext_resource type="Script" path="res://interface/scripts/ChangeScene.gd" id="1_t6s2b"]
+[ext_resource type="Script" path="res://interface/scenes/CharactersMenu.gd" id="1_ras3k"]
 [ext_resource type="Texture2D" uid="uid://csaqqfp04pshu" path="res://interface/sprites/QuitBlack.png" id="2_o2dyu"]
 [ext_resource type="Texture2D" uid="uid://ddfk4csrnyvx" path="res://interface/sprites/QuitRed.png" id="3_ns7m5"]
 [ext_resource type="Script" path="res://interface/scripts/OpenExitMenu.gd" id="4_q1qmk"]
@@ -72,7 +72,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-script = ExtResource("1_t6s2b")
+script = ExtResource("1_ras3k")
 
 [node name="BottomPanel" type="Panel" parent="."]
 layout_mode = 0
@@ -241,7 +241,7 @@ texture_focused = ExtResource("9_sw6wg")
 script = ExtResource("10_1ujha")
 
 [connection signal="pressed" from="BottomPanel/Characters/NewCharacterButton" to="." method="on_change_scene_pressed" binds= [1]]
-[connection signal="pressed" from="Exit/ExitButton" to="Exit/ExitButton" method="open_exit_menu"]
 [connection signal="pressed" from="Exit/ExitButton" to="Exit/ExitButton" method="on_exit_pressed"]
+[connection signal="pressed" from="Exit/ExitButton" to="Exit/ExitButton" method="open_exit_menu"]
 [connection signal="pressed" from="Exit/ExitPanel/СonfirmButton" to="Exit/ExitPanel/СonfirmButton" method="on_confirm_pressed"]
 [connection signal="pressed" from="Exit/ExitPanel/RefuseButton" to="Exit/ExitPanel/RefuseButton" method="on_refuse_button"]
