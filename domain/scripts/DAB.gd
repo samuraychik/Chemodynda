@@ -16,7 +16,7 @@ func item_by_id(id):
 					Item.ItemCategory.ARMOR,
 					Item.ItemRarity.NONE,
 					parse_money(new_item_chars["cost"]),
-					int(new_item_chars["weight"].replace(" фнт.", "")))
+					float(new_item_chars["weight"].replace(" фнт.", "")))
 			"2":
 				return Item.new(
 					new_item_chars["id"],
@@ -25,7 +25,7 @@ func item_by_id(id):
 					Item.ItemCategory.WEAPON,
 					Item.ItemRarity.NONE,
 					parse_money(new_item_chars["cost"]),
-					int(new_item_chars["weight"].replace(" фнт.", "")))
+					float(new_item_chars["weight"].replace(" фнт.", "")))
 			"3":
 				return Item.new(
 					new_item_chars["id"],
@@ -34,7 +34,16 @@ func item_by_id(id):
 					Item.ItemCategory.OTHER,
 					Item.ItemRarity.NONE,
 					parse_money(new_item_chars["cost"]),
-					int(new_item_chars["weight"].replace(" фнт.", "")))
+					float(new_item_chars["weight"].replace(" фнт.", "")))
+			"4":
+				return Item.new(
+					new_item_chars["id"],
+					new_item_name,
+					new_item_chars["description"],
+					Item.ItemCategory.TOOL,
+					Item.ItemRarity.NONE,
+					parse_money(new_item_chars["cost"]),
+					float(new_item_chars["weight"].replace(" фнт.", "")))
 			"5":
 				return Item.new(
 					new_item_chars["id"],
@@ -43,7 +52,7 @@ func item_by_id(id):
 					Item.ItemCategory.POISON,
 					Item.ItemRarity.NONE,
 					parse_money(new_item_chars["cost"]),
-					int(new_item_chars["weight"].replace(" фнт.", "")))
+					float(new_item_chars["weight"].replace(" фнт.", "")))
 			"6":
 				return Item.new(
 					new_item_chars["id"],
@@ -52,7 +61,7 @@ func item_by_id(id):
 					Item.ItemCategory.MAGICAL,
 					parse_rarity(new_item_chars["rarity"]),
 					parse_money(new_item_chars["cost"]),
-					int(new_item_chars["weight"].replace(" фнт.", "")))
+					float(new_item_chars["weight"].replace(" фнт.", "")))
 	
 	
 func find_item(id):
@@ -60,6 +69,7 @@ func find_item(id):
 		"1": "armor.json",
 		"2": "weapon.json",
 		"3": "equip.json",
+		#TODO обновить, когда дадут тулсы
 		"5": "poison.json",
 		"6": "magic.json"
 	}
@@ -102,3 +112,18 @@ func parse_rarity(rarity_string):
 		"легендарное": Item.ItemRarity.LEGENDARY
 	}
 	return choose_rarity[rarity_string]
+	
+func add_custom(name, chars : Dictionary):
+	pass
+	
+func get_max_custom_id():
+	var max_id = 70000 
+	var items = {}
+	if FileAccess.file_exists("res://database/custom.json"):
+		var save_string = FileAccess.open("res://database/custom.json",FileAccess.READ)
+		items = JSON.parse_string(save_string.get_as_text())
+	else:
+		items = {}
+	for item in items:
+		max_id = max(items[item]["id"], max_id)
+	return max_id
