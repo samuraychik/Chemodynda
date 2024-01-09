@@ -409,4 +409,4 @@ offset_bottom = 0.0
 [connection signal="accept_category" from="ScrollContainerForCategories/Categories/OtherButton" to="FilterButton" method="_on_category_chosen"]
 [connection signal="accept_category" from="ScrollContainerForCategories/Categories/OtherButton" to="BGMenu" method="_on_category_chosen" unbinds=1]
 [connection signal="pressed" from="ScrollContainerForCategories/Categories/OtherButton" to="ScrollContainerForCategories/Categories/OtherButton" method="_on_pressed"]
-[connection signal="close_add_item_menu" from="AddCustomItemMenu" to="." method="_close_add_item_menu"]
+[connection signal="item_added" from="AddCustomItemMenu" to="." method="_on_item_added"]

@@ -1,6 +1,6 @@
 extends Control
 
-signal close_add_item_menu
+signal item_added
 var og_item: Item
 var from_dab: bool
 var old_money: Money
@@ -9,22 +9,26 @@ var new_money: Money
 
 func on_item_card_pressed(item: Item):
 	visible = true
-	_init_old_money()
-
+	_init_money()
 	from_dab = true
 	og_item = item
 	_autofill()
 
 
-func _init_old_money():
+func _init_money():
 	old_money = CurrentInventory.get_money()
+	_update_new_money()
 
 
 func _update_new_money():
 	var price = Money.new(int($GoldenInput.text), int($SilverInput.text), int($CopperInput.text))
 	var total_price = price.get_multiple(int($CountInput.text))
-	var new_money = old_money.remove_money(total_price)
-	$AcceptButton.disabled = not new_money.is_valid()
+	new_money = Money.new(
+		old_money.golden - total_price.golden,
+		old_money.silver - total_price.silver,
+		old_money.copper - total_price.copper
+	)
+	$AcceptButton.disabled = $BuyButton.button_pressed and not new_money.is_valid()
 
 
 func _autofill():
@@ -81,30 +85,31 @@ func _get_cost() -> Money:
 
 func _on_add_custom_item_button_pressed():
 	visible = true
-	_init_old_money()
-
+	$GoldenInput.text = ""
+	$SilverInput.text = ""
+	$CopperInput.text = ""
+	_init_money()
 	from_dab = false
 
 
 func _on_accept_pressed():
 	if from_dab and _is_unchanged():
-		print("unchanged!")
-		_add_item(og_item)
+		_add_to_inventory(og_item)
 	else:
-		print("changed!")
-		_add_item(Item.new(
-			77777,
-			$ItemNameInput.text,
+		var new_item = Item.new(
+			Dab.get_max_custom_id(),
+			"*" + $ItemNameInput.text,
 			$DescriptionTextEdit.text,
 			_get_category(),
 			Item.ItemRarity.NONE,
 			_get_cost(),
 			int($WeightInput.text),
 			$MagicalButton.button_pressed
-			)
 		)
+		_add_to_inventory(new_item)
+		Dab.add_custom(new_item)
 
-	close_add_item_menu.emit()
+	item_added.emit()
 	visible = false
 
 
@@ -120,7 +125,7 @@ func _is_unchanged() -> bool:
 	and og_item.is_magical == $MagicalButton.button_pressed
 
 
-func _add_item(item: Item):
+func _add_to_inventory(item: Item):
 	if $BuyButton.button_pressed:
 		CurrentInventory.set_money(new_money)
 	CurrentInventory.add_item(item, int($CountInput.text))
