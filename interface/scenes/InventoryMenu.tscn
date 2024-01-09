@@ -9,14 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://btwf2vffq2igq" path="res://interface/sprites/Weight.png" id="7_6bwe5"]
 [ext_resource type="Script" path="res://interface/scripts/HighlightMoney.gd" id="7_8p04l"]
 [ext_resource type="Texture2D" uid="uid://dcupqpsfwjm4h" path="res://interface/sprites/FilterBlack.png" id="8_hcfum"]
-[ext_resource type="Script" path="res://interface/scripts/ChangeCategoryType.gd" id="9_mkswj"]
+[ext_resource type="Script" path="res://interface/scripts/CurrentCategory.gd" id="9_mkswj"]
 [ext_resource type="Texture2D" uid="uid://6m7dxqhxl6rr" path="res://interface/sprites/FilterRed.png" id="9_ny4y1"]
 [ext_resource type="Script" path="res://interface/scripts/HideScrollContainer.gd" id="10_mdex3"]
 [ext_resource type="PackedScene" uid="uid://com03gqu7ssh1" path="res://interface/scenes/EditMoneyMenu.tscn" id="11_141np"]
 [ext_resource type="Script" path="res://interface/scripts/CloseBGMenu.gd" id="11_owxx0"]
 [ext_resource type="Script" path="res://interface/scripts/ShowFilterState.gd" id="12_xmoxx"]
 [ext_resource type="PackedScene" uid="uid://d2i7etv7sshxd" path="res://interface/scenes/AddItemMenu.tscn" id="13_vmu5u"]
-[ext_resource type="Script" path="res://interface/scripts/AcceptCategory.gd" id="14_l6rw6"]
+[ext_resource type="Script" path="res://interface/scripts/CategoryButton.gd" id="14_l6rw6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0h42a"]
 bg_color = Color(0.658824, 0.658824, 0.658824, 1)
@@ -371,25 +371,7 @@ script = ExtResource("10_mdex3")
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Category7" type="Button" parent="ScrollContainer/Categories"]
-custom_minimum_size = Vector2(425, 40)
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = SubResource("StyleBoxFlat_k82f1")
-theme_override_styles/hover = SubResource("StyleBoxFlat_rf73y")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_rf73y")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_rf73y")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
-text = "Любая"
-script = ExtResource("14_l6rw6")
-
-[node name="Category1" type="Button" parent="ScrollContainer/Categories"]
+[node name="WeaponButton" type="Button" parent="ScrollContainer/Categories"]
 custom_minimum_size = Vector2(425, 40)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
@@ -407,7 +389,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
 text = "Оружие"
 script = ExtResource("14_l6rw6")
 
-[node name="Category2" type="Button" parent="ScrollContainer/Categories"]
+[node name="ArmorButton" type="Button" parent="ScrollContainer/Categories"]
 custom_minimum_size = Vector2(425, 40)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
@@ -425,7 +407,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
 text = "Защита"
 script = ExtResource("14_l6rw6")
 
-[node name="Category3" type="Button" parent="ScrollContainer/Categories"]
+[node name="ToolButton" type="Button" parent="ScrollContainer/Categories"]
 custom_minimum_size = Vector2(425, 40)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
@@ -440,10 +422,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_rf73y")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rf73y")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_rf73y")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
-text = "Инструмент"
+text = "Инструменты"
 script = ExtResource("14_l6rw6")
 
-[node name="Category4" type="Button" parent="ScrollContainer/Categories"]
+[node name="PoisonButton" type="Button" parent="ScrollContainer/Categories"]
 custom_minimum_size = Vector2(425, 40)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
@@ -458,10 +440,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_rf73y")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rf73y")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_rf73y")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
-text = "Яд"
+text = "Яды"
 script = ExtResource("14_l6rw6")
 
-[node name="Category5" type="Button" parent="ScrollContainer/Categories"]
+[node name="MagicalButton" type="Button" parent="ScrollContainer/Categories"]
 custom_minimum_size = Vector2(425, 40)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
@@ -476,10 +458,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_rf73y")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rf73y")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_rf73y")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
-text = "Магический"
+text = "Магические"
 script = ExtResource("14_l6rw6")
 
-[node name="Category6" type="Button" parent="ScrollContainer/Categories"]
+[node name="OtherButton" type="Button" parent="ScrollContainer/Categories"]
 custom_minimum_size = Vector2(425, 40)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
@@ -495,6 +477,24 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_rf73y")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_rf73y")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
 text = "Другое"
+script = ExtResource("14_l6rw6")
+
+[node name="AllButton" type="Button" parent="ScrollContainer/Categories"]
+custom_minimum_size = Vector2(425, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_k82f1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
+text = "Все"
 script = ExtResource("14_l6rw6")
 
 [node name="EditMoneyMenu" parent="." instance=ExtResource("11_141np")]
@@ -524,32 +524,44 @@ offset_bottom = -240.0
 [connection signal="pressed" from="MoneyPanel/EditMoneyButton" to="EditMoneyMenu" method="_on_money_button_pressed"]
 [connection signal="pressed" from="AddItemButton" to="BGMenu" method="_on_add_item_button_pressed"]
 [connection signal="pressed" from="AddItemButton" to="AddItemMenu" method="_on_add_item_button_pressed"]
-[connection signal="update_filter_state" from="ItemsTable/CurrentCategoryLabel" to="ItemsTable/FilterButton" method="_on_current_category_label_update_filter_state"]
 [connection signal="pressed" from="ItemsTable/FilterButton" to="ItemsTable/CurrentCategoryLabel" method="_on_filter_button_pressed"]
-[connection signal="pressed" from="ItemsTable/FilterButton" to="ItemsTable/FilterButton" method="_on_pressed"]
 [connection signal="pressed" from="ItemsTable/FilterButton" to="BGMenu" method="_on_filter_button_pressed"]
 [connection signal="pressed" from="ItemsTable/FilterButton" to="ScrollContainer" method="_on_filter_button_pressed"]
-[connection signal="accept_category" from="ScrollContainer/Categories/Category7" to="ItemsTable/CurrentCategoryLabel" method="_on_category_7_accept_category"]
-[connection signal="accept_category" from="ScrollContainer/Categories/Category7" to="BGMenu" method="_on_category_7_accept_category"]
-[connection signal="pressed" from="ScrollContainer/Categories/Category7" to="ScrollContainer/Categories/Category7" method="_on_pressed"]
-[connection signal="accept_category" from="ScrollContainer/Categories/Category1" to="ItemsTable/CurrentCategoryLabel" method="_on_category_1_accept_category"]
-[connection signal="accept_category" from="ScrollContainer/Categories/Category1" to="BGMenu" method="_on_category_1_accept_category"]
-[connection signal="pressed" from="ScrollContainer/Categories/Category1" to="ScrollContainer/Categories/Category1" method="_on_pressed"]
-[connection signal="accept_category" from="ScrollContainer/Categories/Category2" to="ItemsTable/CurrentCategoryLabel" method="_on_category_2_accept_category"]
-[connection signal="accept_category" from="ScrollContainer/Categories/Category2" to="BGMenu" method="_on_category_2_accept_category"]
-[connection signal="pressed" from="ScrollContainer/Categories/Category2" to="ScrollContainer/Categories/Category2" method="_on_pressed"]
-[connection signal="accept_category" from="ScrollContainer/Categories/Category3" to="ItemsTable/CurrentCategoryLabel" method="_on_category_3_accept_category"]
-[connection signal="accept_category" from="ScrollContainer/Categories/Category3" to="BGMenu" method="_on_category_3_accept_category"]
-[connection signal="pressed" from="ScrollContainer/Categories/Category3" to="ScrollContainer/Categories/Category3" method="_on_pressed"]
-[connection signal="accept_category" from="ScrollContainer/Categories/Category4" to="ItemsTable/CurrentCategoryLabel" method="_on_category_4_accept_category"]
-[connection signal="accept_category" from="ScrollContainer/Categories/Category4" to="BGMenu" method="_on_category_4_accept_category"]
-[connection signal="pressed" from="ScrollContainer/Categories/Category4" to="ScrollContainer/Categories/Category4" method="_on_pressed"]
-[connection signal="accept_category" from="ScrollContainer/Categories/Category5" to="ItemsTable/CurrentCategoryLabel" method="_on_category_5_accept_category"]
-[connection signal="accept_category" from="ScrollContainer/Categories/Category5" to="BGMenu" method="_on_category_5_accept_category"]
-[connection signal="pressed" from="ScrollContainer/Categories/Category5" to="ScrollContainer/Categories/Category5" method="_on_pressed"]
-[connection signal="accept_category" from="ScrollContainer/Categories/Category6" to="ItemsTable/CurrentCategoryLabel" method="_on_category_6_accept_category"]
-[connection signal="accept_category" from="ScrollContainer/Categories/Category6" to="BGMenu" method="_on_category_6_accept_category"]
-[connection signal="pressed" from="ScrollContainer/Categories/Category6" to="ScrollContainer/Categories/Category6" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainer/Categories/WeaponButton" to="." method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/WeaponButton" to="ItemsTable/CurrentCategoryLabel" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/WeaponButton" to="ItemsTable/FilterButton" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/WeaponButton" to="BGMenu" method="_on_category_chosen" unbinds=1]
+[connection signal="pressed" from="ScrollContainer/Categories/WeaponButton" to="ScrollContainer/Categories/WeaponButton" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainer/Categories/ArmorButton" to="." method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/ArmorButton" to="ItemsTable/CurrentCategoryLabel" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/ArmorButton" to="ItemsTable/FilterButton" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/ArmorButton" to="BGMenu" method="_on_category_chosen" unbinds=1]
+[connection signal="pressed" from="ScrollContainer/Categories/ArmorButton" to="ScrollContainer/Categories/ArmorButton" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainer/Categories/ToolButton" to="." method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/ToolButton" to="ItemsTable/CurrentCategoryLabel" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/ToolButton" to="ItemsTable/FilterButton" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/ToolButton" to="BGMenu" method="_on_category_chosen" unbinds=1]
+[connection signal="pressed" from="ScrollContainer/Categories/ToolButton" to="ScrollContainer/Categories/ToolButton" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainer/Categories/PoisonButton" to="." method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/PoisonButton" to="ItemsTable/CurrentCategoryLabel" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/PoisonButton" to="ItemsTable/FilterButton" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/PoisonButton" to="BGMenu" method="_on_category_chosen" unbinds=1]
+[connection signal="pressed" from="ScrollContainer/Categories/PoisonButton" to="ScrollContainer/Categories/PoisonButton" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainer/Categories/MagicalButton" to="." method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/MagicalButton" to="ItemsTable/CurrentCategoryLabel" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/MagicalButton" to="ItemsTable/FilterButton" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/MagicalButton" to="BGMenu" method="_on_category_chosen" unbinds=1]
+[connection signal="pressed" from="ScrollContainer/Categories/MagicalButton" to="ScrollContainer/Categories/MagicalButton" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainer/Categories/OtherButton" to="." method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/OtherButton" to="ItemsTable/CurrentCategoryLabel" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/OtherButton" to="ItemsTable/FilterButton" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/OtherButton" to="BGMenu" method="_on_category_chosen" unbinds=1]
+[connection signal="pressed" from="ScrollContainer/Categories/OtherButton" to="ScrollContainer/Categories/OtherButton" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainer/Categories/AllButton" to="." method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/AllButton" to="ItemsTable/CurrentCategoryLabel" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/AllButton" to="ItemsTable/FilterButton" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainer/Categories/AllButton" to="BGMenu" method="_on_category_chosen" unbinds=1]
+[connection signal="pressed" from="ScrollContainer/Categories/AllButton" to="ScrollContainer/Categories/AllButton" method="_on_pressed"]
 [connection signal="hidden" from="EditMoneyMenu" to="BGMenu" method="_on_adding_money_menu_hidden"]
 [connection signal="update_money" from="EditMoneyMenu" to="." method="_update_money"]
 [connection signal="hidden" from="AddItemMenu" to="BGMenu" method="_on_available_items_menu_hidden"]

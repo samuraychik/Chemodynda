@@ -10,9 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://dce6aqx316x7g" path="res://interface/sprites/Silver.png" id="7_vat8r"]
 [ext_resource type="Texture2D" uid="uid://d07ljqlouva2n" path="res://interface/sprites/Gold.png" id="8_1ux2s"]
 [ext_resource type="Script" path="res://interface/scripts/HideScrollContainer.gd" id="9_h1jcs"]
-[ext_resource type="Script" path="res://interface/scripts/ChangeCategoryType.gd" id="10_8o16u"]
+[ext_resource type="Script" path="res://interface/scripts/CurrentCategory.gd" id="10_8o16u"]
 [ext_resource type="Script" path="res://interface/scripts/CloseBGMenu.gd" id="11_b3rmc"]
-[ext_resource type="Script" path="res://interface/scripts/AcceptCategory.gd" id="12_ij0qo"]
+[ext_resource type="Script" path="res://interface/scripts/CategoryButton.gd" id="12_ij0qo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3jcx"]
 bg_color = Color(1, 1, 1, 1)
