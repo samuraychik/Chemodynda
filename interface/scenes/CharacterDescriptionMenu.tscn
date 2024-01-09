@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsfq3hr0ydunj"]
+[gd_scene load_steps=2 format=3 uid="uid://bywlstgpemr7u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmm7w"]
 bg_color = Color(1, 1, 1, 1)
@@ -21,11 +21,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BGPanel" type="Panel" parent="."]
+layout_mode = 0
 offset_right = 1050.0
 offset_bottom = 600.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_pmm7w")
 
 [node name="ItemNameTitleLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 39.0
 offset_top = 36.0
 offset_right = 159.0
