@@ -140,3 +140,5 @@ offset_right = 125.0
 offset_bottom = 55.0
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_fkr07")
+
+[connection signal="pressed" from="ItemNameButton" to="." method="_on_item_card_pressed"]

@@ -36,7 +36,8 @@ func _init(
 	init_name: String, init_desc: String,
 	init_category: Item.ItemCategory,
 	init_rarity: Item.ItemRarity,
-	init_cost: Money, init_weight: float
+	init_cost: Money, init_weight: float,
+	init_magical=false
 	):
 		id = init_id
 		item_name = init_name
@@ -45,7 +46,10 @@ func _init(
 		rarity = init_rarity
 		cost = init_cost
 		weight = init_weight
-		is_magical = str(id)[0] == "6"
+		if init_magical:
+			is_magical = true
+		else:
+			is_magical = str(id)[0] == "6"
 
 
 func get_cost_of_count(count: int) -> Money:
