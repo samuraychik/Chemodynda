@@ -360,9 +360,9 @@ offset_left = -125.0
 offset_right = 125.0
 offset_bottom = 0.0
 
+[connection signal="text_changed" from="SearchInput" to="." method="on_search"]
 [connection signal="text_changed" from="SearchInput" to="SearchInput" method="_on_text_changed"]
 [connection signal="pressed" from="AddCustomItemButton" to="AddCustomItemMenu" method="_on_add_custom_item_button_pressed"]
-[connection signal="update_filter_state" from="CurrentCategoryLabel" to="FilterButton" method="_on_current_category_label_update_filter_state"]
 [connection signal="pressed" from="FilterButton" to="BGMenu" method="_on_filter_button_pressed"]
 [connection signal="pressed" from="FilterButton" to="ScrollContainerForCategories" method="_on_filter_button_pressed"]
 [connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]

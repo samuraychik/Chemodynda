@@ -21,6 +21,7 @@ boot_splash/minimum_display_time=4000
 [autoload]
 
 CurrentInventory="*res://domain/scripts/Inventory.gd"
+Dab="*res://domain/scripts/DAB.gd"
 
 [display]
 
