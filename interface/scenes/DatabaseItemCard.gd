@@ -11,8 +11,6 @@ func set_item(new_item: Item):
 
 func update_card():
 	$ItemNameButton.text = item.item_name
-	$WeightLabel.text = str(item.weight)
-	$CountLabel.text = str(CurrentInventory.get_item_count(item))
 	_update_money_labels()
 	_update_category_image()
 	_update_magical_status()

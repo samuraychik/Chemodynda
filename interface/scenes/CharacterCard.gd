@@ -6,6 +6,7 @@ signal character_selected
 
 var char_name: String
 
+
 func set_char_name(new_name: String):
 	char_name = new_name
 	$PickButton.text = char_name
