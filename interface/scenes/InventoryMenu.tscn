@@ -513,6 +513,7 @@ offset_top = 240.0
 offset_right = -560.0
 offset_bottom = -240.0
 
+[connection signal="pressed" from="ReturnButton" to="." method="_on_change_scene_pressed"]
 [connection signal="mouse_entered" from="MoneyPanel/EditMoneyButton" to="MoneyPanel/CopperLabel" method="_on_money_button_mouse_entered"]
 [connection signal="mouse_entered" from="MoneyPanel/EditMoneyButton" to="MoneyPanel/SilverLabel" method="_on_money_button_mouse_entered"]
 [connection signal="mouse_entered" from="MoneyPanel/EditMoneyButton" to="MoneyPanel/GoldenLabel" method="_on_money_button_mouse_entered"]

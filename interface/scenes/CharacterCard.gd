@@ -2,6 +2,7 @@ extends Control
 var save_name
 signal character_deleted
 signal character_renamed
+signal character_selected
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,4 +19,9 @@ func on_delete():
 func on_rename(new_name):
 	character_renamed.emit(save_name, new_name)
 	save_name = new_name
+	
+func on_pressed():
+	var newScene: PackedScene = ResourceLoader.load("res://interface/scenes/InventoryMenu.tscn")
+	CurrentInventory.set_char_name(save_name)
+	get_tree().change_scene_to_packed(newScene)
 	

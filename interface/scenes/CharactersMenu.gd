@@ -5,7 +5,7 @@ var save = {}
 var card_scene = preload("res://interface/scenes/CharacterCard.tscn")
 
 func on_change_scene_pressed(number_scene : int):
-	var newScene: PackedScene = ResourceLoader.load("res://interface/scenes/main_scenes/PresetsMenu.tscn")
+	var newScene: PackedScene = ResourceLoader.load("res://interface/scenes/PresetsMenu.tscn")
 	get_tree().change_scene_to_packed(newScene)
 
 func _ready():
