@@ -228,7 +228,7 @@ script = ExtResource("6_uqe6n")
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Category7" type="Button" parent="ScrollContainerForCategories/Categories"]
+[node name="AllButton" type="Button" parent="ScrollContainerForCategories/Categories"]
 custom_minimum_size = Vector2(280, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -244,10 +244,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_jrrc4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jrrc4")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_jrrc4")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_lir2c")
-text = "Любая"
+text = "Все"
 script = ExtResource("7_1vpdc")
 
-[node name="Category1" type="Button" parent="ScrollContainerForCategories/Categories"]
+[node name="WeaponButton" type="Button" parent="ScrollContainerForCategories/Categories"]
 custom_minimum_size = Vector2(280, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -266,7 +266,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_jrrc4")
 text = "Оружие"
 script = ExtResource("7_1vpdc")
 
-[node name="Category2" type="Button" parent="ScrollContainerForCategories/Categories"]
+[node name="ArmorButton" type="Button" parent="ScrollContainerForCategories/Categories"]
 custom_minimum_size = Vector2(280, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -285,7 +285,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_lir2c")
 text = "Защита"
 script = ExtResource("7_1vpdc")
 
-[node name="Category3" type="Button" parent="ScrollContainerForCategories/Categories"]
+[node name="ToolButton" type="Button" parent="ScrollContainerForCategories/Categories"]
 custom_minimum_size = Vector2(280, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -301,10 +301,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_jrrc4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jrrc4")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_jrrc4")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_lir2c")
-text = "Инструмент"
+text = "Инструменты"
 script = ExtResource("7_1vpdc")
 
-[node name="Category4" type="Button" parent="ScrollContainerForCategories/Categories"]
+[node name="PoisonButton" type="Button" parent="ScrollContainerForCategories/Categories"]
 custom_minimum_size = Vector2(280, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -320,10 +320,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_jrrc4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jrrc4")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_jrrc4")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_lir2c")
-text = "Яд"
+text = "Яды"
 script = ExtResource("7_1vpdc")
 
-[node name="Category5" type="Button" parent="ScrollContainerForCategories/Categories"]
+[node name="MagicalButton" type="Button" parent="ScrollContainerForCategories/Categories"]
 custom_minimum_size = Vector2(280, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -339,10 +339,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_jrrc4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jrrc4")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_jrrc4")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_lir2c")
-text = "Магический"
+text = "Магические"
 script = ExtResource("7_1vpdc")
 
-[node name="Category6" type="Button" parent="ScrollContainerForCategories/Categories"]
+[node name="OtherButton" type="Button" parent="ScrollContainerForCategories/Categories"]
 custom_minimum_size = Vector2(280, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -374,25 +374,39 @@ offset_bottom = 0.0
 [connection signal="pressed" from="FilterButton" to="BGMenu" method="_on_filter_button_pressed"]
 [connection signal="pressed" from="FilterButton" to="ScrollContainerForCategories" method="_on_filter_button_pressed"]
 [connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
-[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category7" to="CurrentCategoryLabel" method="_on_category_7_accept_category"]
-[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category7" to="BGMenu" method="_on_category_7_accept_category"]
-[connection signal="pressed" from="ScrollContainerForCategories/Categories/Category7" to="ScrollContainerForCategories/Categories/Category7" method="_on_pressed"]
-[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category1" to="CurrentCategoryLabel" method="_on_category_1_accept_category"]
-[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category1" to="BGMenu" method="_on_category_1_accept_category"]
-[connection signal="pressed" from="ScrollContainerForCategories/Categories/Category1" to="ScrollContainerForCategories/Categories/Category1" method="_on_pressed"]
-[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category2" to="CurrentCategoryLabel" method="_on_category_2_accept_category"]
-[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category2" to="BGMenu" method="_on_category_2_accept_category"]
-[connection signal="pressed" from="ScrollContainerForCategories/Categories/Category2" to="ScrollContainerForCategories/Categories/Category2" method="_on_pressed"]
-[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category3" to="CurrentCategoryLabel" method="_on_category_3_accept_category"]
-[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category3" to="BGMenu" method="_on_category_3_accept_category"]
-[connection signal="pressed" from="ScrollContainerForCategories/Categories/Category3" to="ScrollContainerForCategories/Categories/Category3" method="_on_pressed"]
-[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category4" to="CurrentCategoryLabel" method="_on_category_4_accept_category"]
-[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category4" to="BGMenu" method="_on_category_4_accept_category"]
-[connection signal="pressed" from="ScrollContainerForCategories/Categories/Category4" to="ScrollContainerForCategories/Categories/Category4" method="_on_pressed"]
-[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category5" to="CurrentCategoryLabel" method="_on_category_5_accept_category"]
-[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category5" to="BGMenu" method="_on_category_5_accept_category"]
-[connection signal="pressed" from="ScrollContainerForCategories/Categories/Category5" to="ScrollContainerForCategories/Categories/Category5" method="_on_pressed"]
-[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category6" to="CurrentCategoryLabel" method="_on_category_6_accept_category"]
-[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category6" to="BGMenu" method="_on_category_6_accept_category"]
-[connection signal="pressed" from="ScrollContainerForCategories/Categories/Category6" to="ScrollContainerForCategories/Categories/Category6" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/AllButton" to="." method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/AllButton" to="CurrentCategoryLabel" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/AllButton" to="FilterButton" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/AllButton" to="BGMenu" method="_on_category_chosen" unbinds=1]
+[connection signal="pressed" from="ScrollContainerForCategories/Categories/AllButton" to="ScrollContainerForCategories/Categories/AllButton" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/WeaponButton" to="." method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/WeaponButton" to="CurrentCategoryLabel" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/WeaponButton" to="FilterButton" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/WeaponButton" to="BGMenu" method="_on_category_chosen" unbinds=1]
+[connection signal="pressed" from="ScrollContainerForCategories/Categories/WeaponButton" to="ScrollContainerForCategories/Categories/WeaponButton" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/ArmorButton" to="." method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/ArmorButton" to="CurrentCategoryLabel" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/ArmorButton" to="FilterButton" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/ArmorButton" to="BGMenu" method="_on_category_chosen" unbinds=1]
+[connection signal="pressed" from="ScrollContainerForCategories/Categories/ArmorButton" to="ScrollContainerForCategories/Categories/ArmorButton" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/ToolButton" to="." method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/ToolButton" to="CurrentCategoryLabel" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/ToolButton" to="FilterButton" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/ToolButton" to="BGMenu" method="_on_category_chosen" unbinds=1]
+[connection signal="pressed" from="ScrollContainerForCategories/Categories/ToolButton" to="ScrollContainerForCategories/Categories/ToolButton" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/PoisonButton" to="." method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/PoisonButton" to="CurrentCategoryLabel" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/PoisonButton" to="FilterButton" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/PoisonButton" to="BGMenu" method="_on_category_chosen" unbinds=1]
+[connection signal="pressed" from="ScrollContainerForCategories/Categories/PoisonButton" to="ScrollContainerForCategories/Categories/PoisonButton" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/MagicalButton" to="." method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/MagicalButton" to="CurrentCategoryLabel" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/MagicalButton" to="FilterButton" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/MagicalButton" to="BGMenu" method="_on_category_chosen" unbinds=1]
+[connection signal="pressed" from="ScrollContainerForCategories/Categories/MagicalButton" to="ScrollContainerForCategories/Categories/MagicalButton" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/OtherButton" to="." method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/OtherButton" to="CurrentCategoryLabel" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/OtherButton" to="FilterButton" method="_on_category_chosen"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/OtherButton" to="BGMenu" method="_on_category_chosen" unbinds=1]
+[connection signal="pressed" from="ScrollContainerForCategories/Categories/OtherButton" to="ScrollContainerForCategories/Categories/OtherButton" method="_on_pressed"]
 [connection signal="close_available_items_menu" from="AddCustomItemMenu" to="." method="_close_available_items_menu"]

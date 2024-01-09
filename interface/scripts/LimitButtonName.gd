@@ -1,10 +1,6 @@
 extends Button
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	_on_item_button_text_changed(self.text + " биг посох")
-
 func _on_button_text_changed(new_text: String):
 	var font: Font = load("res://interface/fonts/Alabama Regular.ttf")
 	var new_button_text = ""
