@@ -86,14 +86,19 @@ func parse_rarity(rarity_string):
 	var choose_rarity = {
 		"-": Item.ItemRarity.NONE,
 		"обычный": Item.ItemRarity.COMMON,
+		"обычная": Item.ItemRarity.COMMON,
 		"обычное": Item.ItemRarity.COMMON,
 		"необычный": Item.ItemRarity.UNCOMMON,
+		"необычная": Item.ItemRarity.UNCOMMON,
 		"необычное": Item.ItemRarity.UNCOMMON,
 		"редкий": Item.ItemRarity.RARE,
+		"редкая": Item.ItemRarity.RARE,
 		"редкое": Item.ItemRarity.RARE,
 		"очень редкий": Item.ItemRarity.VERY_RARE,
+		"очень редкая": Item.ItemRarity.VERY_RARE,
 		"очень редкое": Item.ItemRarity.VERY_RARE,
 		"легендарный": Item.ItemRarity.LEGENDARY,
+		"легендарная": Item.ItemRarity.LEGENDARY,
 		"легендарное": Item.ItemRarity.LEGENDARY
 	}
 	return choose_rarity[rarity_string]

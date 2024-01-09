@@ -241,7 +241,7 @@ texture_focused = ExtResource("9_sw6wg")
 script = ExtResource("10_1ujha")
 
 [connection signal="pressed" from="BottomPanel/Characters/NewCharacterButton" to="." method="on_change_scene_pressed" binds= [1]]
-[connection signal="pressed" from="Exit/ExitButton" to="Exit/ExitButton" method="on_exit_pressed"]
 [connection signal="pressed" from="Exit/ExitButton" to="Exit/ExitButton" method="open_exit_menu"]
+[connection signal="pressed" from="Exit/ExitButton" to="Exit/ExitButton" method="on_exit_pressed"]
 [connection signal="pressed" from="Exit/ExitPanel/СonfirmButton" to="Exit/ExitPanel/СonfirmButton" method="on_confirm_pressed"]
 [connection signal="pressed" from="Exit/ExitPanel/RefuseButton" to="Exit/ExitPanel/RefuseButton" method="on_refuse_button"]
