@@ -51,7 +51,7 @@ text = "1"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="ItemImage" type="TextureRect" parent="."]
+[node name="CategoryImage" type="TextureRect" parent="."]
 layout_mode = 2
 offset_left = 50.0
 offset_top = 25.0
@@ -163,11 +163,11 @@ offset_bottom = 55.0
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("5_lsgls")
 
-[node name="Gold" type="Control" parent="MoneyContainer"]
+[node name="Golden" type="Control" parent="MoneyContainer"]
 custom_minimum_size = Vector2(115, 45)
 layout_mode = 2
 
-[node name="GoldLabel" type="Label" parent="MoneyContainer/Gold"]
+[node name="GoldenLabel" type="Label" parent="MoneyContainer/Golden"]
 layout_mode = 0
 offset_right = 70.0
 offset_bottom = 45.0
@@ -177,7 +177,7 @@ text = "10"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="GoldImage" type="TextureRect" parent="MoneyContainer/Gold"]
+[node name="GoldenImage" type="TextureRect" parent="MoneyContainer/Golden"]
 layout_mode = 0
 offset_left = 80.0
 offset_top = 10.0
