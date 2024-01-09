@@ -1,14 +1,19 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2i7etv7sshxd"]
+[gd_scene load_steps=23 format=3 uid="uid://d2i7etv7sshxd"]
 
 [ext_resource type="Script" path="res://interface/scripts/ChangeStateAvailableItemsMenu.gd" id="1_l05y0"]
 [ext_resource type="Texture2D" uid="uid://dcupqpsfwjm4h" path="res://interface/sprites/FilterBlack.png" id="1_mpm7p"]
+[ext_resource type="Script" path="res://interface/scripts/ChangeCategoryType.gd" id="2_4a6jf"]
 [ext_resource type="Texture2D" uid="uid://6m7dxqhxl6rr" path="res://interface/sprites/FilterRed.png" id="2_s7400"]
 [ext_resource type="Script" path="res://interface/scripts/CheckSearchInput.gd" id="3_yiu04"]
 [ext_resource type="Texture2D" uid="uid://c8v0p52ajxo2l" path="res://interface/sprites/VectorBlack.png" id="4_wj2n2"]
+[ext_resource type="Script" path="res://interface/scripts/ShowFilterState.gd" id="5_1fyiu"]
 [ext_resource type="Texture2D" uid="uid://dachm60mvxty8" path="res://interface/sprites/VectorRed.png" id="5_4plak"]
+[ext_resource type="Script" path="res://interface/scripts/HideScrollContainer.gd" id="6_uqe6n"]
+[ext_resource type="Script" path="res://interface/scripts/AcceptCategory.gd" id="7_1vpdc"]
 [ext_resource type="PackedScene" uid="uid://k1h2fxxsoibd" path="res://interface/scenes/AddCustomItemMenu.tscn" id="7_paedb"]
+[ext_resource type="Script" path="res://interface/scripts/CloseBGMenu.gd" id="9_shuke"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1j6b"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vg17f"]
 bg_color = Color(1, 1, 1, 1)
 border_width_left = 5
 border_width_top = 5
@@ -19,9 +24,6 @@ corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ya6dg"]
-bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ctdie"]
 bg_color = Color(0.780392, 0.780392, 0.780392, 1)
@@ -53,6 +55,41 @@ expand_margin_left = 25.0
 shadow_color = Color(0, 0, 0, 0.105882)
 shadow_size = 3
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ya6dg"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p5kkf"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 4
+border_color = Color(0.721569, 0.721569, 0.721569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_via2b"]
+bg_color = Color(0, 0, 0, 0.32549)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mqsyp"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87h0e"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jrrc4"]
+bg_color = Color(0, 0, 0, 0.32549)
+border_width_left = 2
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lir2c"]
+
 [node name="AddItemMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -69,7 +106,32 @@ script = ExtResource("1_l05y0")
 layout_mode = 0
 offset_right = 800.0
 offset_bottom = 600.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_w1j6b")
+theme_override_styles/panel = SubResource("StyleBoxFlat_vg17f")
+
+[node name="SearchInput" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 100.0
+offset_right = 740.0
+offset_bottom = 140.0
+pivot_offset = Vector2(-275, -155)
+mouse_default_cursor_shape = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_ctdie")
+theme_override_styles/focus = SubResource("StyleBoxFlat_n12oa")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_ctdie")
+placeholder_text = "предмет"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+caret_blink = true
+script = ExtResource("3_yiu04")
 
 [node name="AddCustomItemButton" type="Button" parent="."]
 layout_mode = 0
@@ -91,6 +153,20 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_ya6dg")
 theme_override_styles/focus = SubResource("StyleBoxFlat_ya6dg")
 text = "+ Добавить свой предмет"
 
+[node name="CurrentCategoryLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 35.0
+offset_right = 660.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_p5kkf")
+text = "Любая"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_4a6jf")
+
 [node name="FilterButton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 700.0
@@ -104,40 +180,16 @@ texture_pressed = ExtResource("2_s7400")
 texture_hover = ExtResource("2_s7400")
 texture_disabled = ExtResource("2_s7400")
 texture_focused = ExtResource("2_s7400")
+script = ExtResource("5_1fyiu")
 
-[node name="SearchInput" type="LineEdit" parent="."]
-layout_mode = 0
-offset_left = 280.0
-offset_top = 35.0
-offset_right = 680.0
-offset_bottom = 75.0
-pivot_offset = Vector2(-275, -155)
-mouse_default_cursor_shape = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
-theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
-theme_override_colors/font_placeholder_color = Color(0, 0, 0, 0.529412)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/caret_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = SubResource("StyleBoxFlat_ctdie")
-theme_override_styles/focus = SubResource("StyleBoxFlat_n12oa")
-theme_override_styles/read_only = SubResource("StyleBoxFlat_ctdie")
-placeholder_text = "предмет"
-context_menu_enabled = false
-virtual_keyboard_enabled = false
-middle_mouse_paste_enabled = false
-caret_blink = true
-script = ExtResource("3_yiu04")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="ScrollContainerForDatabaseItems" type="ScrollContainer" parent="."]
 layout_mode = 0
 offset_left = 60.0
-offset_top = 100.0
+offset_top = 160.0
 offset_right = 740.0
 offset_bottom = 510.0
 
-[node name="DatabaseItemsContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="DatabaseItemsContainer" type="VBoxContainer" parent="ScrollContainerForDatabaseItems"]
 layout_mode = 2
 
 [node name="ReturnButton" type="TextureButton" parent="."]
@@ -153,6 +205,154 @@ texture_hover = ExtResource("5_4plak")
 texture_disabled = ExtResource("5_4plak")
 texture_focused = ExtResource("5_4plak")
 
+[node name="BGMenu" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 600.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_via2b")
+script = ExtResource("9_shuke")
+
+[node name="ScrollContainerForCategories" type="ScrollContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 360.0
+offset_top = 35.0
+offset_right = 660.0
+offset_bottom = 135.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mqsyp")
+script = ExtResource("6_uqe6n")
+
+[node name="Categories" type="VBoxContainer" parent="ScrollContainerForCategories"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Category7" type="Button" parent="ScrollContainerForCategories/Categories"]
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_87h0e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jrrc4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jrrc4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_jrrc4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lir2c")
+text = "Любая"
+script = ExtResource("7_1vpdc")
+
+[node name="Category1" type="Button" parent="ScrollContainerForCategories/Categories"]
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_87h0e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jrrc4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jrrc4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_jrrc4")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jrrc4")
+text = "Оружие"
+script = ExtResource("7_1vpdc")
+
+[node name="Category2" type="Button" parent="ScrollContainerForCategories/Categories"]
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_87h0e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jrrc4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jrrc4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_jrrc4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lir2c")
+text = "Защита"
+script = ExtResource("7_1vpdc")
+
+[node name="Category3" type="Button" parent="ScrollContainerForCategories/Categories"]
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_87h0e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jrrc4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jrrc4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_jrrc4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lir2c")
+text = "Инструмент"
+script = ExtResource("7_1vpdc")
+
+[node name="Category4" type="Button" parent="ScrollContainerForCategories/Categories"]
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_87h0e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jrrc4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jrrc4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_jrrc4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lir2c")
+text = "Яд"
+script = ExtResource("7_1vpdc")
+
+[node name="Category5" type="Button" parent="ScrollContainerForCategories/Categories"]
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_87h0e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jrrc4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jrrc4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_jrrc4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lir2c")
+text = "Магический"
+script = ExtResource("7_1vpdc")
+
+[node name="Category6" type="Button" parent="ScrollContainerForCategories/Categories"]
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_87h0e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jrrc4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jrrc4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_jrrc4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lir2c")
+text = "Другое"
+script = ExtResource("7_1vpdc")
+
 [node name="AddCustomItemMenu" parent="." instance=ExtResource("7_paedb")]
 visible = false
 layout_mode = 1
@@ -160,7 +360,31 @@ offset_left = -125.0
 offset_right = 125.0
 offset_bottom = 0.0
 
-[connection signal="pressed" from="AddCustomItemButton" to="AddCustomItemMenu" method="_on_add_custom_item_button_pressed"]
 [connection signal="text_changed" from="SearchInput" to="SearchInput" method="_on_text_changed"]
+[connection signal="pressed" from="AddCustomItemButton" to="AddCustomItemMenu" method="_on_add_custom_item_button_pressed"]
+[connection signal="update_filter_state" from="CurrentCategoryLabel" to="FilterButton" method="_on_current_category_label_update_filter_state"]
+[connection signal="pressed" from="FilterButton" to="BGMenu" method="_on_filter_button_pressed"]
+[connection signal="pressed" from="FilterButton" to="ScrollContainerForCategories" method="_on_filter_button_pressed"]
 [connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category7" to="CurrentCategoryLabel" method="_on_category_7_accept_category"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category7" to="BGMenu" method="_on_category_7_accept_category"]
+[connection signal="pressed" from="ScrollContainerForCategories/Categories/Category7" to="ScrollContainerForCategories/Categories/Category7" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category1" to="CurrentCategoryLabel" method="_on_category_1_accept_category"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category1" to="BGMenu" method="_on_category_1_accept_category"]
+[connection signal="pressed" from="ScrollContainerForCategories/Categories/Category1" to="ScrollContainerForCategories/Categories/Category1" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category2" to="CurrentCategoryLabel" method="_on_category_2_accept_category"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category2" to="BGMenu" method="_on_category_2_accept_category"]
+[connection signal="pressed" from="ScrollContainerForCategories/Categories/Category2" to="ScrollContainerForCategories/Categories/Category2" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category3" to="CurrentCategoryLabel" method="_on_category_3_accept_category"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category3" to="BGMenu" method="_on_category_3_accept_category"]
+[connection signal="pressed" from="ScrollContainerForCategories/Categories/Category3" to="ScrollContainerForCategories/Categories/Category3" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category4" to="CurrentCategoryLabel" method="_on_category_4_accept_category"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category4" to="BGMenu" method="_on_category_4_accept_category"]
+[connection signal="pressed" from="ScrollContainerForCategories/Categories/Category4" to="ScrollContainerForCategories/Categories/Category4" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category5" to="CurrentCategoryLabel" method="_on_category_5_accept_category"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category5" to="BGMenu" method="_on_category_5_accept_category"]
+[connection signal="pressed" from="ScrollContainerForCategories/Categories/Category5" to="ScrollContainerForCategories/Categories/Category5" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category6" to="CurrentCategoryLabel" method="_on_category_6_accept_category"]
+[connection signal="accept_category" from="ScrollContainerForCategories/Categories/Category6" to="BGMenu" method="_on_category_6_accept_category"]
+[connection signal="pressed" from="ScrollContainerForCategories/Categories/Category6" to="ScrollContainerForCategories/Categories/Category6" method="_on_pressed"]
 [connection signal="close_available_items_menu" from="AddCustomItemMenu" to="." method="_close_available_items_menu"]

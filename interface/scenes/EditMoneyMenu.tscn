@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://vhx86outocmp" path="res://interface/sprites/Copper.png" id="1_fjjxo"]
 [ext_resource type="Texture2D" uid="uid://dce6aqx316x7g" path="res://interface/sprites/Silver.png" id="2_da8fq"]
 [ext_resource type="Texture2D" uid="uid://d07ljqlouva2n" path="res://interface/sprites/Gold.png" id="3_xvgxc"]
-[ext_resource type="Script" path="res://interface/scripts/CheckDigitsInput.gd" id="5_xec5f"]
+[ext_resource type="Script" path="res://interface/scripts/CheckWeightInput.gd" id="5_gvbyn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0xv8"]
 bg_color = Color(1, 1, 1, 1)
@@ -217,7 +217,7 @@ max_length = 3
 context_menu_enabled = false
 middle_mouse_paste_enabled = false
 caret_blink = true
-script = ExtResource("5_xec5f")
+script = ExtResource("5_gvbyn")
 
 [node name="SilverInput" type="LineEdit" parent="."]
 layout_mode = 0
@@ -237,7 +237,7 @@ max_length = 3
 context_menu_enabled = false
 middle_mouse_paste_enabled = false
 caret_blink = true
-script = ExtResource("5_xec5f")
+script = ExtResource("5_gvbyn")
 
 [node name="GoldenInput" type="LineEdit" parent="."]
 layout_mode = 0
@@ -257,7 +257,7 @@ max_length = 3
 context_menu_enabled = false
 middle_mouse_paste_enabled = false
 caret_blink = true
-script = ExtResource("5_xec5f")
+script = ExtResource("5_gvbyn")
 
 [node name="AddButton" type="Button" parent="."]
 layout_mode = 0

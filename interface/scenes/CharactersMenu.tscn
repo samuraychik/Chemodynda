@@ -122,7 +122,7 @@ offset_bottom = 780.0
 
 [node name="Characters" type="VBoxContainer" parent="BottomPanel/Characters/ScrollContainer"]
 layout_mode = 2
-theme_override_constants/separation = 5
+theme_override_constants/separation = 105
 
 [node name="NewCharacterButton" type="Button" parent="BottomPanel/Characters"]
 layout_mode = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://k2rxudooa77u"]
+[gd_scene load_steps=31 format=3 uid="uid://k2rxudooa77u"]
 
 [ext_resource type="Script" path="res://interface/scripts/InventoryMenu.gd" id="1_fcryy"]
 [ext_resource type="Texture2D" uid="uid://c8v0p52ajxo2l" path="res://interface/sprites/VectorBlack.png" id="2_o1gew"]
@@ -9,11 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://btwf2vffq2igq" path="res://interface/sprites/Weight.png" id="7_6bwe5"]
 [ext_resource type="Script" path="res://interface/scripts/HighlightMoney.gd" id="7_8p04l"]
 [ext_resource type="Texture2D" uid="uid://dcupqpsfwjm4h" path="res://interface/sprites/FilterBlack.png" id="8_hcfum"]
+[ext_resource type="Script" path="res://interface/scripts/ChangeCategoryType.gd" id="9_mkswj"]
 [ext_resource type="Texture2D" uid="uid://6m7dxqhxl6rr" path="res://interface/sprites/FilterRed.png" id="9_ny4y1"]
 [ext_resource type="Script" path="res://interface/scripts/HideScrollContainer.gd" id="10_mdex3"]
 [ext_resource type="PackedScene" uid="uid://com03gqu7ssh1" path="res://interface/scenes/EditMoneyMenu.tscn" id="11_141np"]
 [ext_resource type="Script" path="res://interface/scripts/CloseBGMenu.gd" id="11_owxx0"]
+[ext_resource type="Script" path="res://interface/scripts/ShowFilterState.gd" id="12_xmoxx"]
 [ext_resource type="PackedScene" uid="uid://d2i7etv7sshxd" path="res://interface/scenes/AddItemMenu.tscn" id="13_vmu5u"]
+[ext_resource type="Script" path="res://interface/scripts/AcceptCategory.gd" id="14_l6rw6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0h42a"]
 bg_color = Color(0.658824, 0.658824, 0.658824, 1)
@@ -94,8 +97,33 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7w8lw"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 4
+border_color = Color(0.721569, 0.721569, 0.721569, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aytgw"]
 bg_color = Color(0, 0, 0, 0.819608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jbt8"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k82f1"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rf73y"]
+bg_color = Color(0, 0, 0, 0.32549)
+border_width_left = 2
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tjlrn"]
 
 [node name="InventoryMenu" type="Control"]
 layout_mode = 3
@@ -291,17 +319,23 @@ offset_bottom = 760.0
 
 [node name="ItemsContainer" type="GridContainer" parent="ItemsTable/ItemsPanel/ScrollContainer"]
 layout_mode = 2
+theme_override_constants/h_separation = 745
+theme_override_constants/v_separation = 125
 columns = 2
 
-[node name="FilterTitle" type="Label" parent="ItemsTable"]
+[node name="CurrentCategoryLabel" type="Label" parent="ItemsTable"]
 layout_mode = 0
-offset_left = 130.0
-offset_top = 45.0
-offset_right = 460.0
-offset_bottom = 85.0
+offset_left = 135.0
+offset_top = 40.0
+offset_right = 585.0
+offset_bottom = 100.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "Фильтровать предметы"
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_7w8lw")
+text = "Любая"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_mkswj")
 
 [node name="FilterButton" type="TextureButton" parent="ItemsTable"]
 layout_mode = 0
@@ -311,23 +345,9 @@ offset_right = 110.0
 offset_bottom = 105.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("8_hcfum")
-texture_pressed = ExtResource("9_ny4y1")
 texture_hover = ExtResource("9_ny4y1")
-texture_disabled = ExtResource("9_ny4y1")
 texture_focused = ExtResource("9_ny4y1")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="ItemsTable"]
-visible = false
-layout_mode = 0
-offset_left = 130.0
-offset_top = 30.0
-offset_right = 560.0
-offset_bottom = 110.0
-script = ExtResource("10_mdex3")
-
-[node name="Categories" type="VBoxContainer" parent="ItemsTable/ScrollContainer"]
-layout_mode = 2
-theme_override_constants/separation = 0
+script = ExtResource("12_xmoxx")
 
 [node name="BGMenu" type="Panel" parent="."]
 visible = false
@@ -336,6 +356,146 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_aytgw")
 script = ExtResource("11_owxx0")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 285.0
+offset_top = 140.0
+offset_right = 735.0
+offset_bottom = 300.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3jbt8")
+script = ExtResource("10_mdex3")
+
+[node name="Categories" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Category7" type="Button" parent="ScrollContainer/Categories"]
+custom_minimum_size = Vector2(425, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_k82f1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
+text = "Любая"
+script = ExtResource("14_l6rw6")
+
+[node name="Category1" type="Button" parent="ScrollContainer/Categories"]
+custom_minimum_size = Vector2(425, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_k82f1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
+text = "Оружие"
+script = ExtResource("14_l6rw6")
+
+[node name="Category2" type="Button" parent="ScrollContainer/Categories"]
+custom_minimum_size = Vector2(425, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_k82f1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
+text = "Защита"
+script = ExtResource("14_l6rw6")
+
+[node name="Category3" type="Button" parent="ScrollContainer/Categories"]
+custom_minimum_size = Vector2(425, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_k82f1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
+text = "Инструмент"
+script = ExtResource("14_l6rw6")
+
+[node name="Category4" type="Button" parent="ScrollContainer/Categories"]
+custom_minimum_size = Vector2(425, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_k82f1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
+text = "Яд"
+script = ExtResource("14_l6rw6")
+
+[node name="Category5" type="Button" parent="ScrollContainer/Categories"]
+custom_minimum_size = Vector2(425, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_k82f1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
+text = "Магический"
+script = ExtResource("14_l6rw6")
+
+[node name="Category6" type="Button" parent="ScrollContainer/Categories"]
+custom_minimum_size = Vector2(425, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0.529412)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_k82f1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rf73y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tjlrn")
+text = "Другое"
+script = ExtResource("14_l6rw6")
 
 [node name="EditMoneyMenu" parent="." instance=ExtResource("11_141np")]
 visible = false
@@ -363,7 +523,32 @@ offset_bottom = -240.0
 [connection signal="pressed" from="MoneyPanel/EditMoneyButton" to="EditMoneyMenu" method="_on_money_button_pressed"]
 [connection signal="pressed" from="AddItemButton" to="BGMenu" method="_on_add_item_button_pressed"]
 [connection signal="pressed" from="AddItemButton" to="AddItemMenu" method="_on_add_item_button_pressed"]
-[connection signal="pressed" from="ItemsTable/FilterButton" to="ItemsTable/ScrollContainer" method="_on_pick_category_button_pressed"]
+[connection signal="update_filter_state" from="ItemsTable/CurrentCategoryLabel" to="ItemsTable/FilterButton" method="_on_current_category_label_update_filter_state"]
+[connection signal="pressed" from="ItemsTable/FilterButton" to="ItemsTable/CurrentCategoryLabel" method="_on_filter_button_pressed"]
+[connection signal="pressed" from="ItemsTable/FilterButton" to="ItemsTable/FilterButton" method="_on_pressed"]
+[connection signal="pressed" from="ItemsTable/FilterButton" to="BGMenu" method="_on_filter_button_pressed"]
+[connection signal="pressed" from="ItemsTable/FilterButton" to="ScrollContainer" method="_on_filter_button_pressed"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category7" to="ItemsTable/CurrentCategoryLabel" method="_on_category_7_accept_category"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category7" to="BGMenu" method="_on_category_7_accept_category"]
+[connection signal="pressed" from="ScrollContainer/Categories/Category7" to="ScrollContainer/Categories/Category7" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category1" to="ItemsTable/CurrentCategoryLabel" method="_on_category_1_accept_category"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category1" to="BGMenu" method="_on_category_1_accept_category"]
+[connection signal="pressed" from="ScrollContainer/Categories/Category1" to="ScrollContainer/Categories/Category1" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category2" to="ItemsTable/CurrentCategoryLabel" method="_on_category_2_accept_category"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category2" to="BGMenu" method="_on_category_2_accept_category"]
+[connection signal="pressed" from="ScrollContainer/Categories/Category2" to="ScrollContainer/Categories/Category2" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category3" to="ItemsTable/CurrentCategoryLabel" method="_on_category_3_accept_category"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category3" to="BGMenu" method="_on_category_3_accept_category"]
+[connection signal="pressed" from="ScrollContainer/Categories/Category3" to="ScrollContainer/Categories/Category3" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category4" to="ItemsTable/CurrentCategoryLabel" method="_on_category_4_accept_category"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category4" to="BGMenu" method="_on_category_4_accept_category"]
+[connection signal="pressed" from="ScrollContainer/Categories/Category4" to="ScrollContainer/Categories/Category4" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category5" to="ItemsTable/CurrentCategoryLabel" method="_on_category_5_accept_category"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category5" to="BGMenu" method="_on_category_5_accept_category"]
+[connection signal="pressed" from="ScrollContainer/Categories/Category5" to="ScrollContainer/Categories/Category5" method="_on_pressed"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category6" to="ItemsTable/CurrentCategoryLabel" method="_on_category_6_accept_category"]
+[connection signal="accept_category" from="ScrollContainer/Categories/Category6" to="BGMenu" method="_on_category_6_accept_category"]
+[connection signal="pressed" from="ScrollContainer/Categories/Category6" to="ScrollContainer/Categories/Category6" method="_on_pressed"]
 [connection signal="hidden" from="EditMoneyMenu" to="BGMenu" method="_on_adding_money_menu_hidden"]
 [connection signal="update_money" from="EditMoneyMenu" to="." method="_update_money"]
 [connection signal="hidden" from="AddItemMenu" to="BGMenu" method="_on_available_items_menu_hidden"]

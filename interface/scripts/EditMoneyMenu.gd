@@ -28,9 +28,9 @@ func _init_old_money():
 
 
 func _init_action_money():
-	$GoldenInput.text = "0"
-	$SilverInput.text = "0"
-	$CopperInput.text = "0"
+	$GoldenInput.text = ""
+	$SilverInput.text = ""
+	$CopperInput.text = ""
 	action_money = Money.new(0, 0, 0)
 
 
