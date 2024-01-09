@@ -10,7 +10,7 @@ func set_item(new_item: Item):
 
 
 func update_card():
-	$ItemNameButton.text = item.item_name
+	$ItemNameButton._on_item_button_text_changed(item.item_name)
 	_update_money_labels()
 	_update_category_image()
 	_update_magical_status()
