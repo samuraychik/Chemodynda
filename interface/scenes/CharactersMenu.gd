@@ -16,15 +16,29 @@ func _ready():
 		save = JSON.parse_string(save_string.get_as_text())
 	else:
 		save = {}
-	var names = save.keys()
-	for name in names:
+	
+	for name in save:
 		var card = card_scene.instantiate()
 		card.set_char_name(name)
 		card.character_deleted.connect(on_character_death)
 		card.character_renamed.connect(on_character_rename)
 		child_basement.add_child(card)
 
-
+		
+'''func _bready():
+	if FileAccess.file_exists("res://database/presets.json"):
+		var save_string = FileAccess.open("res://database/presets.json",FileAccess.READ)
+		save = JSON.parse_string(save_string.get_as_text())
+	else:
+		save = {}
+	
+	for name in save:
+		var card = card_scene.instantiate()
+		card.set_char_name(name.replace("preset",""))
+		card.character_deleted.connect(on_character_death)
+		card.character_renamed.connect(on_character_rename)
+		child_basement.add_child(card)'''
+	
 func on_character_death(name):
 	save.erase(name)
 	var new_save_string = FileAccess.open("res://database/save_test.json",FileAccess.WRITE)

@@ -70,7 +70,7 @@ func item_by_id(id):
 					parse_rarity(new_item_chars["rarity"]),
 					parse_money(new_item_chars["cost"]),
 					float(new_item_chars["weight"].replace(" фнт.", "")))
-			"7":
+			"7", "8":
 				return Item.new(
 					new_item_chars["id"],
 					new_item_name,
@@ -89,7 +89,8 @@ func find_item(id):
 		"4": "tool.json",
 		"5": "poison.json",
 		"6": "magic.json",
-		"7": "custom.json"
+		"7": "custom.json",
+		"8": "custom.json"
 	}
 	var file = choose_file[id[0]]
 	var items : Dictionary
@@ -200,9 +201,12 @@ func add_custom(item: Item):
 	var json_string = JSON.stringify(items, " ", 4)
 	new_save_string.store_string(json_string)
 
-
-func get_max_custom_id():
+	
+func get_max_custom_id(is_magical: bool):
 	var max_id = 70000 
+	if is_magical:
+		max_id = 80000
+
 	var items = {}
 	if FileAccess.file_exists("res://database/custom.json"):
 		var save_string = FileAccess.open("res://database/custom.json",FileAccess.READ)
@@ -210,5 +214,6 @@ func get_max_custom_id():
 	else:
 		items = {}
 	for item in items:
-		max_id = max(items[item]["id"], max_id)
+		if int(max_id / 10000) == int(items[item]["id"] / 10000):
+			max_id = max(items[item]["id"], max_id)
 	return max_id + 1
