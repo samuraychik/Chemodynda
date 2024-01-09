@@ -187,10 +187,11 @@ layout_mode = 0
 offset_left = 60.0
 offset_top = 160.0
 offset_right = 740.0
-offset_bottom = 510.0
+offset_bottom = 520.0
 
 [node name="DatabaseItemsContainer" type="VBoxContainer" parent="ScrollContainerForDatabaseItems"]
 layout_mode = 2
+theme_override_constants/separation = 120
 
 [node name="ReturnButton" type="TextureButton" parent="."]
 layout_mode = 0
