@@ -17,7 +17,7 @@ func _ready():
 	var names = save.keys()
 	for name in names:
 		var card = card_scene.instantiate()
-		#TODO добавить чёта с карточкой
+		card.set_char_name(name)
 		card.character_deleted.connect(on_character_death)
 		card.character_renamed.connect(on_character_rename)
 		child_basement.add_child(card)
