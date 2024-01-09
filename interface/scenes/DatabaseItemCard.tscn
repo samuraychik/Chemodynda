@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://lmijcnd1x61s" path="res://interface/sprites/Tool.png" id="1_dm3f2"]
 [ext_resource type="Script" path="res://interface/scenes/DatabaseItemCard.gd" id="1_udn2s"]
+[ext_resource type="Texture2D" uid="uid://btwf2vffq2igq" path="res://interface/sprites/Weight.png" id="2_xrqdh"]
+[ext_resource type="Script" path="res://interface/scripts/LimitButtonName.gd" id="3_42xd6"]
 [ext_resource type="Texture2D" uid="uid://vhx86outocmp" path="res://interface/sprites/Copper.png" id="3_a1j36"]
 [ext_resource type="Texture2D" uid="uid://d07ljqlouva2n" path="res://interface/sprites/Gold.png" id="3_fkr07"]
 [ext_resource type="Texture2D" uid="uid://dce6aqx316x7g" path="res://interface/sprites/Silver.png" id="4_44vk3"]
@@ -47,9 +49,9 @@ stretch_mode = 3
 
 [node name="ItemNameButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 205.0
+offset_left = 135.0
 offset_top = 42.0
-offset_right = 340.0
+offset_right = 415.0
 offset_bottom = 82.0
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -63,7 +65,8 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_268a6")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_268a6")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_268a6")
 theme_override_styles/focus = SubResource("StyleBoxTexture_268a6")
-text = "Молоток "
+text = "Игривый молоток"
+script = ExtResource("3_42xd6")
 
 [node name="MoneyContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
