@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://interface/scripts/ChangeStateAvailableItemsMenu.gd" id="1_l05y0"]
 [ext_resource type="Texture2D" uid="uid://dcupqpsfwjm4h" path="res://interface/sprites/FilterBlack.png" id="1_mpm7p"]
-[ext_resource type="Script" path="res://interface/scripts/ChangeCategoryType.gd" id="2_4a6jf"]
+[ext_resource type="Script" path="res://interface/scripts/CurrentCategory.gd" id="2_4a6jf"]
 [ext_resource type="Texture2D" uid="uid://6m7dxqhxl6rr" path="res://interface/sprites/FilterRed.png" id="2_s7400"]
 [ext_resource type="Script" path="res://interface/scripts/CheckSearchInput.gd" id="3_yiu04"]
 [ext_resource type="Texture2D" uid="uid://c8v0p52ajxo2l" path="res://interface/sprites/VectorBlack.png" id="4_wj2n2"]
 [ext_resource type="Script" path="res://interface/scripts/ShowFilterState.gd" id="5_1fyiu"]
 [ext_resource type="Texture2D" uid="uid://dachm60mvxty8" path="res://interface/sprites/VectorRed.png" id="5_4plak"]
 [ext_resource type="Script" path="res://interface/scripts/HideScrollContainer.gd" id="6_uqe6n"]
-[ext_resource type="Script" path="res://interface/scripts/AcceptCategory.gd" id="7_1vpdc"]
+[ext_resource type="Script" path="res://interface/scripts/CategoryButton.gd" id="7_1vpdc"]
 [ext_resource type="PackedScene" uid="uid://k1h2fxxsoibd" path="res://interface/scenes/AddCustomItemMenu.tscn" id="7_paedb"]
 [ext_resource type="Script" path="res://interface/scripts/CloseBGMenu.gd" id="9_shuke"]
 
