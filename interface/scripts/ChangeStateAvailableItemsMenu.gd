@@ -1,6 +1,8 @@
 extends Control
 
 
+signal item_added
+
 @onready var child_basement = $ScrollContainerForDatabaseItems/DatabaseItemsContainer
 var item_card_scene = preload("res://interface/scenes/DatabaseItemCard.tscn")
 var list = []
@@ -17,7 +19,8 @@ func _on_add_item_button_pressed():
 	visible = true
 
 
-func _close_add_item_menu():
+func _on_item_added():
+	item_added.emit()
 	visible = false
 
 
@@ -26,10 +29,10 @@ func on_search(text):
 		list = []
 		for file in files:
 			search_in_file(text, file)
-		_update_items()
+		_update_search_items()
 
 
-func _update_items():
+func _update_search_items():
 	for old_item in child_basement.get_children():
 		child_basement.remove_child(old_item)
 
@@ -78,7 +81,7 @@ func _on_category_chosen(category_name: String):
 		"Все":
 			use_filter = false
 
-	_update_items()
+	_update_search_items()
 
 
 func _on_item_card_pressed(item: Item):

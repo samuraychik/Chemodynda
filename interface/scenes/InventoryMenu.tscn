@@ -571,3 +571,6 @@ offset_bottom = -240.0
 [connection signal="hidden" from="EditMoneyMenu" to="BGMenu" method="_on_adding_money_menu_hidden"]
 [connection signal="update_money" from="EditMoneyMenu" to="." method="_update_money"]
 [connection signal="hidden" from="AddItemMenu" to="BGMenu" method="_on_available_items_menu_hidden"]
+[connection signal="item_added" from="AddItemMenu" to="." method="_update_weight"]
+[connection signal="item_added" from="AddItemMenu" to="." method="_update_items"]
+[connection signal="item_added" from="AddItemMenu" to="." method="_update_money"]

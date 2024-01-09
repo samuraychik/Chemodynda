@@ -17,9 +17,12 @@ func _init():
 
 
 func add_item(item: Item, count: int):
-	if not item in items.keys():
-		items[item] = 0
-	items[item] += count
+	for key in items.keys():
+		if items_equal(item, key):
+			items[key] += count
+			save_character()
+			return
+	items[item] = count
 	save_character()
 
 
@@ -33,6 +36,17 @@ func remove_item(item: Item, count: int):
 	else:
 		items[item] = new_count
 		save_character()
+
+
+func items_equal(item1: Item, item2: Item):
+	return item1.item_name == item2.item_name \
+	and item1.description == item2.description \
+	and item1.category == item2.category \
+	and item1.cost.golden == item2.cost.golden \
+	and item1.cost.silver == item2.cost.silver \
+	and item1.cost.copper == item2.cost.copper \
+	and item1.weight == item2.weight \
+	and item1.is_magical == item2.is_magical
 
 
 func get_item_count(item: Item) -> int:
@@ -61,6 +75,7 @@ func get_total_weight() -> float:
 	for item in items.keys():
 		total += item.weight * items[item]
 	return total
+
 
 func save_character():
 	var save = {}

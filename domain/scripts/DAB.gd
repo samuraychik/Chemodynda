@@ -1,7 +1,6 @@
 extends Node
 
 
-# Called when the node enters the scene tree for the first time.
 func item_by_id(id):
 	var float_id = float(id)
 	var new_item = find_item(str(float_id))
@@ -102,7 +101,8 @@ func find_item(id):
 	for item in items:
 		if items[item]["id"] == float(id):
 			return [item, items[item]]
-			
+
+
 func parse_money(money_string):
 	var moneys = money_string.split(", ") 
 	var money = Money.new(0, 0, 0)
@@ -114,10 +114,12 @@ func parse_money(money_string):
 		if " мм" in one_money:
 			money.add_money(Money.new(0, 0, int(one_money.replace(" мм", ""))))
 	return money
-		
+
+
 func deparse_money(money: Money):
 	return str(money.golden) + " зм, " + str(money.silver) + " см, " + str(money.copper) + " мм"
-		
+
+
 func parse_rarity(rarity_string):
 	var choose_rarity = {
 		"-": Item.ItemRarity.NONE,
@@ -138,7 +140,8 @@ func parse_rarity(rarity_string):
 		"легендарное": Item.ItemRarity.LEGENDARY
 	}
 	return choose_rarity[rarity_string]
-	
+
+
 func deparse_rarity(rarity):
 	var choose_word = {
 		Item.ItemRarity.NONE: "-",
@@ -150,6 +153,7 @@ func deparse_rarity(rarity):
 	}
 	return choose_word[rarity]
 
+
 func parse_category(cat_string):
 	var cat_choose = {
 		"other": Item.ItemCategory.OTHER,
@@ -160,7 +164,8 @@ func parse_category(cat_string):
 		"magical": Item.ItemCategory.MAGICAL
 	}
 	return cat_choose[cat_string]
-	
+
+
 func deparse_category(cat_string):
 	var cat_choose = {
 		Item.ItemCategory.OTHER: "other",
@@ -171,7 +176,8 @@ func deparse_category(cat_string):
 		Item.ItemCategory.MAGICAL: "magical"
 	}
 	return cat_choose[cat_string]
-	
+
+
 func add_custom(item: Item):
 	var id = item.id
 	var items = {}
@@ -188,12 +194,13 @@ func add_custom(item: Item):
 	item_save["cost"] = deparse_money(item.cost)
 	item_save["category"] = deparse_category(item.category)
 	item_save["weight"] = str(item.weight) + " фнт."
-	items[item.name] = item_save
+	items[item.item_name] = item_save
 	
 	var new_save_string = FileAccess.open("res://database/custom.json",FileAccess.WRITE)
 	var json_string = JSON.stringify(items, " ", 4)
 	new_save_string.store_string(json_string)
-	
+
+
 func get_max_custom_id():
 	var max_id = 70000 
 	var items = {}
