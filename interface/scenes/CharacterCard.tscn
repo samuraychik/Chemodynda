@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://doo11qqug4t0u"]
+[gd_scene load_steps=19 format=3 uid="uid://doo11qqug4t0u"]
 
+[ext_resource type="Script" path="res://interface/scenes/CharacterCard.gd" id="1_qhlp2"]
 [ext_resource type="Texture2D" uid="uid://r6eoadt3ikkj" path="res://interface/sprites/EditBlack.png" id="1_v6p7e"]
 [ext_resource type="Texture2D" uid="uid://cssall88vp8of" path="res://interface/sprites/EditGrey.png" id="2_a728v"]
 [ext_resource type="Texture2D" uid="uid://c4bste46y21d7" path="res://interface/sprites/TrachcanLightRed.png" id="3_7gqn5"]
@@ -81,7 +82,7 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[node name="CharacterWindow" type="Control"]
+[node name="CharacterCard" type="Control"]
 custom_minimum_size = Vector2(600, 100)
 layout_mode = 3
 anchors_preset = 15
@@ -91,6 +92,7 @@ offset_right = -1320.0
 offset_bottom = -980.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qhlp2")
 
 [node name="CharacterPanel" type="Panel" parent="."]
 layout_mode = 0
@@ -235,6 +237,8 @@ script = ExtResource("12_n2a57")
 [connection signal="pressed" from="RenameButton" to="LineEdit" method="on_rename_button_pressed"]
 [connection signal="pressed" from="SelfDestructButton" to="SelfDestructButton" method="on_self_destruct_button_pressed"]
 [connection signal="text_changed" from="LineEdit" to="LineEdit" method="_on_text_changed"]
+[connection signal="text_submitted" from="LineEdit" to="." method="on_rename"]
 [connection signal="text_submitted" from="LineEdit" to="LineEdit" method="_on_text_submitted"]
+[connection signal="pressed" from="SelfDestructMenu/SelfDestructPanel/СonfirmButton" to="." method="on_delete"]
 [connection signal="pressed" from="SelfDestructMenu/SelfDestructPanel/СonfirmButton" to="SelfDestructMenu/SelfDestructPanel/СonfirmButton" method="on_confirm_self_destruct_button_pressed"]
 [connection signal="pressed" from="SelfDestructMenu/SelfDestructPanel/RefuseButton" to="SelfDestructMenu/SelfDestructPanel/RefuseButton" method="on_refuse_button"]

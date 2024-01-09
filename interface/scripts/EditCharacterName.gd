@@ -33,7 +33,7 @@ func _on_text_submitted(new_text:String):
 	release_focus()
 
 func _on_text_changed(new_text:String):
-	var font: Font = load("res://fonts/Alabama Regular.ttf")
+	var font: Font = load("res://interface/fonts/Alabama Regular.ttf")
 	var text_size = font.get_string_size(new_text)
 	if text_size.x > 240:
 		delete_char_at_caret()
