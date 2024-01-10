@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://com03gqu7ssh1"]
+[gd_scene load_steps=14 format=3 uid="uid://com03gqu7ssh1"]
 
 [ext_resource type="Script" path="res://interface/scripts/EditMoneyMenu.gd" id="1_bi1pb"]
 [ext_resource type="Texture2D" uid="uid://vhx86outocmp" path="res://interface/sprites/Copper.png" id="1_fjjxo"]
@@ -22,7 +22,7 @@ corner_radius_bottom_left = 30
 bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bu4og"]
-bg_color = Color(0.780392, 0.780392, 0.780392, 1)
+bg_color = Color(1, 1, 1, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -32,6 +32,20 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+expand_margin_right = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7phwm"]
+bg_color = Color(0.847059, 0.847059, 0.847059, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.317647, 0.317647, 0.317647, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_right = 5.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fxi34"]
 bg_color = Color(1, 1, 1, 1)
@@ -139,6 +153,7 @@ offset_left = 140.0
 offset_top = 55.0
 offset_right = 185.0
 offset_bottom = 100.0
+mouse_filter = 2
 texture = ExtResource("1_fjjxo")
 
 [node name="SilverImage" type="TextureRect" parent="."]
@@ -147,6 +162,7 @@ offset_left = 140.0
 offset_top = 125.0
 offset_right = 185.0
 offset_bottom = 170.0
+mouse_filter = 2
 texture = ExtResource("2_da8fq")
 
 [node name="GoldenImage" type="TextureRect" parent="."]
@@ -155,6 +171,7 @@ offset_left = 140.0
 offset_top = 195.0
 offset_right = 185.0
 offset_bottom = 240.0
+mouse_filter = 2
 texture = ExtResource("3_xvgxc")
 
 [node name="AcceptButton" type="Button" parent="."]
@@ -207,13 +224,18 @@ offset_right = 120.0
 offset_bottom = 100.0
 mouse_default_cursor_shape = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_placeholder_color = Color(0.203922, 0.203922, 0.203922, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.588235, 0.588235, 0.588235, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/caret_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_bu4og")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7phwm")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_bu4og")
 placeholder_text = "0"
 alignment = 2
-max_length = 3
+max_length = 6
 context_menu_enabled = false
 middle_mouse_paste_enabled = false
 caret_blink = true
@@ -227,13 +249,18 @@ offset_right = 120.0
 offset_bottom = 170.0
 mouse_default_cursor_shape = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_placeholder_color = Color(0.203922, 0.203922, 0.203922, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.588235, 0.588235, 0.588235, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/caret_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_bu4og")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7phwm")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_bu4og")
 placeholder_text = "0"
 alignment = 2
-max_length = 3
+max_length = 6
 context_menu_enabled = false
 middle_mouse_paste_enabled = false
 caret_blink = true
@@ -247,13 +274,18 @@ offset_right = 120.0
 offset_bottom = 240.0
 mouse_default_cursor_shape = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_placeholder_color = Color(0.203922, 0.203922, 0.203922, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.588235, 0.588235, 0.588235, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/caret_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_bu4og")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7phwm")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_bu4og")
 placeholder_text = "0"
 alignment = 2
-max_length = 3
+max_length = 6
 context_menu_enabled = false
 middle_mouse_paste_enabled = false
 caret_blink = true
@@ -302,12 +334,18 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_m55rn")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_1fi85")
 
+[connection signal="gui_input" from="BGPanel" to="CopperInput" method="_on_bg_panel_gui_input"]
+[connection signal="gui_input" from="BGPanel" to="SilverInput" method="_on_bg_panel_gui_input"]
+[connection signal="gui_input" from="BGPanel" to="GoldenInput" method="_on_bg_panel_gui_input"]
 [connection signal="pressed" from="AcceptButton" to="." method="_on_accept_pressed"]
 [connection signal="pressed" from="CancelButton" to="." method="_on_cancel_pressed"]
+[connection signal="focus_entered" from="CopperInput" to="CopperInput" method="_on_focus_entered"]
 [connection signal="text_changed" from="CopperInput" to="CopperInput" method="_on_text_changed"]
 [connection signal="text_changed" from="CopperInput" to="." method="_on_action_money_changed" unbinds=1]
+[connection signal="focus_entered" from="SilverInput" to="SilverInput" method="_on_focus_entered"]
 [connection signal="text_changed" from="SilverInput" to="SilverInput" method="_on_text_changed"]
 [connection signal="text_changed" from="SilverInput" to="." method="_on_action_money_changed" unbinds=1]
+[connection signal="focus_entered" from="GoldenInput" to="GoldenInput" method="_on_focus_entered"]
 [connection signal="text_changed" from="GoldenInput" to="GoldenInput" method="_on_text_changed"]
 [connection signal="text_changed" from="GoldenInput" to="." method="_on_action_money_changed" unbinds=1]
 [connection signal="pressed" from="AddButton" to="." method="_on_action_changed" binds= ["ADD"]]

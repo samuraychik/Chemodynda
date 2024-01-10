@@ -36,10 +36,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_b7jx2")
 
 [node name="PickButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 200.0
-offset_top = 30.0
-offset_right = 400.0
-offset_bottom = 70.0
+offset_left = 130.0
+offset_top = 25.0
+offset_right = 580.0
+offset_bottom = 75.0
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)

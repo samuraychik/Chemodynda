@@ -43,15 +43,16 @@ offset_top = 25.0
 offset_right = 150.0
 offset_bottom = 125.0
 scale = Vector2(0.7, 0.7)
+mouse_filter = 2
 texture = ExtResource("1_dm3f2")
 stretch_mode = 3
 
 [node name="ItemNameButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 135.0
-offset_top = 42.0
-offset_right = 415.0
-offset_bottom = 82.0
+offset_left = 115.0
+offset_top = 35.0
+offset_right = 555.0
+offset_bottom = 85.0
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
@@ -82,7 +83,7 @@ layout_mode = 0
 offset_right = 70.0
 offset_bottom = 45.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
 text = "10"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -94,6 +95,7 @@ offset_top = 10.0
 offset_right = 125.0
 offset_bottom = 55.0
 scale = Vector2(0.6, 0.6)
+mouse_filter = 2
 texture = ExtResource("3_a1j36")
 
 [node name="Silver" type="Control" parent="MoneyContainer"]
@@ -104,7 +106,7 @@ layout_mode = 0
 offset_right = 70.0
 offset_bottom = 45.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
 text = "10"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -116,6 +118,7 @@ offset_top = 10.0
 offset_right = 125.0
 offset_bottom = 55.0
 scale = Vector2(0.6, 0.6)
+mouse_filter = 2
 texture = ExtResource("4_44vk3")
 
 [node name="Golden" type="Control" parent="MoneyContainer"]
@@ -127,7 +130,7 @@ layout_mode = 0
 offset_right = 70.0
 offset_bottom = 45.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
 text = "10"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -139,6 +142,7 @@ offset_top = 10.0
 offset_right = 125.0
 offset_bottom = 55.0
 scale = Vector2(0.6, 0.6)
+mouse_filter = 2
 texture = ExtResource("3_fkr07")
 
 [connection signal="pressed" from="ItemNameButton" to="." method="_on_item_card_pressed"]
