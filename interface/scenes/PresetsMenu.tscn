@@ -28,11 +28,18 @@ corner_radius_bottom_left = 100
 
 [node name="PresetsMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -800.0
+offset_top = -450.0
+offset_right = 1120.0
+offset_bottom = 630.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.834, 0.834)
 script = ExtResource("1_oknwk")
 
 [node name="BGPanel" type="Panel" parent="."]

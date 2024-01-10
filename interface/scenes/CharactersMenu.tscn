@@ -69,9 +69,18 @@ corner_radius_bottom_left = 50
 
 [node name="CharactersMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -800.0
+offset_top = -450.0
+offset_right = 1120.0
+offset_bottom = 630.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.834, 0.834)
 script = ExtResource("1_ras3k")
 
 [node name="BottomPanel" type="Panel" parent="."]
@@ -119,8 +128,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_u3mbk")
 layout_mode = 0
 offset_left = 100.0
 offset_top = 80.0
-offset_right = 720.0
-offset_bottom = 780.0
+offset_right = 700.0
+offset_bottom = 710.0
 
 [node name="Characters" type="VBoxContainer" parent="BottomPanel/Characters/ScrollContainer"]
 layout_mode = 2
@@ -244,7 +253,7 @@ texture_focused = ExtResource("9_sw6wg")
 script = ExtResource("10_1ujha")
 
 [connection signal="pressed" from="BottomPanel/Characters/NewCharacterButton" to="." method="on_change_scene_pressed" binds= [1]]
-[connection signal="pressed" from="Exit/ExitButton" to="Exit/ExitButton" method="on_exit_pressed"]
 [connection signal="pressed" from="Exit/ExitButton" to="Exit/ExitButton" method="open_exit_menu"]
+[connection signal="pressed" from="Exit/ExitButton" to="Exit/ExitButton" method="on_exit_pressed"]
 [connection signal="pressed" from="Exit/ExitPanel/СonfirmButton" to="Exit/ExitPanel/СonfirmButton" method="on_confirm_pressed"]
 [connection signal="pressed" from="Exit/ExitPanel/RefuseButton" to="Exit/ExitPanel/RefuseButton" method="on_refuse_button"]
