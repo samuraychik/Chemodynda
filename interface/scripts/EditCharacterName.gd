@@ -2,16 +2,19 @@ extends LineEdit
 
 var picking_button: Button
 var was_changed: bool
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready():
 	was_changed = false
 	picking_button = get_parent().get_child(get_child_count() - 2)
+
 
 func on_rename_button_pressed():
 	picking_button.visible = false
 	was_changed = true
 	text = ""
 	editable = true
+
 
 func _on_gui_input(event:InputEvent):
 	if event is InputEventMouseButton and event.pressed and was_changed:
@@ -26,6 +29,7 @@ func _on_gui_input(event:InputEvent):
 			was_changed = false
 			release_focus()
 
+
 func _on_text_submitted(new_text:String):
 	editable = false
 	picking_button.visible = true
@@ -35,6 +39,7 @@ func _on_text_submitted(new_text:String):
 		text = picking_button.text
 	was_changed = false
 	release_focus()
+
 
 func _on_text_changed(new_text:String):
 	var font: Font = load("res://interface/fonts/Alabama Regular.ttf")
