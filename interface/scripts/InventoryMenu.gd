@@ -9,17 +9,24 @@ var save: Dictionary
 var use_filter: bool
 var filter: Item.ItemCategory
 
+var save_file_path = "user://save/"
+var save_file_name = "save_test.json"
+
+
+func verify_save_dir(path: String):
+	DirAccess.make_dir_absolute(path)
+
 
 func _ready():
+	verify_save_dir(save_file_path)
+
 	CurrentInventory.items = {}
 	var char_name = CurrentInventory.get_char_name()
 	$CharacterInventoryName.text = char_name
 
-	if FileAccess.file_exists("res://database/save_test.json"):
-		var save_string = FileAccess.open("res://database/save_test.json",FileAccess.READ)
-		save = JSON.parse_string(save_string.get_as_text())
-	else:
-		save = {}
+	var save_string = FileAccess.open(save_file_path + save_file_name, FileAccess.READ)
+	save = JSON.parse_string(save_string.get_as_text())
+
 	var char_save = save[char_name] 
 	var items_raw = char_save["items"]
 	var count_raw = char_save["count"]

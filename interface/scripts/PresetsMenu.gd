@@ -6,19 +6,22 @@ var presets = {}
 var save = {}
 var card_scene = preload("res://interface/scenes/PresetCard.tscn")
 
+var save_file_path = "user://save/"
+var save_file_name = "save_test.json"
+
+
+func verify_save_dir(path: String):
+	DirAccess.make_dir_absolute(path)
+
 
 func _ready():
-	if FileAccess.file_exists("res://database/save_test.json"):
-		var save_string = FileAccess.open("res://database/save_test.json", FileAccess.READ)
-		save = JSON.parse_string(save_string.get_as_text())
-	else:
-		save = {}
+	verify_save_dir(save_file_path)
 
-	if FileAccess.file_exists("res://database/presets.json"):
-		var presets_string = FileAccess.open("res://database/presets.json", FileAccess.READ)
-		presets = JSON.parse_string(presets_string.get_as_text())
-	else:
-		presets = {}
+	var save_string = FileAccess.open(save_file_path + save_file_name, FileAccess.READ)
+	save = JSON.parse_string(save_string.get_as_text())
+
+	var presets_string = FileAccess.open("res://database/presets.json", FileAccess.READ)
+	presets = JSON.parse_string(presets_string.get_as_text())
 
 	for name in presets:
 		var card = card_scene.instantiate()
@@ -34,7 +37,7 @@ func on_change_scene_pressed():
 	}
 	var empty_name = "Новый пустой"
 	save[empty_name] = empty_save
-	var new_save_string = FileAccess.open("res://database/save_test.json", FileAccess.WRITE)
+	var new_save_string = FileAccess.open(save_file_path + save_file_name, FileAccess.WRITE)
 	var json_string = JSON.stringify(save, " ", 4)
 	new_save_string.store_string(json_string)
 	

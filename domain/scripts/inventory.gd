@@ -8,6 +8,17 @@ var items: Dictionary
 var money: Money
 var char_name: String
 
+var save_file_path = "user://save/"
+var save_file_name = "save_test.json"
+
+
+func verify_save_dir(path: String):
+	DirAccess.make_dir_absolute(path)
+
+
+func _ready():
+	verify_save_dir(save_file_path)
+	
 
 func _init():
 	# new empty inventory
@@ -79,16 +90,14 @@ func get_total_weight() -> float:
 
 func save_character():
 	var save = {}
-	if FileAccess.file_exists("res://database/save_test.json"):
-		var save_string = FileAccess.open("res://database/save_test.json",FileAccess.READ)
-		save = JSON.parse_string(save_string.get_as_text())
-	else:
-		save = {}
+	var save_string = FileAccess.open(save_file_path + save_file_name, FileAccess.READ)
+	save = JSON.parse_string(save_string.get_as_text())
+
 	for char in save:
 		if char == char_name:
 			parse_items(save)
 			save[char]["money"] = parse_money()
-	var new_save_string = FileAccess.open("res://database/save_test.json",FileAccess.WRITE)
+	var new_save_string = FileAccess.open(save_file_path + save_file_name, FileAccess.WRITE)
 	var json_string = JSON.stringify(save, " ", 4)
 	new_save_string.store_string(json_string)
 
