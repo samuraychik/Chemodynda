@@ -193,7 +193,7 @@ theme_override_colors/font_readonly_color = Color(0, 0, 0, 1)
 theme_override_colors/font_placeholder_color = Color(0, 0, 0, 0.529412)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/caret_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_j632b")
 theme_override_styles/focus = SubResource("StyleBoxFlat_j632b")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_j632b")
@@ -202,6 +202,8 @@ context_menu_enabled = false
 virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
 wrap_mode = 1
+scroll_smooth = true
+scroll_v_scroll_speed = 20.0
 caret_blink = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
@@ -260,12 +262,12 @@ vertical_alignment = 1
 
 [node name="WeightValueLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 150.0
+offset_left = 110.0
 offset_top = 490.0
-offset_right = 220.0
+offset_right = 230.0
 offset_bottom = 530.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
 text = "1"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -273,9 +275,10 @@ vertical_alignment = 1
 [node name="WeightImage" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 240.0
-offset_top = 487.0
+offset_top = 492.0
 offset_right = 285.0
-offset_bottom = 532.0
+offset_bottom = 537.0
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_lex73")
 
 [node name="CountLabel" type="Label" parent="."]
@@ -292,12 +295,12 @@ vertical_alignment = 1
 
 [node name="CountValueLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 160.0
+offset_left = 150.0
 offset_top = 580.0
-offset_right = 220.0
+offset_right = 230.0
 offset_bottom = 620.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
 text = "1"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -305,9 +308,10 @@ vertical_alignment = 1
 [node name="CountImage" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 238.0
-offset_top = 580.0
+offset_top = 585.0
 offset_right = 283.0
-offset_bottom = 625.0
+offset_bottom = 630.0
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_r116s")
 
 [node name="MagicalLabel" type="Label" parent="."]
@@ -343,12 +347,12 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_06ppj")
 
 [node name="CopperValueLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 465.0
+offset_left = 445.0
 offset_top = 390.0
-offset_right = 525.0
+offset_right = 535.0
 offset_bottom = 430.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
 text = "11"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -356,19 +360,20 @@ vertical_alignment = 1
 [node name="CopperImage" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 540.0
-offset_top = 390.0
+offset_top = 393.0
 offset_right = 585.0
-offset_bottom = 435.0
+offset_bottom = 438.0
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_mom4h")
 
 [node name="SilverValueLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 315.0
+offset_left = 295.0
 offset_top = 390.0
-offset_right = 375.0
+offset_right = 385.0
 offset_bottom = 430.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
 text = "11"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -376,19 +381,20 @@ vertical_alignment = 1
 [node name="SilverImage" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 390.0
-offset_top = 390.0
+offset_top = 393.0
 offset_right = 435.0
-offset_bottom = 435.0
+offset_bottom = 438.0
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_chm6i")
 
 [node name="GoldValueLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 165.0
+offset_left = 145.0
 offset_top = 390.0
-offset_right = 225.0
+offset_right = 235.0
 offset_bottom = 430.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
 text = "11"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -396,9 +402,10 @@ vertical_alignment = 1
 [node name="GoldenImage" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 240.0
-offset_top = 390.0
+offset_top = 393.0
 offset_right = 285.0
-offset_bottom = 435.0
+offset_bottom = 438.0
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("5_jkxsv")
 
 [node name="ChangeButton" type="Button" parent="."]

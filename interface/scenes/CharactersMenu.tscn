@@ -91,6 +91,7 @@ offset_bottom = 1040.0
 layout_mode = 1
 offset_right = 800.0
 offset_bottom = 900.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_bcekc")
 
 [node name="HeadingCharacterPanel" type="Label" parent="BottomPanel/Characters"]
@@ -111,6 +112,7 @@ offset_left = 60.0
 offset_top = 65.0
 offset_right = 740.0
 offset_bottom = 885.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_u3mbk")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="BottomPanel/Characters"]
@@ -147,6 +149,7 @@ text = "+ Создать нового персонажа"
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 100.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_alupu")
 
 [node name="NameProject" type="Label" parent="TopPanel"]

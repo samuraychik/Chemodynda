@@ -1,21 +1,19 @@
-extends LineEdit
+extends TextEdit
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
+func _on_focus_entered():
+	editable = true
 
-func _on_text_changed(new_text: String):
-	if new_text.length() > 0:
-		if new_text[0] == "0":
-			delete_char_at_caret()
-
-		for symbol in new_text:
-			if not symbol.is_valid_int():
-				delete_char_at_caret()
-				break
-
+func on_gui_input(event):
+	if event is InputEventKey:
+		var key_event = event as InputEventKey
+		if key_event.is_action("ui_cancel"):
+			editable = false
+			release_focus()
 
 func _on_bg_panel_gui_input(event):
 	if event is InputEventMouseButton and event.pressed:
@@ -24,6 +22,3 @@ func _on_bg_panel_gui_input(event):
 		if not rect.has_point(mouse_pos):
 			editable = false
 			release_focus()
-
-func _on_focus_entered():
-	editable = true

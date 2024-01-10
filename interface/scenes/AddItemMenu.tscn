@@ -188,6 +188,7 @@ offset_left = 60.0
 offset_top = 160.0
 offset_right = 740.0
 offset_bottom = 520.0
+mouse_filter = 2
 
 [node name="DatabaseItemsContainer" type="VBoxContainer" parent="ScrollContainerForDatabaseItems"]
 layout_mode = 2
@@ -368,6 +369,8 @@ offset_left = -125.0
 offset_right = 125.0
 offset_bottom = 0.0
 
+[connection signal="gui_input" from="BGPanel" to="SearchInput" method="_on_bg_panel_gui_input"]
+[connection signal="focus_entered" from="SearchInput" to="SearchInput" method="_on_focus_entered"]
 [connection signal="text_changed" from="SearchInput" to="." method="on_search"]
 [connection signal="text_changed" from="SearchInput" to="SearchInput" method="_on_text_changed"]
 [connection signal="pressed" from="AddCustomItemButton" to="AddCustomItemMenu" method="_on_add_custom_item_button_pressed"]

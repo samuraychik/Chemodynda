@@ -174,37 +174,37 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_8pu5t")
 
 [node name="CopperImage" type="TextureRect" parent="MoneyPanel"]
 layout_mode = 0
-offset_left = 140.0
+offset_left = 125.0
 offset_top = 15.0
-offset_right = 185.0
+offset_right = 170.0
 offset_bottom = 60.0
 mouse_filter = 2
 texture = ExtResource("4_tg2gd")
 
 [node name="SilverImage" type="TextureRect" parent="MoneyPanel"]
 layout_mode = 0
-offset_left = 290.0
+offset_left = 285.0
 offset_top = 15.0
-offset_right = 335.0
+offset_right = 330.0
 offset_bottom = 60.0
 mouse_filter = 2
 texture = ExtResource("5_mdbhk")
 
 [node name="GoldenImage" type="TextureRect" parent="MoneyPanel"]
 layout_mode = 0
-offset_left = 440.0
+offset_left = 445.0
 offset_top = 15.0
-offset_right = 485.0
+offset_right = 490.0
 offset_bottom = 60.0
 mouse_filter = 2
 texture = ExtResource("6_dwvab")
 
 [node name="CopperLabel" type="Label" parent="MoneyPanel"]
 layout_mode = 0
-offset_left = 35.0
-offset_right = 125.0
+offset_left = 10.0
+offset_right = 120.0
 offset_bottom = 75.0
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -212,10 +212,10 @@ script = ExtResource("7_8p04l")
 
 [node name="SilverLabel" type="Label" parent="MoneyPanel"]
 layout_mode = 0
-offset_left = 185.0
-offset_right = 275.0
+offset_left = 170.0
+offset_right = 280.0
 offset_bottom = 75.0
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -223,10 +223,10 @@ script = ExtResource("7_8p04l")
 
 [node name="GoldenLabel" type="Label" parent="MoneyPanel"]
 layout_mode = 0
-offset_left = 335.0
-offset_right = 425.0
+offset_left = 330.0
+offset_right = 440.0
 offset_bottom = 75.0
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -255,11 +255,11 @@ texture = ExtResource("7_6bwe5")
 
 [node name="WeightLabel" type="Label" parent="WeightPanel"]
 layout_mode = 0
-offset_left = 20.0
-offset_right = 145.0
-offset_bottom = 75.0
+offset_left = 15.0
+offset_right = 150.0
+offset_bottom = 80.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 30
 text = "0/100"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -571,6 +571,6 @@ offset_bottom = -240.0
 [connection signal="hidden" from="EditMoneyMenu" to="BGMenu" method="_on_adding_money_menu_hidden"]
 [connection signal="update_money" from="EditMoneyMenu" to="." method="_update_money"]
 [connection signal="hidden" from="AddItemMenu" to="BGMenu" method="_on_available_items_menu_hidden"]
+[connection signal="item_added" from="AddItemMenu" to="." method="_update_money"]
 [connection signal="item_added" from="AddItemMenu" to="." method="_update_weight"]
 [connection signal="item_added" from="AddItemMenu" to="." method="_update_items"]
-[connection signal="item_added" from="AddItemMenu" to="." method="_update_money"]

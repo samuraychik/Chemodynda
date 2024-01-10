@@ -47,7 +47,7 @@ offset_top = 15.0
 offset_right = 550.0
 offset_bottom = 60.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "1"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -66,11 +66,11 @@ stretch_mode = 3
 [node name="WeightLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 450.0
-offset_top = 62.0
+offset_top = 65.0
 offset_right = 550.0
-offset_bottom = 107.0
+offset_bottom = 110.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "10"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -78,27 +78,29 @@ vertical_alignment = 1
 [node name="WeightImage" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 560.0
-offset_top = 70.0
+offset_top = 72.0
 offset_right = 605.0
-offset_bottom = 115.0
+offset_bottom = 117.0
 scale = Vector2(0.6, 0.6)
+mouse_filter = 2
 texture = ExtResource("2_xcufq")
 
 [node name="CountImage" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 560.0
-offset_top = 25.0
+offset_top = 23.0
 offset_right = 605.0
-offset_bottom = 70.0
+offset_bottom = 68.0
 scale = Vector2(0.6, 0.6)
+mouse_filter = 2
 texture = ExtResource("4_k2lpa")
 
 [node name="ItemNameButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 170.0
-offset_top = 40.0
-offset_right = 470.0
-offset_bottom = 80.0
+offset_left = 120.0
+offset_top = 35.0
+offset_right = 520.0
+offset_bottom = 85.0
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
@@ -126,10 +128,11 @@ layout_mode = 2
 
 [node name="CopperLabel" type="Label" parent="MoneyContainer/Copper"]
 layout_mode = 0
+offset_top = 5.0
 offset_right = 70.0
-offset_bottom = 45.0
+offset_bottom = 50.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "10"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -137,10 +140,11 @@ vertical_alignment = 1
 [node name="CopperImage" type="TextureRect" parent="MoneyContainer/Copper"]
 layout_mode = 0
 offset_left = 80.0
-offset_top = 10.0
+offset_top = 12.0
 offset_right = 125.0
-offset_bottom = 55.0
+offset_bottom = 57.0
 scale = Vector2(0.6, 0.6)
+mouse_filter = 2
 texture = ExtResource("4_2xml4")
 
 [node name="Silver" type="Control" parent="MoneyContainer"]
@@ -148,10 +152,11 @@ layout_mode = 2
 
 [node name="SilverLabel" type="Label" parent="MoneyContainer/Silver"]
 layout_mode = 0
+offset_top = 5.0
 offset_right = 70.0
-offset_bottom = 45.0
+offset_bottom = 50.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "10"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -159,22 +164,24 @@ vertical_alignment = 1
 [node name="SilverImage" type="TextureRect" parent="MoneyContainer/Silver"]
 layout_mode = 0
 offset_left = 80.0
-offset_top = 10.0
+offset_top = 12.0
 offset_right = 125.0
-offset_bottom = 55.0
+offset_bottom = 57.0
 scale = Vector2(0.6, 0.6)
+mouse_filter = 2
 texture = ExtResource("5_lsgls")
 
 [node name="Golden" type="Control" parent="MoneyContainer"]
-custom_minimum_size = Vector2(115, 45)
+custom_minimum_size = Vector2(115, 50)
 layout_mode = 2
 
 [node name="GoldenLabel" type="Label" parent="MoneyContainer/Golden"]
 layout_mode = 0
+offset_top = 5.0
 offset_right = 70.0
-offset_bottom = 45.0
+offset_bottom = 50.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "10"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -182,8 +189,9 @@ vertical_alignment = 1
 [node name="GoldenImage" type="TextureRect" parent="MoneyContainer/Golden"]
 layout_mode = 0
 offset_left = 80.0
-offset_top = 10.0
+offset_top = 12.0
 offset_right = 125.0
-offset_bottom = 55.0
+offset_bottom = 57.0
 scale = Vector2(0.6, 0.6)
+mouse_filter = 2
 texture = ExtResource("3_q0gsf")
