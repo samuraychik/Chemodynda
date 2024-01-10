@@ -49,7 +49,7 @@ func _init(
 		if init_magical:
 			is_magical = true
 		else:
-			is_magical = str(id)[0] == "6"
+			is_magical = str(id)[0] == "6" or str(id)[0] == "8"
 
 
 func get_cost_of_count(count: int) -> Money:

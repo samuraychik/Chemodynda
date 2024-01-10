@@ -97,8 +97,11 @@ func parse_items(save):
 	var res_item = ""
 	var res_count = ""
 	for item in items:
+		var count = get_item_count(item)
+		if count <= 0:
+			continue
 		res_item += str(item.id) + ", "
-		res_count += str(get_item_count(item)) + ", "
+		res_count += str(count) + ", "
 	save[char_name]["items"] = res_item
 	save[char_name]["count"] = res_count
 	

@@ -2,6 +2,7 @@ extends Control
 
 
 var item_card_scene = preload("res://interface/scenes/InventoryItemCard.tscn")
+var item_desc_scene = preload("res://interface/scenes/ItemDescriptionMenu.tscn")
 @onready var grid = $ItemsTable/ItemsPanel/ScrollContainer/ItemsContainer
 var save: Dictionary
 
@@ -48,6 +49,7 @@ func _update_items():
 			continue
 		var item_card = item_card_scene.instantiate()
 		item_card.set_item(new_item)
+		item_card.me_pressed.connect(_on_item_desc_opened)
 		grid.add_child(item_card)
 
 
@@ -86,6 +88,21 @@ func _on_category_chosen(category_name: String):
 			use_filter = false
 
 	_update_items()
+
+
+func _on_item_desc_opened(item: Item):
+	var desc_card = item_desc_scene.instantiate()
+	desc_card.set_item(item)
+	desc_card.me_closed.connect(_on_item_desc_closed)
+	add_child(desc_card)
+	$BGMenu._on_item_desc_opened()
+
+
+func _on_item_desc_closed():
+	_update_items()
+	_update_money()
+	_update_weight()
+	$BGMenu._on_item_desc_closed()
 
 
 func _on_change_scene_pressed():

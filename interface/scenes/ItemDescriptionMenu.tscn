@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c8v0p52ajxo2l" path="res://interface/sprites/VectorBlack.png" id="6_vrnmh"]
 [ext_resource type="Texture2D" uid="uid://dachm60mvxty8" path="res://interface/sprites/VectorRed.png" id="7_tsu3q"]
 [ext_resource type="Script" path="res://interface/scripts/CloseBGMenu.gd" id="9_u2yw4"]
-[ext_resource type="PackedScene" uid="uid://ciqhcj0jrj8nh" path="res://interface/scenes/ChangingItemCountWindow.tscn" id="10_quegm"]
+[ext_resource type="PackedScene" uid="uid://b7km80to33j4e" path="res://interface/scenes/ChangingItemCountWindow.tscn" id="10_quegm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmm7w"]
 bg_color = Color(1, 1, 1, 1)
@@ -105,8 +105,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1320.0
-offset_bottom = -680.0
+offset_left = 610.0
+offset_top = 200.0
+offset_right = -710.0
+offset_bottom = -480.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_c554a")
@@ -343,9 +345,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_06ppj")
 
 [node name="CopperValueLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 465.0
+offset_left = 164.0
 offset_top = 390.0
-offset_right = 525.0
+offset_right = 224.0
 offset_bottom = 430.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
@@ -355,9 +357,9 @@ vertical_alignment = 1
 
 [node name="CopperImage" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 540.0
+offset_left = 239.0
 offset_top = 390.0
-offset_right = 585.0
+offset_right = 284.0
 offset_bottom = 435.0
 texture = ExtResource("3_mom4h")
 
@@ -383,9 +385,9 @@ texture = ExtResource("4_chm6i")
 
 [node name="GoldValueLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 165.0
+offset_left = 471.0
 offset_top = 390.0
-offset_right = 225.0
+offset_right = 531.0
 offset_bottom = 430.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
@@ -395,9 +397,9 @@ vertical_alignment = 1
 
 [node name="GoldenImage" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 240.0
+offset_left = 546.0
 offset_top = 390.0
-offset_right = 285.0
+offset_right = 591.0
 offset_bottom = 435.0
 texture = ExtResource("5_jkxsv")
 
@@ -420,7 +422,8 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_v0m6u")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_v0m6u")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_v0m6u")
 theme_override_styles/focus = SubResource("StyleBoxFlat_v0m6u")
-text = "Изменить"
+text = "Отдать
+"
 
 [node name="BGMenu" type="Panel" parent="."]
 visible = false
@@ -442,3 +445,4 @@ offset_bottom = 0.0
 [connection signal="pressed" from="ChangeButton" to="BGMenu" method="_on_change_button_pressed"]
 [connection signal="pressed" from="ChangeButton" to="ChangingItemCountWindow" method="_on_change_button_pressed"]
 [connection signal="hidden" from="ChangingItemCountWindow" to="BGMenu" method="_on_changing_item_count_window_hidden"]
+[connection signal="item_removed" from="ChangingItemCountWindow" to="." method="_on_return_button_pressed"]
