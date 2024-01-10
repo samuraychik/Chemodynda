@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ciqhcj0jrj8nh"]
+[gd_scene load_steps=17 format=3 uid="uid://b7km80to33j4e"]
 
 [ext_resource type="Script" path="res://interface/scripts/CheckDigitsInput.gd" id="1_7g8hw"]
 [ext_resource type="Script" path="res://interface/scripts/ChangeStateChangingItemMenu.gd" id="1_qex6m"]
@@ -320,8 +320,12 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_0sx4o")
 text = "Отменить"
 
 [connection signal="text_changed" from="CopperInput" to="CopperInput" method="_on_text_changed"]
+[connection signal="text_changed" from="CopperInput" to="." method="_update_money" unbinds=1]
 [connection signal="text_changed" from="SilverInput" to="SilverInput" method="_on_text_changed"]
+[connection signal="text_changed" from="SilverInput" to="." method="_update_money" unbinds=1]
 [connection signal="text_changed" from="GoldenInput" to="GoldenInput" method="_on_text_changed"]
+[connection signal="text_changed" from="GoldenInput" to="." method="_update_money" unbinds=1]
 [connection signal="text_changed" from="CountInput" to="CountInput" method="_on_text_changed"]
+[connection signal="text_changed" from="CountInput" to="." method="_update_money" unbinds=1]
 [connection signal="pressed" from="AcceptButton" to="." method="_on_accept_button_pressed"]
 [connection signal="pressed" from="CancelButton" to="." method="_on_cancel_button_pressed"]

@@ -9,10 +9,11 @@ var new_money: Money
 
 func on_item_card_pressed(item: Item):
 	visible = true
-	_init_money()
 	from_dab = true
 	og_item = item
+
 	_autofill()
+	_init_money()
 
 
 func _init_money():
@@ -28,7 +29,8 @@ func _update_new_money():
 		old_money.silver - total_price.silver,
 		old_money.copper - total_price.copper
 	)
-	$AcceptButton.disabled = $BuyButton.button_pressed and not new_money.is_valid()
+	$AcceptButton.disabled = int($CountInput.text) <= 0 \
+	or ($BuyButton.button_pressed and not new_money.is_valid())
 
 
 func _autofill():
@@ -85,11 +87,23 @@ func _get_cost() -> Money:
 
 func _on_add_custom_item_button_pressed():
 	visible = true
+	from_dab = false
+
+	_autofill_empty()
+	_init_money()
+
+
+func _autofill_empty():
+	$ItemNameInput.text = ""
+	$DescriptionTextEdit.text = ""
 	$GoldenInput.text = ""
 	$SilverInput.text = ""
 	$CopperInput.text = ""
-	_init_money()
-	from_dab = false
+	$WeightInput.text = ""
+	$CountInput.text = ""
+	$BuyButton.button_pressed = false
+	$MagicalButton.button_pressed = false
+	$ScrollContainer/Categories/WeaponButton._on_pressed()
 
 
 func _on_accept_pressed():
@@ -97,7 +111,7 @@ func _on_accept_pressed():
 		_add_to_inventory(og_item)
 	else:
 		var new_item = Item.new(
-			Dab.get_max_custom_id(),
+			Dab.get_max_custom_id($MagicalButton.button_pressed),
 			"*" + $ItemNameInput.text,
 			$DescriptionTextEdit.text,
 			_get_category(),
