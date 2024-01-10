@@ -1,9 +1,33 @@
 {
-"Бабак": {
-		"id": 70001,
-		"cost": "2 зм",
-		"weight": "2 фнт.",
-		"type": "-",
-		"description": "бабак"
-	},
+ "*Wow": {
+  "category": "weapon",
+  "cost": "0 зм, 0 см, 0 мм",
+  "description": "",
+  "id": 70002,
+  "rarity": "-",
+  "weight": "5 фнт."
+ },
+ "*ffffff": {
+  "category": "weapon",
+  "cost": "0 зм, 0 см, 0 мм",
+  "description": "",
+  "id": 70004,
+  "rarity": "-",
+  "weight": "12.5 фнт."
+ },
+ "*ggggggggg": {
+  "category": "weapon",
+  "cost": "0 зм, 0 см, 0 мм",
+  "description": "",
+  "id": 70003,
+  "rarity": "-",
+  "weight": "12 фнт."
+ },
+ "Бабак": {
+  "cost": "2 зм",
+  "description": "бабак",
+  "id": 70001,
+  "type": "-",
+  "weight": "2 фнт."
+ }
 }

@@ -1,12 +1,9 @@
 extends TextEdit
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 func _on_focus_entered():
 	editable = true
+
 
 func on_gui_input(event):
 	if event is InputEventKey:
@@ -14,6 +11,7 @@ func on_gui_input(event):
 		if key_event.is_action("ui_cancel"):
 			editable = false
 			release_focus()
+
 
 func _on_bg_panel_gui_input(event):
 	if event is InputEventMouseButton and event.pressed:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://c5ulx4f5yax3r"]
 
-[ext_resource type="Script" path="res://interface/scenes/CharactersMenu.gd" id="1_ras3k"]
+[ext_resource type="Script" path="res://interface/scripts/CharactersMenu.gd" id="1_ras3k"]
 [ext_resource type="Texture2D" uid="uid://csaqqfp04pshu" path="res://interface/sprites/QuitBlack.png" id="2_o2dyu"]
 [ext_resource type="Texture2D" uid="uid://ddfk4csrnyvx" path="res://interface/sprites/QuitRed.png" id="3_ns7m5"]
 [ext_resource type="Script" path="res://interface/scripts/OpenExitMenu.gd" id="4_q1qmk"]

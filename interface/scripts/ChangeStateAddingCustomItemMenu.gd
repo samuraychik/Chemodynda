@@ -117,7 +117,7 @@ func _on_accept_pressed():
 			_get_category(),
 			Item.ItemRarity.NONE,
 			_get_cost(),
-			int($WeightInput.text),
+			float($WeightInput.text),
 			$MagicalButton.button_pressed
 		)
 		_add_to_inventory(new_item)
@@ -135,7 +135,7 @@ func _is_unchanged() -> bool:
 	and og_item.cost.golden == cost.golden \
 	and og_item.cost.silver == cost.silver \
 	and og_item.cost.copper == cost.copper \
-	and og_item.weight == int($WeightInput.text) \
+	and og_item.weight == float($WeightInput.text) \
 	and og_item.is_magical == $MagicalButton.button_pressed
 
 

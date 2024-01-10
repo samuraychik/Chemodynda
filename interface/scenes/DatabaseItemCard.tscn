@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://df78xtxupxov"]
 
 [ext_resource type="Texture2D" uid="uid://lmijcnd1x61s" path="res://interface/sprites/Tool.png" id="1_dm3f2"]
-[ext_resource type="Script" path="res://interface/scenes/DatabaseItemCard.gd" id="1_udn2s"]
+[ext_resource type="Script" path="res://interface/scripts/DatabaseItemCard.gd" id="1_udn2s"]
 [ext_resource type="Script" path="res://interface/scripts/LimitButtonName.gd" id="3_42xd6"]
 [ext_resource type="Texture2D" uid="uid://vhx86outocmp" path="res://interface/sprites/Copper.png" id="3_a1j36"]
 [ext_resource type="Texture2D" uid="uid://d07ljqlouva2n" path="res://interface/sprites/Gold.png" id="3_fkr07"]
