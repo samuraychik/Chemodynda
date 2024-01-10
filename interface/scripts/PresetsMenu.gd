@@ -23,9 +23,9 @@ func _ready():
 	var presets_string = FileAccess.open("res://database/presets.json", FileAccess.READ)
 	presets = JSON.parse_string(presets_string.get_as_text())
 
-	for name in presets:
+	for preset_name in presets:
 		var card = card_scene.instantiate()
-		card.set_preset_name(name)
+		card.set_preset_name(preset_name)
 		child_basement.add_child(card)
 
 
