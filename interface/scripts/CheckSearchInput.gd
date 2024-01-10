@@ -7,7 +7,7 @@ func _ready():
 
 func _on_text_changed(new_text:String):
 	var regex = RegEx.new()
-	regex.compile("^[a-zA-Zа-яА-Я0-9ё ]*$")
+	regex.compile("^[a-zA-Zа-яА-Я0-9ё ,.]*$")
 	if not regex.search(new_text):
 		delete_char_at_caret()
 	
@@ -18,7 +18,7 @@ func _on_text_changed(new_text:String):
 		
 func _on_search_text_changed(new_text:String):
 	var regex = RegEx.new()
-	regex.compile("^[a-zA-Zа-яА-Я0-9ё ]*$")
+	regex.compile("^[a-zA-Zа-яА-Я0-9ё ,.]*$")
 	if not regex.search(new_text):
 		delete_char_at_caret()
 	

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b17sxpeqyjddm"]
 
 [ext_resource type="Texture2D" uid="uid://bqc06cvrnjl0w" path="res://interface/sprites/Ranger.png" id="1_pxpxt"]
-[ext_resource type="Script" path="res://interface/scenes/PresetCard.gd" id="1_wldj8"]
+[ext_resource type="Script" path="res://interface/scripts/PresetCard.gd" id="1_wldj8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b7jx2"]
 bg_color = Color(1, 1, 1, 1)

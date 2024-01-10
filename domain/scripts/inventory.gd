@@ -71,7 +71,7 @@ func set_char_name(new_char_name: String):
 
 
 func get_total_weight() -> float:
-	var total = 0
+	var total = 0.0
 	for item in items.keys():
 		total += item.weight * items[item]
 	return total
